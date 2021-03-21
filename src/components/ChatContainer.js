@@ -11,19 +11,19 @@ const StyledChatContainer = styled.div`
   overflow-y: auto;
 `;
 
-export default function ChatContainer() {
+export default function ChatContainer({ participants, messages }) {
+  const chatMessages = messages.map((message, idx) => 
+    <ChatMessage 
+      userName={ participants[message.id].name }
+      message={ message.msg }
+      align={ message.id === 0 ? '' : 'right' }
+      key={ idx }
+    />
+  );
+
   return (
     <StyledChatContainer>
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage align="right"/>
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage />
-      <ChatMessage align="right"/>
+      { chatMessages }
     </StyledChatContainer>
   )
 }

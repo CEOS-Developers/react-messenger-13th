@@ -34,13 +34,13 @@ const Message = styled.div`
   max-width: 350px;
 `;
 
-export default function ChatMessage({ align }) {
+export default function ChatMessage({ userName, message, align }) {
   return (
     <StyledChatMessage className={ align }>
       <ProfilePicture />
       <MessageContainer>
-        <UserName>김영우</UserName>
-        <Message>안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</Message>
+        <UserName>{ userName }</UserName>
+        <Message>{ message }</Message>
       </MessageContainer>
     </StyledChatMessage>
   )

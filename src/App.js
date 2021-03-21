@@ -44,6 +44,7 @@ const participants = [
 
 function App() {
   const [activeUser, setActiveUser] = useState(participants[0]);
+  const [messages, setMessages] = useState([]);
 
   const handleActiveUserClick = () => {
     if (activeUser.id === 1) {
@@ -53,12 +54,28 @@ function App() {
     }
   }
 
+  const addNewMessage = (userId, msg) => {
+    setMessages(prevMessages => [...prevMessages, { id: userId, msg }]);
+  }
+
+  const handleChatFormSubmit = (msg) => {
+    addNewMessage(activeUser.id, msg);
+  }
+
   return (
     <Wrapper>
       <Container>
-        <ActiveUser handleActiveUserClick={ handleActiveUserClick } activeUser={ activeUser } />
-        <ChatContainer participants={ participants } />
-        <ChatForm activeUser={ activeUser }/>
+        <ActiveUser 
+          handleActiveUserClick={ handleActiveUserClick }
+          activeUser={ activeUser } 
+        />
+        <ChatContainer 
+          participants={ participants } 
+          messages={ messages }
+        />
+        <ChatForm 
+          handleChatFormSubmit={ handleChatFormSubmit }
+        />
       </Container>
     </Wrapper>
   );

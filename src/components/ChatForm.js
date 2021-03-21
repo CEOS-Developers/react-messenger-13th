@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const StyledChatForm = styled.div`
@@ -32,11 +32,34 @@ const SendChatButton = styled.button`
   border-radius: 10px;
 `;
 
-export default function ChatForm() {
+export default function ChatForm({ handleChatFormSubmit }) {
+  const [message, setMessage] = useState('');
+
+  const handleChange = (e) => {
+    setMessage(e.target.value);
+  }
+
+  const handleKeyDown = (e) => {
+    if(e.code === "Enter") {
+      handleSubmit();
+    }
+  }
+
+  const handleSubmit = () => {
+    handleChatFormSubmit(message);
+    setMessage('');
+  }
+
   return (
     <StyledChatForm>
-      <ChatInput type="text" placeholder="Enter message"/>
-      <SendChatButton>전송</SendChatButton>
+      <ChatInput 
+        type="text"
+        placeholder="Enter message"
+        value={ message }
+        onChange={ handleChange }
+        onKeyDown = { handleKeyDown }
+      />
+      <SendChatButton onClick={ handleSubmit }>전송</SendChatButton>
     </StyledChatForm>
   )
 }
