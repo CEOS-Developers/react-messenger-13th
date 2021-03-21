@@ -15,6 +15,7 @@ const ChatInput = styled.input`
   padding: 1rem;
   margin: 0;
   color: black;
+  font-size: 1rem;
 `;
 
 const SendChatButton = styled.button`
@@ -34,7 +35,7 @@ const SendChatButton = styled.button`
 export default function ChatForm() {
   return (
     <StyledChatForm>
-      <ChatInput type="text" placeholder="Enter message here.."/>
+      <ChatInput type="text" placeholder="Enter message"/>
       <SendChatButton>전송</SendChatButton>
     </StyledChatForm>
   )

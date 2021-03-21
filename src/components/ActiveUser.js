@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProfilePicture from './ProfilePicture';
 
 const StyledActiveUser = styled.div`
   width: 100%;
@@ -10,18 +11,6 @@ const StyledActiveUser = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
-`;
-
-const ProfilePicture = styled.div`
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
-  background-color: white;
-  ${'' /* background-image: url('./profile-pictures/Profile_Youngwoo.JPG');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */}
 `;
 
 const UserInfo = styled.div`
