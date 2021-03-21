@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background: gray;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,24 +20,28 @@ const Container = styled.div`
   width: 100%;
   max-width: 500px;
   height: 100%;
+  max-height: 900px;
   background: #F2F8FF;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   padding: 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  & * {
+    font-family: Helvetica, Arial, sans-serif;
+  }
 `;
 
 const participants = [
   {
     name: '김영우',
     lastActive: 'now',
-    profilePictureUrl: '',
+    profilePictureUrl: '/profile-pictures/0.jpg',
     id: 0
   },
   {
-    name: '이소정',
+    name: '이재용',
     lastActive: 'now',
-    profilePictureUrl: '',
+    profilePictureUrl: '/profile-pictures/1.jpg',
     id: 1
   }
 ]

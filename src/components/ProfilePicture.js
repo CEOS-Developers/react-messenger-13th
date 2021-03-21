@@ -5,13 +5,12 @@ import styled from 'styled-components'
 //   border-radius: 50%;
 //   width: 200px;
 // `;
-const StyledProfilePicture = styled.div`
+const StyledProfilePicture = styled.img`
   border-radius: 50%;
   width: 50px;
   height: 50px;
   margin-right: 15px;
   margin-left: 0;
-  background-color: gray;
 
   .right & {
     margin-right: 0px;
@@ -24,8 +23,8 @@ const StyledProfilePicture = styled.div`
 `;
 
 
-export default function ProfilePicture({ profilePictureUrl }) {
+export default function ProfilePicture({ userId }) {
   return (
-    <StyledProfilePicture />
+    <StyledProfilePicture src={process.env.PUBLIC_URL + '/profile-pictures/' + userId.toString() + '.jpg'} alt="Profile Picture"/>
   )
 }

@@ -34,12 +34,12 @@ const Message = styled.div`
   max-width: 350px;
 `;
 
-export default function ChatMessage({ userName, message, align }) {
+export default function ChatMessage({ user, message, align }) {
   return (
     <StyledChatMessage className={ align }>
-      <ProfilePicture />
+      <ProfilePicture userId={user.id}/>
       <MessageContainer>
-        <UserName>{ userName }</UserName>
+        <UserName>{ user.name }</UserName>
         <Message>{ message }</Message>
       </MessageContainer>
     </StyledChatMessage>

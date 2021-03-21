@@ -14,7 +14,7 @@ const StyledChatContainer = styled.div`
 export default function ChatContainer({ participants, messages }) {
   const chatMessages = messages.map((message, idx) => 
     <ChatMessage 
-      userName={ participants[message.id].name }
+      user={ participants[message.id] }
       message={ message.msg }
       align={ message.id === 0 ? '' : 'right' }
       key={ idx }

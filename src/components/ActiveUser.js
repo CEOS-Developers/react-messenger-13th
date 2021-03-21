@@ -21,13 +21,13 @@ const UserInfo = styled.div`
 
 const UserName = styled.div`
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: white;
 `;
 
 const UserStatus = styled.div`
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
 
 export default function ActiveUser({ activeUser, handleActiveUserClick }) {
@@ -47,7 +47,7 @@ export default function ActiveUser({ activeUser, handleActiveUserClick }) {
 
   return (
     <StyledActiveUser onClick={handleActiveUserClick}>
-      <ProfilePicture profilePictureUrl={activeUser.profilePictureUrl}/>
+      <ProfilePicture userId={activeUser.id}/>
       <UserInfo>
         <UserName>{activeUser.name}</UserName>
         <UserStatus>{userStatus}</UserStatus>

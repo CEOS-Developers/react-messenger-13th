@@ -6,6 +6,7 @@ const StyledChatForm = styled.div`
   display: flex;
   align-items: center;
   background: white;
+  box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.5);
 `;
 
 const ChatInput = styled.input`
@@ -16,6 +17,10 @@ const ChatInput = styled.input`
   margin: 0;
   color: black;
   font-size: 1rem;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const SendChatButton = styled.button`
