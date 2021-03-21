@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import ProfilePicture from './ProfilePicture';
 
@@ -31,19 +31,19 @@ const UserStatus = styled.div`
 `;
 
 export default function ActiveUser({ activeUser, handleActiveUserClick }) {
-  const [userStatus, setUserStatus] = useState(() => {
-    if (activeUser.lastActive === 'now') {
-      return '지금 활동 중';
-    } else {
-      return '활동 중이 아님';
-    }
-  })
-  
-  // if (activeUser.lastActive === 'now') {
-  //   const userStatus = '지금 활동 중'
-  // } else {
-  //   const userStatus = '활동 중이 아님'
-  // }
+  // const [userStatus, setUserStatus] = useState(() => {
+  //   if (activeUser.lastActive === 'now') {
+  //     return '지금 활동 중';
+  //   } else {
+  //     return '활동 중이 아님';
+  //   }
+  // })
+  let userStatus = '';
+  if (activeUser.lastActive === 'now') {
+    userStatus = '지금 활동 중'
+  } else {
+    userStatus = '활동 중이 아님'
+  }
 
   return (
     <StyledActiveUser onClick={handleActiveUserClick}>
