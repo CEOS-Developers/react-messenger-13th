@@ -6,7 +6,7 @@ const StyledActiveUser = styled.div`
   width: 100%;
   max-width: 500px;
   margin: 0;
-  padding: 5px 20px;
+  padding: 10px 20px;
   background: #144E9A;
   height: 80px;
   display: flex;

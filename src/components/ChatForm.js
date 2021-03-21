@@ -44,8 +44,8 @@ export default function ChatForm({ handleChatFormSubmit }) {
     setMessage(e.target.value);
   }
 
-  const handleKeyDown = (e) => {
-    if(e.code === "Enter") {
+  const handleKeyPress = (e) => {
+    if(e.code === "Enter" && !e.isComposing) {
       handleSubmit();
     }
   }
@@ -66,7 +66,7 @@ export default function ChatForm({ handleChatFormSubmit }) {
         placeholder="Enter message"
         value={ message }
         onChange={ handleChange }
-        onKeyDown = { handleKeyDown }
+        onKeyPress = { handleKeyPress }
       />
       <SendChatButton onClick={ handleSubmit }>전송</SendChatButton>
     </StyledChatForm>

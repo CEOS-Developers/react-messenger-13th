@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import ChatMessage from './ChatMessage';
 
@@ -12,6 +12,12 @@ const StyledChatContainer = styled.div`
 `;
 
 export default function ChatContainer({ participants, messages }) {
+  const chatContainerRef = useRef(null);
+
+  useEffect(()=> {
+    chatContainerRef.current.scrollBy(0, chatContainerRef.current.scrollHeight);
+  }, [messages])
+
   const chatMessages = messages.map((message, idx) => 
     <ChatMessage 
       user={ participants[message.id] }
@@ -22,7 +28,7 @@ export default function ChatContainer({ participants, messages }) {
   );
 
   return (
-    <StyledChatContainer>
+    <StyledChatContainer ref={ chatContainerRef }>
       { chatMessages }
     </StyledChatContainer>
   )
