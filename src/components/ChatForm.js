@@ -51,8 +51,12 @@ export default function ChatForm({ handleChatFormSubmit }) {
   }
 
   const handleSubmit = () => {
-    handleChatFormSubmit(message);
-    setMessage('');
+    if(message === '') {
+      alert("메세지를 입력 후 전송 버튼을 클릭해주세요.")
+    } else {
+      handleChatFormSubmit(message);
+      setMessage('');
+    }
   }
 
   return (
