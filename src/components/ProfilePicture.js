@@ -24,7 +24,7 @@ const StyledProfilePicture = styled.div`
 `;
 
 
-export default function ProfilePicture() {
+export default function ProfilePicture({ profilePictureUrl }) {
   return (
     <StyledProfilePicture />
   )

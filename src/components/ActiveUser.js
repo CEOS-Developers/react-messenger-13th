@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ProfilePicture from './ProfilePicture';
 
@@ -30,13 +30,27 @@ const UserStatus = styled.div`
   font-size: 0.8rem;
 `;
 
-export default function ActiveUser() {
+export default function ActiveUser({ activeUser, handleActiveUserClick }) {
+  const [userStatus, setUserStatus] = useState(() => {
+    if (activeUser.lastActive === 'now') {
+      return '지금 활동 중';
+    } else {
+      return '활동 중이 아님';
+    }
+  })
+  
+  // if (activeUser.lastActive === 'now') {
+  //   const userStatus = '지금 활동 중'
+  // } else {
+  //   const userStatus = '활동 중이 아님'
+  // }
+
   return (
-    <StyledActiveUser>
-      <ProfilePicture />
+    <StyledActiveUser onClick={handleActiveUserClick}>
+      <ProfilePicture profilePictureUrl={activeUser.profilePictureUrl}/>
       <UserInfo>
-        <UserName>김영우</UserName>
-        <UserStatus>지금 활동 중</UserStatus>
+        <UserName>{activeUser.name}</UserName>
+        <UserStatus>{userStatus}</UserStatus>
       </UserInfo>
     </StyledActiveUser>
   )

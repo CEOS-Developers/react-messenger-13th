@@ -15,6 +15,14 @@ export default function ChatContainer() {
   return (
     <StyledChatContainer>
       <ChatMessage />
+      <ChatMessage />
+      <ChatMessage />
+      <ChatMessage />
+      <ChatMessage align="right"/>
+      <ChatMessage />
+      <ChatMessage />
+      <ChatMessage />
+      <ChatMessage />
       <ChatMessage align="right"/>
     </StyledChatContainer>
   )

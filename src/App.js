@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ActiveUser from './components/ActiveUser';
 import ChatContainer from './components/ChatContainer';
@@ -27,14 +27,38 @@ const Container = styled.div`
   padding: 0;
 `;
 
+const participants = [
+  {
+    name: '김영우',
+    lastActive: 'now',
+    profilePictureUrl: '',
+    id: 0
+  },
+  {
+    name: '이소정',
+    lastActive: 'now',
+    profilePictureUrl: '',
+    id: 1
+  }
+]
+
 function App() {
+  const [activeUser, setActiveUser] = useState(participants[0]);
+
+  const handleActiveUserClick = () => {
+    if (activeUser.id === 1) {
+      setActiveUser(participants[0]);
+    } else {
+      setActiveUser(participants[1]);
+    }
+  }
 
   return (
     <Wrapper>
       <Container>
-        <ActiveUser />
-        <ChatContainer />
-        <ChatForm />
+        <ActiveUser handleActiveUserClick={ handleActiveUserClick } activeUser={ activeUser } />
+        <ChatContainer participants={ participants } />
+        <ChatForm activeUser={ activeUser }/>
       </Container>
     </Wrapper>
   );
