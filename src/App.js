@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Top from './Top';
 
 function App() {
+  const [isMe, setIsMe] = useState(true);
+
+
+  const onClickTop = () => {
+    setIsMe(!isMe);
+  }
   return (
-    <div > 12기 프론트엔드 개발팀장 투표 ^.^
+    <>
+    <div onClick={onClickTop}>
+      <Top isMe={isMe}/>
     </div>
+    </>
   );
 }
 
