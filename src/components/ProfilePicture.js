@@ -16,10 +16,6 @@ const StyledProfilePicture = styled.img`
     margin-right: 0px;
     margin-left: 15px;
   }
-  ${'' /* background-image: url('./profile-pictures/Profile_Youngwoo.JPG');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */}
 `;
 
 
