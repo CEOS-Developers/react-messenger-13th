@@ -31,26 +31,12 @@ const UserStatus = styled.div`
 `;
 
 export default function ActiveUser({ activeUser, handleActiveUserClick }) {
-  // const [userStatus, setUserStatus] = useState(() => {
-  //   if (activeUser.lastActive === 'now') {
-  //     return '지금 활동 중';
-  //   } else {
-  //     return '활동 중이 아님';
-  //   }
-  // })
-  let userStatus = '';
-  if (activeUser.lastActive === 'now') {
-    userStatus = '지금 활동 중'
-  } else {
-    userStatus = '활동 중이 아님'
-  }
-
   return (
-    <StyledActiveUser onClick={handleActiveUserClick}>
-      <ProfilePicture userId={activeUser.id}/>
+    <StyledActiveUser onClick={ handleActiveUserClick }>
+      <ProfilePicture userId={ activeUser.id }/>
       <UserInfo>
-        <UserName>{activeUser.name}</UserName>
-        <UserStatus>{userStatus}</UserStatus>
+        <UserName>{ activeUser.name }</UserName>
+        <UserStatus>{ activeUser.status }</UserStatus>
       </UserInfo>
     </StyledActiveUser>
   )

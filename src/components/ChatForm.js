@@ -49,18 +49,29 @@ const SendChatButton = styled.button`
 
 export default function ChatForm({ handleChatSend, activeUser }) {
   const [message, setMessage] = useState('');
-
+  
+  /**
+   * Event Handler: ChatInput/onChange - set state 'message' when input value changes
+   * @param {object} e - InputEvent object triggered by input field value chagne
+   */
   const handleChange = (e) => {
     setMessage(e.target.value);
   }
 
+  /**
+   * Event Handler: ChatInput/onKeyPress - trigger send when user presses enter key
+   * @param {object} e - KeyboardEvent object triggerd by keypress on ChatInput
+   */
   const handleKeyPress = (e) => {
     if(e.code === "Enter" && !e.isComposing) {
-      handleSubmit();
+      handleSend();
     }
   }
 
-  const handleSubmit = () => {
+  /**
+   * Send message containing contens of the input value. Alert when input is emtpy
+   */
+  const handleSend = () => {
     if(message === '') {
       alert("메세지를 입력 후 전송 버튼을 클릭해주세요.")
     } else {
@@ -79,7 +90,7 @@ export default function ChatForm({ handleChatSend, activeUser }) {
         onKeyPress = { handleKeyPress }
       />
       <SendChatButton 
-        onClick={ handleSubmit }
+        onClick={ handleSend }
         className={ message==='' ? 'disabled' : '' }
       >
         전송

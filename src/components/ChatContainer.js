@@ -12,12 +12,15 @@ const StyledChatContainer = styled.div`
 `;
 
 export default function ChatContainer({ participants, messages }) {
+  // Ref to access chatcontainer (div)
   const chatContainerRef = useRef(null);
 
+  // Scroll div to bottom when new message arrives
   useEffect(()=> {
     chatContainerRef.current.scrollBy(0, chatContainerRef.current.scrollHeight);
   }, [messages])
 
+  // Create ChatMessage component for every 'message' in 'messages'
   const chatMessages = messages.map((message, idx) => 
     <ChatMessage 
       user={ participants[message.id] }
