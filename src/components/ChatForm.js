@@ -34,10 +34,20 @@ const SendChatButton = styled.button`
   align-items: center;
   padding: 0.5rem 1rem;
   margin: 0 0 0 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  height: 100%;
+
+  &:hover {
+    background: #185FBD;
+  }
+
+  &.disabled {
+    background: #DFDFDF;
+    color: #BABABA;
+  }
 `;
 
-export default function ChatForm({ handleChatFormSubmit }) {
+export default function ChatForm({ handleChatSend, activeUser }) {
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
@@ -54,7 +64,7 @@ export default function ChatForm({ handleChatFormSubmit }) {
     if(message === '') {
       alert("메세지를 입력 후 전송 버튼을 클릭해주세요.")
     } else {
-      handleChatFormSubmit(message);
+      handleChatSend(message);
       setMessage('');
     }
   }
@@ -63,12 +73,17 @@ export default function ChatForm({ handleChatFormSubmit }) {
     <StyledChatForm>
       <ChatInput 
         type="text"
-        placeholder="Enter message"
+        placeholder={ `Send as '${activeUser.name}'...` }
         value={ message }
         onChange={ handleChange }
         onKeyPress = { handleKeyPress }
       />
-      <SendChatButton onClick={ handleSubmit }>전송</SendChatButton>
+      <SendChatButton 
+        onClick={ handleSubmit }
+        className={ message==='' ? 'disabled' : '' }
+      >
+        전송
+      </SendChatButton>
     </StyledChatForm>
   )
 }

@@ -62,7 +62,7 @@ function App() {
     setMessages(prevMessages => [...prevMessages, { id: userId, msg }]);
   }
 
-  const handleChatFormSubmit = (msg) => {
+  const handleChatSend = (msg) => {
     addNewMessage(activeUser.id, msg);
   }
 
@@ -78,7 +78,8 @@ function App() {
           messages={ messages }
         />
         <ChatForm 
-          handleChatFormSubmit={ handleChatFormSubmit }
+          handleChatSend={ handleChatSend }
+          activeUser={ activeUser } 
         />
       </Container>
     </Wrapper>
