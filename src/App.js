@@ -55,7 +55,7 @@ function MessageBubble(props) {
 function MessageInputBar(props) {
 
   function clickInputButton(event) {
-    console.log(event);
+
   }
 
   return (
