@@ -47,7 +47,7 @@ export default (props) => {
   const user = props.user;
   return (
     <StyledContainer key={props.id}>
-      <StyledImg src={user.img} alt="profile" />
+      <StyledImg src={user.img} alt="profile" onClick={props.onClickImage} />
       <ProfileInfo name={user.name} status={user.status} />
     </StyledContainer>
   );

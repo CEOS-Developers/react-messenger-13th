@@ -92,9 +92,13 @@ export default () => {
     }
   };
 
+  const toggleCurrentUser = () => {
+    setCurrentUser(currentUser.id === 0 ? userList[1] : userList[0]);
+  };
+
   return (
     <StyledContainer>
-      <Header user={currentUser} />
+      <Header user={currentUser} onClickImage={toggleCurrentUser} />
       <ChatContainer chatData={chatData} ownerUserId={ownerUser.id} />
       <ChatInput onSendMessage={sendMessage} />
     </StyledContainer>

@@ -14,7 +14,7 @@ const StyledHeader = styled.header`
 export default (props) => {
   return (
     <StyledHeader>
-      <ProfileCard user={props.user} />
+      <ProfileCard user={props.user} onClickImage={props.onClickImage} />
     </StyledHeader>
   );
 };
