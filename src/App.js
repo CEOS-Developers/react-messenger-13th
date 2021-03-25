@@ -1,7 +1,21 @@
 import React from 'react';
+import Header from './Header';
 
-function App() {
-  return <div> 12기 프론트엔드 개발팀장 투표 ^.^</div>;
-}
+const userList = [
+  {
+    id: 0,
+    img: `${process.env.PUBLIC_URL}/muji.jpg`,
+    name: '무지',
+    status: '현재 접속 중',
+  },
+  {
+    id: 1,
+    img: `${process.env.PUBLIC_URL}/corn.png`,
+    name: '콘',
+    status: '현재 접속 중',
+  },
+];
 
-export default App;
+export default () => {
+  return <Header user={userList[0]} />;
+};
