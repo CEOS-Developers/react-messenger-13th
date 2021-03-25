@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Top from './Top';
 import Chat from './Chat';
 import Form from './Form';
-import { StyledForm, StyledTop, StyledChat } from './styles'
 
 const initialChat = [
   {isMe: false, text: 'hey wassup You to party tonight?'},
@@ -15,7 +14,15 @@ const initialChat = [
 function App() {
   const [isMe, setIsMe] = useState(true);
   const [chatting, setChatting] = useState(initialChat);
+  const scrollRef = useRef();
 
+  const scrollToBottom = () => {
+    scrollRef.current.scrollIntoView({block: 'end'});
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatting]);
 
   const onClickTop = () => {
     setIsMe(!isMe);
@@ -24,17 +31,11 @@ function App() {
   //   setChatting()
   // }
   return (
-    <>
-    <StyledTop onClick={onClickTop}>
-      <Top isMe={isMe}/>
-    </StyledTop>
-    <StyledChat>
+    <div ref={scrollRef}>
+      <Top isMe={isMe} onClickTop={onClickTop}/>
       <Chat chatting={chatting} isMe={isMe} />
-    </StyledChat>
-    <StyledForm>
       <Form isMe={isMe} upLoadChatting={setChatting} chatting={chatting} />
-    </StyledForm>
-    </>
+    </div>
   );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { TopIcon, TopContainer } from './styles';
 
-const Top = ({ isMe }) => {
+const Top = ({ isMe, onClickTop }) => {
 
 
     return (
-        <TopContainer>
+        <TopContainer onClick={onClickTop}>
             {isMe ? <TopIcon src="/img/logo192.png" alt="image" /> : 
                 <TopIcon src="/img/logome.png" alt="image" />}
             <div>

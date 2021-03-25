@@ -8,7 +8,9 @@ export const TopContainer = styled.div`
     align-items: center;
     padding-left: 15px;
     height: 80px;
-
+    position: fixed;
+    top: 0px;
+    width: 100%;
 `;
 
 export const TopIcon = styled.img`
@@ -42,24 +44,16 @@ export const ChatContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-top: 80px;
+    padding-bottom: 30px;
 `
 
 export const Text = styled.div`
     padding: 5px;
 `
 
-export const StyledForm = styled.div`
+export const StyledForm = styled.form`
     position: fixed;
     bottom: 0px;
     width:100%;
     display: block;
-`
-export const StyledTop = styled.div`
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 30px;
-`
-export const StyledChat = styled.div`
-    
 `
