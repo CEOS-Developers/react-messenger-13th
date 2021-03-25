@@ -5,16 +5,14 @@ const Top = ({ isMe }) => {
 
 
     return (
-        <>
         <TopContainer>
             {isMe ? <TopIcon src="/img/logo192.png" alt="image" /> : 
                 <TopIcon src="/img/logome.png" alt="image" />}
             <div>
-                <ul>검은색</ul>
+                <ul>{isMe ? '하얀애' : '검은애'}</ul>
                 <ul>현재 활동 중</ul>
             </div>
         </TopContainer>
-        </>
     )
 };
 

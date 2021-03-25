@@ -20,3 +20,29 @@ export const TopIcon = styled.img`
 export const TopUl = styled.div`
 
 `
+
+export const WhiteChat = styled.div`
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+`
+export const BlackChat = styled.div`
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+`
+export const ChatIcon = styled.img`
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+`
+export const ChatContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const Text = styled.div`
+    padding: 5px;
+`
