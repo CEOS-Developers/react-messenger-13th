@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledContainer = styled.footer`
+  height: 3.5em;
   position: sticky;
   bottom: 0;
 
@@ -8,33 +9,32 @@ const StyledContainer = styled.footer`
   flex-direction: row;
   flex: 0 0 auto;
 
-  margin-top: auto;
-  padding: 10px;
-
+  margin: auto 0 0;
   background: white;
 `;
 
 const StyledTextInput = styled.input`
+  height: auto;
   flex: 8 0 auto;
 
   border: 1px solid lightgray;
   border-radius: 100vh;
   outline: none;
 
-  padding-left: 1em;
-
-  &:focus {
-  }
+  margin: 10px 15px;
+  padding: 0 1.1em;
 `;
+
 const StyledSubmitButton = styled.input`
-  height: 3em;
-  flex: 1 0 auto;
-  background: cornflowerblue;
+  height: auto;
+
+  flex: 0 0 auto;
+  background: yellow;
   border: none;
-  border-radius: 100vh;
-  margin-left: 15px;
   outline: none;
   color: white;
+  padding: 15px;
+  align-items: center;
 `;
 
 const InputChat = (props) => {
@@ -42,7 +42,8 @@ const InputChat = (props) => {
 };
 
 const SubmitButton = (props) => {
-  return <StyledSubmitButton type="submit" value="전송" />;
+  const imgUrl = `${process.env.PUBLIC_URL}/send.png`;
+  return <StyledSubmitButton type="image" src={imgUrl} alt="전송" />;
 };
 
 export default (props) => {
