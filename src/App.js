@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import ChatContainer from './ChatContainer';
 
 const userList = [
   {
@@ -16,6 +17,26 @@ const userList = [
   },
 ];
 
+const sampleChat = [
+  {
+    user: userList[0],
+    chatList: ['안녕하세요', '반갑습니다', `저는 ${userList[0].name}입니다.`],
+  },
+  {
+    user: userList[1],
+    chatList: [
+      '안녕하세요',
+      '저도 반갑습니다',
+      `저는 ${userList[1].name}입니다.`,
+    ],
+  },
+];
+
 export default () => {
-  return <Header user={userList[0]} />;
+  return (
+    <div>
+      <Header user={userList[0]} />
+      <ChatContainer chatData={sampleChat} />
+    </div>
+  );
 };
