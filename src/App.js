@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Top from './Top';
 import Chat from './Chat';
 import Form from './Form';
+import { StyledForm, StyledTop, StyledChat } from './styles'
 
 const initialChat = [
   {isMe: false, text: 'hey wassup You to party tonight?'},
@@ -19,17 +20,20 @@ function App() {
   const onClickTop = () => {
     setIsMe(!isMe);
   }
+  // const upLoadChatting = () => {
+  //   setChatting()
+  // }
   return (
     <>
-    <div onClick={onClickTop}>
+    <StyledTop onClick={onClickTop}>
       <Top isMe={isMe}/>
-    </div>
-    <div>
+    </StyledTop>
+    <StyledChat>
       <Chat chatting={chatting} isMe={isMe} />
-    </div>
-    {/* <div>
-      <Form submitHandler={setChatting} />
-    </div> */}
+    </StyledChat>
+    <StyledForm>
+      <Form isMe={isMe} upLoadChatting={setChatting} chatting={chatting} />
+    </StyledForm>
     </>
   );
 }

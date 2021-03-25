@@ -41,8 +41,25 @@ export const ChatIcon = styled.img`
 export const ChatContainer = styled.div`
     display: flex;
     flex-direction: column;
+    padding-top: 80px;
 `
 
 export const Text = styled.div`
     padding: 5px;
+`
+
+export const StyledForm = styled.div`
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    display: block;
+`
+export const StyledTop = styled.div`
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+`
+export const StyledChat = styled.div`
+    
 `
