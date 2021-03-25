@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
-const StyledContainer = styled.footer`
+const StyledContainer = styled.form`
   height: 3.5em;
   position: sticky;
   bottom: 0;
@@ -13,7 +14,9 @@ const StyledContainer = styled.footer`
   background: white;
 `;
 
-const StyledTextInput = styled.input`
+const StyledTextInput = styled.input.attrs({
+  type: 'text',
+})`
   height: auto;
   flex: 8 0 auto;
 
@@ -25,7 +28,9 @@ const StyledTextInput = styled.input`
   padding: 0 1.1em;
 `;
 
-const StyledSubmitButton = styled.input`
+const StyledSubmitButton = styled.input.attrs({
+  type: 'image',
+})`
   height: auto;
 
   flex: 0 0 auto;
@@ -37,19 +42,27 @@ const StyledSubmitButton = styled.input`
   align-items: center;
 `;
 
-const InputChat = (props) => {
-  return <StyledTextInput type="text" />;
-};
-
 const SubmitButton = (props) => {
   const imgUrl = `${process.env.PUBLIC_URL}/send.png`;
-  return <StyledSubmitButton type="image" src={imgUrl} alt="전송" />;
+  return <StyledSubmitButton src={imgUrl} alt="전송" />;
 };
 
 export default (props) => {
+  const [messageText, setMessageText] = useState('');
+
+  const onTextChanged = (event) => {
+    setMessageText(event.target.value);
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    props.onSendMessage(messageText);
+    setMessageText('');
+  };
+
   return (
-    <StyledContainer>
-      <InputChat />
+    <StyledContainer onSubmit={onSubmit}>
+      <StyledTextInput value={messageText} onChange={onTextChanged} />
       <SubmitButton />
     </StyledContainer>
   );

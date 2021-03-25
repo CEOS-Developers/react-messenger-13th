@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
@@ -71,11 +72,31 @@ const sampleChat = [
 ];
 
 export default () => {
+  const [currentUser, setCurrentUser] = useState(userList[0]);
+  const [ownerUser, setOwnerUser] = useState(userList[0]);
+  const [chatData, setChatData] = useState(sampleChat);
+
+  const sendMessage = (message) => {
+    if (message === '') {
+      alert('빈 텍스트 입니다');
+      return;
+    }
+
+    const lastChatItem = chatData[chatData.length - 1];
+    if (lastChatItem.user.id === currentUser.id) {
+      const newChatData = Object.assign([], chatData);
+      lastChatItem.chatList.push(message);
+      setChatData(newChatData);
+    } else {
+      setChatData(chatData.concat({ user: currentUser, chatList: [message] }));
+    }
+  };
+
   return (
     <StyledContainer>
-      <Header user={userList[0]} />
-      <ChatContainer chatData={sampleChat} />
-      <ChatInput />
+      <Header user={currentUser} />
+      <ChatContainer chatData={chatData} ownerUserId={ownerUser.id} />
+      <ChatInput onSendMessage={sendMessage} />
     </StyledContainer>
   );
 };

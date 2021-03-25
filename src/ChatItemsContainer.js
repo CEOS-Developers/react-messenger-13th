@@ -71,7 +71,7 @@ const ChatList = (props) => {
 };
 
 export default (props) => {
-  const isMine = props.user.id === 0;
+  const isMine = props.user.id === props.ownerUserId;
   return (
     <StyledContainer isMine={isMine}>
       <StyledImg src={props.user.img} alt="profile" />

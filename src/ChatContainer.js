@@ -1,5 +1,7 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ChatItemContainer from './ChatItemsContainer';
+import * as ReactDOM from 'react-dom';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -9,9 +11,29 @@ const StyledContainer = styled.div`
 `;
 
 export default (props) => {
-  const list = props.chatData.map((item) => {
-    return <ChatItemContainer chatList={item.chatList} user={item.user} />;
+  const lastItem = useRef();
+  const container = useRef();
+
+  const list = props.chatData.map((item, index) => {
+    return (
+      <ChatItemContainer
+        chatList={item.chatList}
+        user={item.user}
+        ownerUserId={props.ownerUserId}
+        ref={index === props.chatData.length - 1 ? lastItem : undefined}
+      />
+    );
   });
 
-  return <StyledContainer>{list}</StyledContainer>;
+  useEffect(() => {
+    const node = ReactDOM.findDOMNode(container.current);
+    const calculatedHeight = node.clientHeight;
+
+    window.scrollTo({
+      top: calculatedHeight,
+      behavior: 'smooth',
+    });
+  });
+
+  return <StyledContainer ref={container}>{list}</StyledContainer>;
 };
