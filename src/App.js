@@ -1,6 +1,13 @@
-import React from 'react';
+import styled from 'styled-components';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
+import ChatInput from './ChatInput';
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
 
 const userList = [
   {
@@ -34,9 +41,10 @@ const sampleChat = [
 
 export default () => {
   return (
-    <div>
+    <StyledContainer>
       <Header user={userList[0]} />
       <ChatContainer chatData={sampleChat} />
-    </div>
+      <ChatInput />
+    </StyledContainer>
   );
 };
