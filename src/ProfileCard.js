@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-left: 10px;
 `;
 
 const StyledImg = styled.img`
@@ -17,15 +18,26 @@ const StyledImg = styled.img`
 const StyledLabelContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 0;
 `;
 
-const StyledLabel = styled.p``;
+const StyledLabel = styled.p`
+  margin: auto 0;
+`;
+
+const StyledLabelName = styled(StyledLabel)`
+  margin: auto 0;
+
+  font-weight: bold;
+  font-size: 1.05em;
+`;
 // endregion
 
 const ProfileInfo = (props) => {
   return (
     <StyledLabelContainer>
-      <StyledLabel> {props.name} </StyledLabel>
+      <StyledLabelName> {props.name} </StyledLabelName>
       <StyledLabel> {props.status} </StyledLabel>
     </StyledLabelContainer>
   );

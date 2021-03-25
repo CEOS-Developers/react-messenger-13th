@@ -1,17 +1,40 @@
 import styled from 'styled-components';
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.footer`
+  position: sticky;
+  bottom: 0;
+
   display: flex;
   flex-direction: row;
   flex: 0 0 auto;
+
+  margin-top: auto;
+  padding: 10px;
+
+  background: white;
 `;
 
 const StyledTextInput = styled.input`
-  flex: 1 0 auto;
+  flex: 8 0 auto;
+
+  border: 1px solid lightgray;
+  border-radius: 100vh;
+  outline: none;
+
+  padding-left: 1em;
+
+  &:focus {
+  }
 `;
 const StyledSubmitButton = styled.input`
-  width: 300px;
-  flex: 0 0 auto;
+  height: 3em;
+  flex: 1 0 auto;
+  background: cornflowerblue;
+  border: none;
+  border-radius: 100vh;
+  margin-left: 15px;
+  outline: none;
+  color: white;
 `;
 
 const InputChat = (props) => {
@@ -19,7 +42,7 @@ const InputChat = (props) => {
 };
 
 const SubmitButton = (props) => {
-  return <StyledSubmitButton type="submit" />;
+  return <StyledSubmitButton type="submit" value="전송" />;
 };
 
 export default (props) => {

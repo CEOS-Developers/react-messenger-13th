@@ -5,6 +5,7 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
+  padding-bottom: 20px;
 `;
 
 export default (props) => {
