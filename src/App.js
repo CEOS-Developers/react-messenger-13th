@@ -16,11 +16,15 @@ const BackGround = styled.div`
 `;
 
 const TopBox = styled.div`
-  background-color: lightgrey;
-  color: grey;
+  background-color: #e99ba7;
+  color: #ba4f5f;
   display : flex;
-  padding: 2%;
-  border-bottom : solid 1px grey;
+  padding: 1% 2% 1% 1.5%;
+  border-bottom : solid 1px #d16f80;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+
 `;
 
 const ProfileImage = styled.img`
@@ -40,35 +44,48 @@ const ChattingImage = styled.img`
   height: 50px;
   border-radius: 70%;
   overflow: hidden;
-  margin: 15px 10px 0px;  
+  margin: 15px 15px 0px 15px; 
 `;
 
 const ChattingContext = styled.div`
   padding-left: 20px;
   line-height: 28px;
   font-size: 15px;
-  border : 1px solid lightgrey;
-  border-radius : 30%;
+  border : 1px solid #e99ba7;
+  border-radius : 22px;
   margin : 15px 0px 0px;
   padding : 10px;
+  background-color:#f4f4f4;
+  color: gray;
 `;
 const ChattingBubble = styled.div`
   display: flex;
 `;
 
+const ChattingContainer = styled.div`
+  padding-top: 97px;
+  padding-bottom: 100px;
+  float: left;
+`;
+
 const MessageInputContainer = styled.div`
   color: grey;
   display : flex;
-  margin: 3% 0%;
-  border-top : solid 1px grey;
+  margin: 1% 0% 0%;
+  border-top : solid 1px #d16f80;
   align-items: stretch;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #e99ba7;
 `;
 
 const MessageInputBox = styled.input`
+  color: grey;
   width: 90%;
-  height: 26px;
-  margin : 2% 0% 2% 2%;
-  border: 0.5px lightgray solid;
+  height: 40px;
+  margin : 1% 0% 1% 2%;
+  border: 0.5px #d16f80 solid;
   text-align: center;
   border-radius: 30px;
   &:focus{
@@ -76,16 +93,19 @@ const MessageInputBox = styled.input`
   }
 `;
 const MessageInputButton = styled.button`
+  color: #f4f4f4;
   width: 10%;
-  height: 30px;
+  height: 44px;
   border-radius: 10px;
-  border: 0.5px lightgray solid;
+  background-color: #ba4f5f;
+  border: 0.5px #ba4f5f solid;
   text-align: center;
-  margin: 2%;
+  margin: 1%;
   &:focus{
     outline: none;
-    border: 0.5px gray solid;
-    background-color: lightgray;
+  }
+  &:hover{
+    background-color: #d16f80;
   }
 `;
 
@@ -106,13 +126,13 @@ function MessageBubble(props) {
     </ChattingBubble>
   );
 }
+
 function MessageBox(props) {
   return (
-    <div>
+    <ChattingContainer>
       <MessageBubble />
       <MessageBubble />
-
-    </div>
+    </ChattingContainer>
   );
 }
 
@@ -125,7 +145,7 @@ function MessageInputBar(props) {
   return (
     <MessageInputContainer>
       <MessageInputBox placeholder="message"></MessageInputBox>
-      <MessageInputButton onClick={clickInputButton}>push</MessageInputButton>
+      <MessageInputButton onClick={clickInputButton}>send</MessageInputButton>
     </MessageInputContainer>
   );
 }
