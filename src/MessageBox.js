@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 const ChattingImage = styled.img`
@@ -33,19 +33,21 @@ const ChattingContainer = styled.div`
   background-repeat: repeat; 
 `;
 
-function MessageBubble(props) {
+function MessageBubble({message}) {
   return (
     <ChattingBubble>
       <ChattingImage src={process.env.PUBLIC_URL + "/img.jpg"} alt="" />
-      <ChattingContext>hello</ChattingContext>
+      <ChattingContext>{message.messageInput}</ChattingContext>
     </ChattingBubble>
   );
 }
 
-export default function MessageBox(props) {
+export default function MessageBox({userChattingMessage}) {
+
+
   return (
     <ChattingContainer>
-      <MessageBubble/>
+      <MessageBubble message={userChattingMessage}/>
     </ChattingContainer>
   );
 }
