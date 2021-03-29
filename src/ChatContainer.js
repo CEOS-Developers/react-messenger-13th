@@ -1,20 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import Message from './Message';
 
 const StyledChatContainer = styled.div`
-    & img{
-        margin: 10px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-    }
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background-color: lightgrey;
+        height: 700px;
 `;
+
 export default function ChatContainer() {
     return(
 
         <StyledChatContainer>
-            <img src={process.env.PUBLIC_URL+"profile2.jpg"} alt="profile"></img>
+            <Message/>
         </StyledChatContainer>
+        
         
     );
 }
