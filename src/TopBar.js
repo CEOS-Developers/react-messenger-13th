@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 
 const TopBox = styled.div`
@@ -13,11 +13,26 @@ const TopBox = styled.div`
 
 `;
 
-const ProfileImage = styled.img`
+const ProfileImageButton = styled.button`
   width: 60px;
   height : 60px;
   border-radius: 70%;
   overflow: hidden;
+  padding: 0px;
+  border: none;
+  &:focus{
+    outline: none;
+  }
+`;
+const ProfileImage = styled.img`
+  width: 60px;
+  height : 60px;
+  border-radius: 70%;
+  background-position: 0px 0px;
+  overflow: hidden;
+  &:focus{
+    outline: none;
+  }
 `;
 const ProfileName = styled.div`
   padding-left: 20px;
@@ -25,11 +40,31 @@ const ProfileName = styled.div`
   font-size : 20px;
 `;
 
-export default function TopBar(props) {
+export default function TopBar({clickProfileImageButton}) {
+  const [userID, setUserID] = useState(1);
+  const [userImage, setUserImage] = useState('/img.jpg');
+  const [userName, setUserName] = useState('SamSoon');
+
+  function clickImage(){
+    if(userID===1){
+      setUserID(2);
+      setUserImage('/yehey.png');
+      setUserName('Yehey');
+    }
+    else{
+      setUserID(1);
+      setUserImage('/img.jpg');
+      setUserName('SamSoon');
+    }
+  }
+  useEffect(()=>{
+    clickProfileImageButton(userID);
+  });
+
   return (
     <TopBox>
-      <ProfileImage src={process.env.PUBLIC_URL + "/img.jpg"} alt="" />
-      <ProfileName>name, state</ProfileName>
+      <ProfileImageButton onClick = {clickImage}><ProfileImage src={process.env.PUBLIC_URL + userImage} alt=""/></ProfileImageButton>
+      <ProfileName>{userName}</ProfileName>
     </TopBox>
   );
 }

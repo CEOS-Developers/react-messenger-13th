@@ -11,13 +11,16 @@ const Container = styled.div`
 
 function App() {
 
-  function clickInputButton() {
-    
+  function clickInputButton(messageUserInput) {
+    console.log(messageUserInput);
+  }
+  function clickProfileImageButton(userID){
+    console.log(userID);
   }
 
   return (
     <Container >
-      <TopBar />
+      <TopBar clickProfileImageButton={clickProfileImageButton}/>
       <MessageBox />
       <MessageInputBar clickInputButton={clickInputButton}/>
     </Container>
