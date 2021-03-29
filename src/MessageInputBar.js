@@ -44,7 +44,13 @@ const MessageInputButton = styled.button`
 
 export default function MessageInputBar({ clickInputButton }) {
   const [messageUserInput, setMessageUserInput] = useState('');
-  
+
+  function enterPressed(e){
+    if(e.key === 'Enter'){
+      handleClickInputButton();
+    }
+  }
+
   function handleChange(e) {
     setMessageUserInput(e.target.value);
   }
@@ -52,6 +58,7 @@ export default function MessageInputBar({ clickInputButton }) {
   function handleClickInputButton() {
     if(messageUserInput !== '') {
       clickInputButton(messageUserInput);
+      setMessageUserInput('');
     }
   }
   return (
@@ -60,6 +67,7 @@ export default function MessageInputBar({ clickInputButton }) {
         placeholder="message" 
         value={messageUserInput}
         onChange={handleChange}
+        onKeyPress={enterPressed}
       />
       <MessageInputButton onClick={handleClickInputButton}>send</MessageInputButton>
     </MessageInputContainer>
