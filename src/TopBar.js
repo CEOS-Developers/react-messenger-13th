@@ -10,7 +10,6 @@ const TopBox = styled.div`
   position: fixed;
   top: 0px;
   width: 100%;
-
 `;
 
 const ProfileImageButton = styled.button`
@@ -42,18 +41,16 @@ const ProfileName = styled.div`
 
 export default function TopBar({clickProfileImageButton}) {
   const [userID, setUserID] = useState(1);
-  const [userImage, setUserImage] = useState('/img.jpg');
+
   const [userName, setUserName] = useState('SamSoon');
 
   function clickImage(){
     if(userID===1){
       setUserID(2);
-      setUserImage('/yehey.png');
       setUserName('Yehey');
     }
     else{
       setUserID(1);
-      setUserImage('/img.jpg');
       setUserName('SamSoon');
     }
   }
@@ -63,7 +60,7 @@ export default function TopBar({clickProfileImageButton}) {
 
   return (
     <TopBox>
-      <ProfileImageButton onClick = {clickImage}><ProfileImage src={process.env.PUBLIC_URL + userImage} alt=""/></ProfileImageButton>
+      <ProfileImageButton onClick = {clickImage}><ProfileImage src={process.env.PUBLIC_URL +"/"+userID+".jpg"} alt=""/></ProfileImageButton>
       <ProfileName>{userName}</ProfileName>
     </TopBox>
   );
