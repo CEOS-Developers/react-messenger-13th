@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TopBar from './TopBar'
 import MessageBox from './MessageBox'
 import MessageInputBar from './MessageInputBar'
@@ -10,18 +10,20 @@ const Container = styled.div`
 `;
 
 function App() {
-
-  function clickInputButton(messageUserInput) {
-    console.log(messageUserInput);
-  }
+  let ID = 1;
+  const [userChattingMessage, setUserChattingMessage] = useState({ID: 1, messageInput: ""});
+  
   function clickProfileImageButton(userID){
-    console.log(userID);
+    ID=userID;
+  }
+  function clickInputButton(messageUserInput) {
+    setUserChattingMessage({ID: ID, messageInput: messageUserInput});
   }
 
   return (
     <Container >
       <TopBar clickProfileImageButton={clickProfileImageButton}/>
-      <MessageBox />
+      <MessageBox userChattingMessage={userChattingMessage}/>
       <MessageInputBar clickInputButton={clickInputButton}/>
     </Container>
   );
