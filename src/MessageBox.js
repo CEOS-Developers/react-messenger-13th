@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 
 const ChattingImage = styled.img`
@@ -22,10 +22,12 @@ const ChattingContext = styled.div`
 `;
 const ChattingBubble = styled.div`
   display: flex;
+  flex-direction: ${props => (props.chattingUser === 1 ? 'row' : 'row-reverse')};
 `;
 
 const ChattingContainer = styled.div`
   width: 100%;
+  height:available;
   flex-grow: 1;
   padding-top: 97px;
   padding-bottom: 100px;
@@ -33,21 +35,19 @@ const ChattingContainer = styled.div`
   background-repeat: repeat; 
 `;
 
-function MessageBubble({message}) {
+function MessageBubble({chattingMessage}) {
   return (
-    <ChattingBubble>
-      <ChattingImage src={process.env.PUBLIC_URL + "/img.jpg"} alt="" />
-      <ChattingContext>{message.messageInput}</ChattingContext>
+    <ChattingBubble chattingUser={chattingMessage.chattingUser}>
+      <ChattingImage src={process.env.PUBLIC_URL + "/"+chattingMessage.chattingUser+".jpg"} alt="" />
+      <ChattingContext>{chattingMessage.messageContext}</ChattingContext>
     </ChattingBubble>
   );
 }
 
-export default function MessageBox({userChattingMessage}) {
-
-
+export default function MessageBox({userChattingMessageSet}) {
   return (
     <ChattingContainer>
-      <MessageBubble message={userChattingMessage}/>
+      {userChattingMessageSet.map((chattingMessage, id)=><MessageBubble chattingMessage={chattingMessage} key={id}/>)}
     </ChattingContainer>
   );
 }

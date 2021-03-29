@@ -6,24 +6,27 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
 `;
 
 function App() {
-  let ID = 1;
-  const [userChattingMessage, setUserChattingMessage] = useState({ID: 1, messageInput: ""});
-  
+  let chattingUser = 1;
+  const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
+
+
   function clickProfileImageButton(userID){
-    ID=userID;
+    chattingUser=userID;
   }
   function clickInputButton(messageUserInput) {
-    setUserChattingMessage({ID: ID, messageInput: messageUserInput});
+    let ID = Date.now();
+    setUserChattingMessageSet(formerMessage => [...formerMessage, {chattingUser: chattingUser, messageContext: messageUserInput, id: ID}]);
   }
 
   return (
     <Container >
       <TopBar clickProfileImageButton={clickProfileImageButton}/>
-      <MessageBox userChattingMessage={userChattingMessage}/>
+      <MessageBox userChattingMessageSet={userChattingMessageSet}/>
       <MessageInputBar clickInputButton={clickInputButton}/>
     </Container>
   );
