@@ -47,11 +47,11 @@ export default function TopBar({clickProfileImageButton}) {
   function clickImage(){
     if(userID===1){
       setUserID(2);
-      setUserName('Yehey');
+      setUserName('AngelSuHo');
     }
     else{
       setUserID(1);
-      setUserName('SamSoon');
+      setUserName('송우기');
     }
   }
   useEffect(()=>{
