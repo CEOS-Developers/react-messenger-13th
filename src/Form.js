@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyledForm } from './styles';
+import { StyledForm, Input, Button } from './styles';
 
 const Form = ({ isMe, upLoadChatting, chatting }) => {
     const [text, setText] = useState('');
@@ -20,8 +20,8 @@ const Form = ({ isMe, upLoadChatting, chatting }) => {
 
     return(
         <StyledForm onSubmit={onSubmitHandler}>
-            <input placeholder="Message..." value={text} onChange={onChangeText} />
-            <button>전송</button>
+            <Input placeholder="Message..." value={text} onChange={onChangeText} />
+            <Button>전송</Button>
         </StyledForm>
     );
 }
