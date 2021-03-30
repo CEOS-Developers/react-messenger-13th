@@ -42,7 +42,7 @@ const ProfileName = styled.div`
 export default function TopBar({clickProfileImageButton}) {
   const [userID, setUserID] = useState(1);
 
-  const [userName, setUserName] = useState('SamSoon');
+  const [userName, setUserName] = useState('송우기');
 
   function clickImage(){
     if(userID===1){
