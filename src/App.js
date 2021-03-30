@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
+  width: 100%;
   height: 100%;
   flex-direction: column;
 `;
@@ -13,7 +14,6 @@ const Container = styled.div`
 function App() {
   let chattingUser = 1;
   const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
-
 
   function clickProfileImageButton(userID){
     chattingUser=userID;

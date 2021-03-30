@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components'
 
 const ChattingImage = styled.img`
@@ -45,6 +45,11 @@ function MessageBubble({chattingMessage}) {
 }
 
 export default function MessageBox({userChattingMessageSet}) {
+  
+  useEffect(()=>{
+    window.scrollBy(0,window.innerHeight);
+  });
+
   return (
     <ChattingContainer>
       {userChattingMessageSet.map((chattingMessage, id)=><MessageBubble chattingMessage={chattingMessage} key={id}/>)}
