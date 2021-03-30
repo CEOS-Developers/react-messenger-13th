@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TopIcon, TopContainer } from './styles';
 
-const Top = ({ isMe, onClickTop }) => {
+const Top = memo(({ isMe, onClickTop }) => {
 
 
     return (
@@ -14,6 +14,6 @@ const Top = ({ isMe, onClickTop }) => {
             </div>
         </TopContainer>
     )
-};
+});
 
 export default Top;

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Top from './Top';
 import Chat from './Chat';
 import Form from './Form';
@@ -25,18 +25,18 @@ function App() {
     scrollToBottom();
   }, [chatting]);
 
-  const onClickTop = () => {
+  const onClickTop = useCallback(() => {
     setIsMe(!isMe);
-  }
-  // const upLoadChatting = () => {
-  //   setChatting()
-  // }
+  }, [isMe]);
+  const upLoadChatting = useCallback((v) => {
+    setChatting(v);
+  }, [])
   return (
     <div ref={scrollRef}>
       <GlobalStyle></GlobalStyle>
       <Top isMe={isMe} onClickTop={onClickTop}/>
       <Chat chatting={chatting} isMe={isMe} />
-      <Form isMe={isMe} upLoadChatting={setChatting} chatting={chatting} />
+      <Form isMe={isMe} upLoadChatting={upLoadChatting} chatting={chatting} />
     </div>
   );
 }

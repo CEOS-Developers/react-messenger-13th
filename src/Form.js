@@ -1,22 +1,23 @@
-import React, {useState} from 'react';
+import React, {memo, useState} from 'react';
 import { StyledForm, Input, Button } from './styles';
 
-const Form = ({ isMe, upLoadChatting, chatting }) => {
+const Form = memo(({ isMe, upLoadChatting, chatting }) => {
     const [text, setText] = useState('');
 
     const onChangeText = (e) => {
         setText(e.target.value)
-    }
+    };
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (text==='') {
-            alert('type something!!')
+            alert('type something!!');
             return;
         }
-        upLoadChatting([...chatting, {isMe, text}])
+        upLoadChatting([...chatting, {isMe, text}]);
         setText('');
-    }
+        console.log(1);
+    };
 
     return(
         <StyledForm onSubmit={onSubmitHandler}>
@@ -24,6 +25,6 @@ const Form = ({ isMe, upLoadChatting, chatting }) => {
             <Button>전송</Button>
         </StyledForm>
     );
-}
+});
 
 export default Form;

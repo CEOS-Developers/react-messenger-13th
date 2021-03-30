@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ChatIcon, ChatContainer, WhiteChat, BlackChat, Text } from './styles'
 
-const Chat = ({ chatting }) => {
+const Chat = memo(({ chatting }) => {
 
 
     return(
@@ -24,6 +24,6 @@ const Chat = ({ chatting }) => {
             })}
         </ChatContainer>
     );
-}
+});
 
 export default Chat;
