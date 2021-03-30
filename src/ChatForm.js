@@ -31,7 +31,7 @@ const StyleChatForm = styled.div`
 
 
 
-export default function ChatForm() {
+export default function ChatForm({submitMessage}) {
     
     const [message, setMessage] = useState('');
 
@@ -41,12 +41,15 @@ export default function ChatForm() {
 
     const onClick = () =>{
         setMessage('');
+        submitMessage(message);
     }
 
     const onKeyPress = (e) =>{
         if(e.key === 'Enter'){
             setMessage('');
+            submitMessage(message);
         }
+        
     }
     
     return (

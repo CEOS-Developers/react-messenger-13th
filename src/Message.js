@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const StyledMessage = styled.div`
     
     display: flex;
@@ -21,7 +22,7 @@ const StyledMessage = styled.div`
     }
 `;
 
-export default function Message(){
+const Message = ({message}) => {
     /*
     const [transmitter, setTransmitter] = useState("profile1.jpg");
     const handleClick = () => {
@@ -37,8 +38,10 @@ export default function Message(){
         <StyledMessage>
             <img src={process.env.PUBLIC_URL+"profile1.jpg"} alt="transmitter"/>
             <div>
-                I'm so EXHAUSTED!!
+                {message.text}
             </div>
         </StyledMessage>
     );
 }
+
+export default Message;

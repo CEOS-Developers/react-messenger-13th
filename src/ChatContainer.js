@@ -12,13 +12,16 @@ const StyledChatContainer = styled.div`
         height: 700px;
 `;
 
-export default function ChatContainer() {
+const ChatContainer = ({ message }) => {
     return(
 
         <StyledChatContainer>
-            <Message/>
-            
+            {message.map(text_input =>(
+                <Message message={text_input} key={text_input.id}/>
+            ))}
         </StyledChatContainer>
         
     );
 }
+
+export default ChatContainer;
