@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Message from './Message';
 
+
 const StyledChatContainer = styled.div`
         display: flex;
         flex-direction: column;
@@ -16,8 +17,8 @@ export default function ChatContainer() {
 
         <StyledChatContainer>
             <Message/>
+            
         </StyledChatContainer>
-        
         
     );
 }

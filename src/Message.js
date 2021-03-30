@@ -10,6 +10,7 @@ const StyledMessage = styled.div`
         border : 1px solid pink;
         padding: 10px;
         margin: 20px;
+        border-radius : 10px;
     }
     & img {
         margin: 10px;
