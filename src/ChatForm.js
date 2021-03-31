@@ -31,7 +31,7 @@ const StyleChatForm = styled.div`
 
 
 
-export default function ChatForm({submitMessage}) {
+export default function ChatForm({submitMessage, currentUser}) {
     
     const [message, setMessage] = useState('');
 
@@ -58,7 +58,7 @@ export default function ChatForm({submitMessage}) {
                 <input placeholder="Message" type="text" value={message} onChange={onChange} onKeyPress={onKeyPress}/>
                 <button type="submit" onClick={onClick}>전송</button>
             </div>
-            
+            {console.log("This is ChatForm")}
         </StyleChatForm>
     );
 }

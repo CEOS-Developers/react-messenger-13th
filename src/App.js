@@ -4,52 +4,59 @@ import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(1)
   const [message,setMessage] = useState([
     {
       id: 1,
       text: "Hi",
+      isUser: 0
     },
     {
       id: 2,
       text: "Hello",
+      isUser: 1
     },
   ]);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({
       id: new Date(),
       text: sendText,
+      isUser: currentUser
     })
     setMessage(newMessage);
   }
   const users = [
   {
     id: 0,
-    name: "이소정",
-    img: "profile1.jpg",
-  },
-  {
-    id: 1,
     name: "현재",
     img: "profile2.jpg",
   },
+  {
+    id: 1,
+    name: "이소정",
+    img: "profile1.jpg",
+  },
   ];
-  const [user,setUsers] = useState(users[0]);
+  const [user,setUsers] = useState(users[0]);  
+
+
   function handleClick() {
     console.log('click');
-    if(user.id === 0){
-      setUsers(users[1]);
+    if(currentUser === 0){
+      setCurrentUser(1);
+      console.log("jerer")
     }
     else{
-      setUsers(users[0]);
+      setCurrentUser(0);
     }
   }
   return (
     <div>
       <div onClick={handleClick}>
-        <Header user={user} />
+        <Header user={users[currentUser]} />
       </div>
-      <ChatContainer message={message}/>
-      <ChatForm submitMessage={submitMessage}/>
+      <ChatContainer message={message} user={user}/>
+      <ChatForm submitMessage={submitMessage} {...{currentUser}}/>
 
     </div>
   );

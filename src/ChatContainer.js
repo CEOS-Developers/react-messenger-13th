@@ -12,13 +12,14 @@ const StyledChatContainer = styled.div`
         height: 700px;
 `;
 
-const ChatContainer = ({ message }) => {
+const ChatContainer = ({ message, user }) => {
     return(
 
         <StyledChatContainer>
             {message.map(text_input =>(
-                <Message message={text_input} key={text_input.id}/>
+                <Message message={text_input} key={text_input.id} user={user}/>
             ))}
+            {console.log("This is ChatContainer")}
         </StyledChatContainer>
         
     );
