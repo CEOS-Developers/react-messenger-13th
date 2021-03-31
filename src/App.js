@@ -21,9 +21,33 @@ const App = () => {
     })
     setMessage(newMessage);
   }
+  const users = [
+  {
+    id: 0,
+    name: "이소정",
+    img: "profile1.jpg",
+  },
+  {
+    id: 1,
+    name: "현재",
+    img: "profile2.jpg",
+  },
+  ];
+  const [user,setUsers] = useState(users[0]);
+  function handleClick() {
+    console.log('click');
+    if(user.id === 0){
+      setUsers(users[1]);
+    }
+    else{
+      setUsers(users[0]);
+    }
+  }
   return (
     <div>
-      <Header/>
+      <div onClick={handleClick}>
+        <Header user={user} />
+      </div>
       <ChatContainer message={message}/>
       <ChatForm submitMessage={submitMessage}/>
 
