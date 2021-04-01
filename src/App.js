@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
@@ -17,6 +17,31 @@ const App = () => {
       text: "Hello",
       isUser: 1
     },
+    {
+      id: 3,
+      text: "What do you do today?",
+      isUser: 1
+    },
+    {
+      id: 4,
+      text: "I'll stand on the concert. Would you come?",
+      isUser: 0
+    },
+    {
+      id: 5,
+      text: "Of course!!!! I'm eagerly waiting for it!!",
+      isUser: 1
+    },
+    {
+      id: 6,
+      text: "Please look forward to my concert! It will be fantastic exciting and cool *^^*",
+      isUser: 0
+    },
+    {
+      id: 6,
+      text: "Ok!!! Love ya~ See you soon♥",
+      isUser: 1
+    },
   ]);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({
@@ -29,12 +54,12 @@ const App = () => {
   const users = [
   {
     id: 0,
-    name: "현재",
+    name: "THE BOYZ",
     img: "profile2.jpg",
   },
   {
     id: 1,
-    name: "이소정",
+    name: "KATHERINE",
     img: "profile1.jpg",
   },
   ];
@@ -56,9 +81,10 @@ const App = () => {
       <div onClick={handleClick}>
         <Header user={users[currentUser]} />
       </div>
+      
       <ChatContainer message={message} user={user}/>
+     
       <ChatForm submitMessage={submitMessage} {...{currentUser}}/>
-
     </div>
   );
 }

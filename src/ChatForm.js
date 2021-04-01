@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 const StyleChatForm = styled.div`
     display: flex;
-    position: absolute;
-    bottom: 0;
-    flex-direction: row;
-
+    position: relative;
     & div{
-        width: 100%;        
+        width: 100%; 
+        height: 0%;
+        
+        bottom: 0;
+        flex-direction: row;
+
     }
     & input{
         border: 1px solid lightpink;
@@ -24,11 +26,12 @@ const StyleChatForm = styled.div`
     & button{
         border-radius: 20px;
         background-color: pink;
-        color: grey;
-        border: 1px solid grey;
-        width: 100px;
+        color: #f06292;
+        border: 1px solid #f06292;
+        width: 150px;
         margin : 10px;
         height : 50px;
+        position: absolute;
     }
 `;
 
@@ -59,7 +62,7 @@ export default function ChatForm({submitMessage, currentUser}) {
         <StyleChatForm>
             <div>
                 <input placeholder="Message" type="text" value={message} onChange={onChange} onKeyPress={onKeyPress}/>
-                <button type="submit" onClick={onClick}>전송</button>
+                <button type="submit" onClick={onClick}>Send</button>
             </div>
             {console.log("This is ChatForm")}
         </StyleChatForm>

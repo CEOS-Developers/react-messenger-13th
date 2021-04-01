@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-    background-color:pink;
+    background-color: #ffcdd2;
     display : flex;
     flex-direction : row;
+    position: relative;
+    border-radius: 30px;
+    
+    color: #f06292;
     & img {
         margin: 20px;
         width:80px;
@@ -50,7 +54,7 @@ export default function Header(props) {
             <img src={props.user.img} alt="profile"></img>
             <TextPosition>
                 <h2>{props.user.name}</h2>
-                <h3>현재 활동중</h3>
+                <h3>Active Now</h3>
             </TextPosition>
             {console.log("This is Header")}
         </StyledHeader>
