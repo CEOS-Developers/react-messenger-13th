@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Message from './Message';
 
@@ -9,10 +9,16 @@ const StyledChatContainer = styled.div`
         height: 100%;
         width: 100%;
         background-color: lightgrey;
-        height: 700px;
 `;
 
+
+
 const ChatContainer = ({ message, user }) => {
+    
+  useEffect(() => {
+    console.log("Hello")
+    window.scrollBy(0, document.body.scrollHeight);
+})
     return(
 
         <StyledChatContainer>

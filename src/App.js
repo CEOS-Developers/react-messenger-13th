@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(1)
+
   const [message,setMessage] = useState([
     {
       id: 1,

@@ -3,9 +3,12 @@ import styled from 'styled-components';
 
 const StyleChatForm = styled.div`
     display: flex;
+    position: absolute;
+    bottom: 0;
     flex-direction: row;
+
     & div{
-        width: 100%;
+        width: 100%;        
     }
     & input{
         border: 1px solid lightpink;
