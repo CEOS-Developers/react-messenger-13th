@@ -5,7 +5,6 @@ import ChatForm from './ChatForm';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(1)
-
   const [message,setMessage] = useState([
     {
       id: 1,
