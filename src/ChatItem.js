@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 const ChatBox = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${(props) => (props.userId === 0 ? 'row' : 'row-reverse')};
   margin-bottom: 15px;
 `;
+// const name = "정윤선"
+// const Text = `저의 이름은 ${name}입니다.`
 
 const Photo = styled.img`
   width: 50px;
@@ -30,12 +32,13 @@ export default function ChatItem(props) {
   //     profileImg: process.env.PUBLIC_URL + '/logo512.png',
   // }
 
-  const { chatText, profileImg } = props.item;
+  const { chatText, profileImg, userId } = props.item;
   // const {chatListData} = props;
   // const chatListData = props.chatListData 둘이 같은거!
+  // 결론은 const userId = props.item.userId
 
   return (
-    <ChatBox>
+    <ChatBox userId={userId}>
       <Photo src={profileImg} />
       <ChatText>{chatText}</ChatText>
     </ChatBox>

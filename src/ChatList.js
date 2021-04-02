@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import ChatItem from './ChatItem';
+import { useEffect, useRef } from 'react';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 
   flex-grow: 1;
+  overflow-y: scroll;
 `;
 
 // ChatList = ChatItem 들 다 모아놓은 곳
@@ -14,6 +16,8 @@ const Container = styled.div`
 function ChatList(props) {
   const { chatListData } = props;
   // const chatListData = props.chatListData
+
+  const containerRef = useRef(null);
 
   const list = chatListData.map((item) => {
     return <ChatItem item={item} />;
@@ -29,7 +33,14 @@ function ChatList(props) {
   //     return
   // }
 
-  return <Container>{list}</Container>;
+  useEffect(
+    function () {
+      containerRef.current.scrollBy(0, containerRef.current.scrollHeight);
+    },
+    [chatListData]
+  );
+
+  return <Container ref={containerRef}>{list}</Container>;
 }
 
 export default ChatList;

@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  background-color: lightgray;
+  background-color: rgb(245, 245, 245);
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid black;
 `;
 
 const Photo = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 40px;
+  border: 1px solid black;
+  margin: 30px;
 `;
 
 const UserInfoContainer = styled.div``;

@@ -6,27 +6,27 @@ import ChatInput from './ChatInput';
 
 const initialChatData = [];
 
-const Siwon = {
+const Yunsun = {
   id: 0,
-  name: '정시원',
+  name: '정윤선',
   profileImgSrc: process.env.PUBLIC_URL + '/logo512.png',
 };
 
-const Youngwoo = {
+const Babodog = {
   id: 1,
-  name: '김영우',
+  name: '바보개',
   profileImgSrc: process.env.PUBLIC_URL + '/logo512.png',
 };
 
 function App() {
   const [messages, setMessages] = useState(initialChatData);
-  const [currentUser, setCurrentUser] = useState(Siwon);
+  const [currentUser, setCurrentUser] = useState(Yunsun);
 
   function toggleCurrentUser() {
-    if (currentUser === Siwon) {
-      setCurrentUser(Youngwoo);
+    if (currentUser === Yunsun) {
+      setCurrentUser(Babodog);
     } else {
-      setCurrentUser(Siwon);
+      setCurrentUser(Yunsun);
     }
   }
 
@@ -36,8 +36,8 @@ function App() {
         {
           chatId: messages.length,
           chatText: message,
-          userId: 0,
-          profileImg: process.env.PUBLIC_URL + '/logo512.png',
+          userId: currentUser.id,
+          profileImgSrc: currentUser.profileImgSrc,
         },
       ])
     );
