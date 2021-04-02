@@ -24,7 +24,7 @@ const App = () => {
     },
     {
       id: 4,
-      text: "I'll stand on the concert. Would you come?",
+      text: "I'm standing on the concert. Would you come? I already left a ticket for you!",
       isUser: 0
     },
     {
@@ -32,18 +32,6 @@ const App = () => {
       text: "Of course!!!! I'm eagerly waiting for it!!",
       isUser: 1
     },
-    /*
-    {
-      id: 6,
-      text: "Please look forward to my concert! It will be fantastic exciting and cool *^^*",
-      isUser: 0
-    },
-    {
-      id: 6,
-      text: "Ok!!! Love ya~ See you soon♥",
-      isUser: 1
-    },
-    */
   ]);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({

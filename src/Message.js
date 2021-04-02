@@ -12,6 +12,7 @@ const StyledMessage = styled.div`
         padding: 10px;
         margin: 20px;
         border-radius : 10px;
+        max-width: 500px;
     }
     & img {
         margin: 10px;
