@@ -32,6 +32,7 @@ const App = () => {
       text: "Of course!!!! I'm eagerly waiting for it!!",
       isUser: 1
     },
+    /*
     {
       id: 6,
       text: "Please look forward to my concert! It will be fantastic exciting and cool *^^*",
@@ -42,6 +43,7 @@ const App = () => {
       text: "Ok!!! Love ya~ See you soon♥",
       isUser: 1
     },
+    */
   ]);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({
@@ -88,9 +90,5 @@ const App = () => {
     </div>
   );
 }
-
-
-
-
 
 export default App;

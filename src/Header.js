@@ -5,15 +5,16 @@ const StyledHeader = styled.div`
     background-color: #ffcdd2;
     display : flex;
     flex-direction : row;
-    position: relative;
+    position: fixed;
+    width: 98%;
     border-radius: 30px;
-    
     color: #f06292;
+
     & img {
         margin: 20px;
-        width:80px;
-        height:80px;
-        border-radius : 70%;
+        width:100px;
+        height:100px;
+        border-radius : 50%;
     }
 `;
 
@@ -22,33 +23,8 @@ const TextPosition = styled.div`
         margin-left: 20px;
     }
 `;
-/*
-const counterpart = [
-    {
-        id: 0,
-        name: 이소정,
-        status: 
-    }
-];
-*/
-
 
 export default function Header(props) {
-//     // const [handsome, setHandsome] = useState("profile1.jpg");
-//     // const [name, setName] = useState("이소정");
-//     /*
-//     const handleClick = () => {
-//         if(handsome==="profile1.jpg"){
-//             setHandsome("profile2.jpg");
-//             setName("현재");
-//         }
-//         else{
-//             setHandsome("profile1.jpg");
-//             setName("이소정");
-//         }
-//     }
-//   */  
-
     return (
         <StyledHeader>
             <img src={props.user.img} alt="profile"></img>

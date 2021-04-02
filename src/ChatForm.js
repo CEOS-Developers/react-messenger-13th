@@ -2,21 +2,27 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const StyleChatForm = styled.div`
-    display: flex;
-    position: relative;
+    
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
     & div{
-        width: 100%; 
-        height: 0%;
         
-        bottom: 0;
+        
+        display: flex;
         flex-direction: row;
-
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 0%;
     }
     & input{
         border: 1px solid lightpink;
         border-radius : 30px;
         flex-direction : row;
-        width : 88%;
+        width: 80%;
         margin: 10px;
         height : 50px;
         text-align : center;
@@ -28,10 +34,9 @@ const StyleChatForm = styled.div`
         background-color: pink;
         color: #f06292;
         border: 1px solid #f06292;
-        width: 150px;
+        width: 18%;
         margin : 10px;
         height : 50px;
-        position: absolute;
     }
 `;
 

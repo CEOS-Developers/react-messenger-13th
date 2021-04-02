@@ -19,22 +19,13 @@ const StyledMessage = styled.div`
         height: 60px;
         border-radius: 50%;
         align: center;
+        box-shadow: rgb(50, 50, 50);
     }
 `;
 
 const Message = (props) => {
     const {message, user} = props;
-    /*
-    const [transmitter, setTransmitter] = useState("profile1.jpg");
-    const handleClick = () => {
-        if(transmitter==="profile1.jpg"){
-            setTransmitter("profile2.jpg");
-        }
-        else{
-            setTransmitter("profile1.jpg");
-        }
-    }
-    */
+    
     return (
         message.isUser ? 
         <StyledMessage {...props}>
