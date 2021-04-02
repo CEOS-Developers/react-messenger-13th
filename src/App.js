@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import ActiveUser from './components/ActiveUser';
 import ChatContainer from './components/ChatContainer';
@@ -67,30 +67,30 @@ function App() {
   /**
    * Change active user when user clicks on header bar
    */
-  const handleActiveUserClick = () => {
+  const handleActiveUserClick = useCallback(() => {
     if (activeUser.id === 1) {
       setActiveUser(participants[0]);
     } else {
       setActiveUser(participants[1]);
     }
-  }
+  },[activeUser, setActiveUser])
 
   /**
    * Adds a new message to the conversation
    * @param {int} userId - The ID of the user who sent the message
    * @param {string} msg - The contents of the message
    */
-  const addNewMessage = (userId, msg) => {
+  const addNewMessage = useCallback((userId, msg) => {
     setMessages(prevMessages => [...prevMessages, { id: userId, msg }]);
-  }
+  }, [setMessages])
 
   /**
    * Handles send action of message. Receives states lifted from ChatForm
    * @param {string} msg - Message that the user entered into ChatForm > ChatInput
    */
-  const handleChatSend = (msg) => {
+  const handleChatSend = useCallback((msg) => {
     addNewMessage(activeUser.id, msg);
-  }
+  }, [activeUser.id, addNewMessage])
 
   return (
     <Wrapper>

@@ -18,7 +18,7 @@ export default function ChatContainer({ participants, messages }) {
   // Scroll div to bottom when new message arrives
   useEffect(()=> {
     chatContainerRef.current.scrollBy(0, chatContainerRef.current.scrollHeight);
-  }, [messages])
+  })
 
   // Create ChatMessage component for every 'message' in 'messages'
   const chatMessages = messages.map((message, idx) => 
