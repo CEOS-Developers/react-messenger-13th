@@ -9,13 +9,13 @@ const initialChatData = [];
 const Yunsun = {
   id: 0,
   name: '정윤선',
-  profileImgSrc: process.env.PUBLIC_URL + '/logo512.png',
+  profileImgSrc: process.env.PUBLIC_URL + '/myphoto.jpg',
 };
 
 const Babodog = {
   id: 1,
   name: '바보개',
-  profileImgSrc: process.env.PUBLIC_URL + '/logo512.png',
+  profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
 };
 
 function App() {
