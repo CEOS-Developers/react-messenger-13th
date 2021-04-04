@@ -5,7 +5,7 @@ import ChatContainer from './ChatContainer';
 import ChatInput from './ChatInput';
 
 const StyledGlobal = createGlobalStyle`
-  body{
+  body {
     min-height: 100vh;
     margin: 0;
   }
@@ -91,11 +91,12 @@ export default () => {
 
     const lastChatItem = chatData[chatData.length - 1];
     if (lastChatItem.user.id === currentUser.id) {
-      const newChatData = Object.assign([], chatData);
       lastChatItem.chatList.push(message);
-      setChatData(newChatData);
+      setChatData([...chatData]);
     } else {
-      setChatData(chatData.concat({ user: currentUser, chatList: [message] }));
+      const nextChatItem = { user: currentUser, chatList: [message] };
+      const newChatData = [...chatData, nextChatItem];
+      setChatData(newChatData);
     }
   };
 
