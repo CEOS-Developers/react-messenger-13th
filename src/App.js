@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
 import ChatInput from './ChatInput';
+
+const StyledGlobal = createGlobalStyle`
+  body{
+    min-height: 100vh;
+    margin: 0;
+  }
+`;
 
 const StyledContainer = styled.div`
   display: flex;
@@ -98,6 +105,7 @@ export default () => {
 
   return (
     <StyledContainer>
+      <StyledGlobal />
       <Header user={currentUser} onClickImage={toggleCurrentUser} />
       <ChatContainer chatData={chatData} ownerUserId={ownerUser.id} />
       <ChatInput onSendMessage={sendMessage} />
