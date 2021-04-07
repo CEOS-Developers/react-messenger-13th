@@ -7,6 +7,7 @@ import Header from './Header';
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: auto;
   min-height: 100%;
 
@@ -71,7 +72,8 @@ const sampleChat = [
   },
 ];
 
-export default () => {
+export default (props) => {
+  console.log(props);
   const [currentUser, setCurrentUser] = useState(userList[0]);
   const [ownerUser, setOwnerUser] = useState(userList[0]);
   const [chatData, setChatData] = useState(sampleChat);
