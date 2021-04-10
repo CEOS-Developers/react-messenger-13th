@@ -16,7 +16,6 @@ const Form = memo(({ isMe, upLoadChatting, chatting }) => {
         }
         upLoadChatting([...chatting, {isMe, text}]);
         setText('');
-        console.log(1);
     };
 
     return(

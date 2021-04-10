@@ -12,11 +12,11 @@ const Chat = memo(({ chatting }) => {
                     <Text>
                         {v.text}
                     </Text>
-                    <ChatIcon src="/img/logo192.png" alt="img" />
+                    <ChatIcon src="/img/white.png" alt="img" />
                 </WhiteChat>
                 :
                 <BlackChat key={i}>
-                    <ChatIcon src="/img/logome.png" alt="img" />
+                    <ChatIcon src="/img/black.png" alt="img" />
                     <Text>
                         {v.text}
                     </Text>
