@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatListPage from './ChatListPage';
 import FreindListPage from './FriendListPage';
+import SettingPage from './SettingPage';
 
 export const initialList = [
   { name: '검은애', message: `I'm black`, img: '/img/black.png'},
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <>
-      <ChatListPage />
+      <SettingPage />
     </>
   );
 }

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { BsPersonPlus } from 'react-icons/bs';
 import FriendState from './FriendState';
 import styled from 'styled-components';
+import {initialList} from './App';
 
 const Top = styled.div`
     display: flex;
@@ -26,23 +27,14 @@ const Input = styled.input`
     display: block;
 `;
 
-const initialList = [
-    { name: '검은애', message: `I'm black`, img: '/img/black.png'},
-    { name: '빨간애', message: `I'm Red`, img: '/img/red.png'},
-    { name: '주황애', message: `I'm Orange`, img: 'img/orange.png'},
-    { name: '노란애', message: `I'm Yellow`, img:'img/yellow.png'},
-    { name: '초록애', message: `I'm Green`, img: 'img/green.png'},
-    { name: '파란애', message: `I'm Blue`, img: 'img/blue.png'},
-    { name: '남색애', message: `I'm Navy`, img: 'img/navy.png'},
-    { name: '보라애', message: `I'm Purple`, img: 'img/purple.png'},
-]
 
-const FriendList = () => {
+
+const FriendListPage = () => {
     const [friendList, setFriendList] = useState(initialList);
-    const [text, settext] = useState('');
+    const [text, setText] = useState('');
 
     const onChangeText = (e) => {
-        settext(e.target.value);
+        setText(e.target.value);
     }
 
     return(
@@ -56,10 +48,10 @@ const FriendList = () => {
         <Input placeholder=" 이름 검색" value={text} onChange={onChangeText} />
         {friendList.map((v) => {
             if (text === ''){
-                return <FriendState props={v}/>;
+                return <FriendState props={v} where={'FriendList'}/>;
             } else {
                 if (v.name.includes(text)){
-                    return <FriendState props={v}/>;
+                    return <FriendState props={v} where={'FriendList'}/>;
                 }
             }
         })}
@@ -67,4 +59,4 @@ const FriendList = () => {
     );
 }
 
-export default FriendList;
+export default FriendListPage;
