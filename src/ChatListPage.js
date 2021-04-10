@@ -3,6 +3,10 @@ import { initialList } from './App';
 import styled from 'styled-components';
 import {IoIosText} from 'react-icons/io';
 import FriendState from './FriendState';
+
+const ChatListPageContainer = styled.div`
+    margin-left: 80px;
+`;
 const Top = styled.div`
     display: flex;
     align-items: center;
@@ -36,7 +40,7 @@ const ChatListPage = () => {
     }
 
     return(
-        <>
+        <ChatListPageContainer>
             <Top>
                 <H3>채팅</H3>
                 <Icon>
@@ -49,7 +53,7 @@ const ChatListPage = () => {
                     return <FriendState props={v} where={'ChatList'}></FriendState>
                 }
             })}
-        </>
+        </ChatListPageContainer>
     );
 }
 

@@ -5,6 +5,7 @@ import {RiKakaoTalkFill} from 'react-icons/ri'
 const SettingPageContainer = styled.div`
     display: flex;
     flex-direction: column;
+    margin-left: 70px;
     // align-items: center;
 `;
 const Top = styled.div`

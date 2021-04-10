@@ -4,6 +4,9 @@ import FriendState from './FriendState';
 import styled from 'styled-components';
 import {initialList} from './App';
 
+const FriendListPageContainer = styled.div`
+    margin-left: 80px;
+`;
 const Top = styled.div`
     display: flex;
     align-items: center;
@@ -38,7 +41,7 @@ const FriendListPage = () => {
     }
 
     return(
-        <>
+        <FriendListPageContainer>
         <Top>
             <H3>친구 {friendList.length}</H3>
             <Icon>
@@ -55,7 +58,7 @@ const FriendListPage = () => {
                 }
             }
         })}
-        </>
+        </FriendListPageContainer>
     );
 }
 

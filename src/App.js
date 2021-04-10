@@ -1,7 +1,20 @@
 import React from 'react';
+import { BrowserRouter, Link, Route} from 'react-router-dom';
 import ChatListPage from './ChatListPage';
-import FreindListPage from './FriendListPage';
+import FriendListPage from './FriendListPage';
 import SettingPage from './SettingPage';
+import styled from 'styled-components';
+
+const AppLayout = styled.ul`
+  width: 70px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  height: 100%;
+  oberflow: auto;
+  background-color: #8B6331;
+`;
 
 export const initialList = [
   { name: '검은애', message: `I'm black`, img: '/img/black.png'},
@@ -17,9 +30,24 @@ export const initialList = [
 function App() {
 
   return (
-    <>
-      <SettingPage />
-    </>
+    <BrowserRouter>
+      <AppLayout>
+        <li>
+          <Link to="/FriendListPage">친구목록</Link>
+        </li>
+        <li>
+          <Link to="/ChatListPage">채팅목록</Link>
+        </li>
+        <li>
+          <Link to="/SettingPage">설정</Link>
+        </li>
+      </AppLayout>
+      <div>
+        <Route path="/FriendListPage" component={FriendListPage} />
+        <Route path="/ChatListPage" component={ChatListPage} />
+        <Route path="/SettingPage" component={SettingPage} />
+      </div>
+    </BrowserRouter>
   );
 }
 
