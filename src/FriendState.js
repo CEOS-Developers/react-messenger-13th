@@ -22,7 +22,7 @@ const Message = styled.div`
     font-size: 12px;
 `;
 
-const FriendState = ({props}) => {
+const FriendState = ({props, where}) => {
     const {name, message, img} = props;
 
     return(
@@ -30,7 +30,7 @@ const FriendState = ({props}) => {
             <Icon src = {img} alt="img" />
             <div>
                 <Name>{name}</Name>
-                <Message>{message}</Message>
+                {where === 'FriendList' ? <Message>{message}</Message> : <></>}
             </div>
         </FriendStateContainer>
     );
