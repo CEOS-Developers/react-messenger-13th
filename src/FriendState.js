@@ -1,6 +1,7 @@
 import React,{} from 'react';
 import { ChatIcon } from './styles';
 import styled from 'styled-components';
+import ChatData from './ChatData.json';
 
 const FriendStateContainer = styled.div`
     display : flex;
@@ -24,13 +25,13 @@ const Message = styled.div`
 
 const FriendState = ({props, where}) => {
     const {id, name, message, img} = props;
-    
+    const lastChat = ChatData[id][ChatData[id].length-1].text;
     return(
         <FriendStateContainer>
             <Icon src = {img} alt="img" />
             <div>
                 <Name>{name}</Name>
-                {where === 'FriendList' ? <Message>{message}</Message> : <></>}
+                {where === 'FriendList' ? <Message>{message}</Message> : <Message>{lastChat}</Message>}
             </div>
         </FriendStateContainer>
     );

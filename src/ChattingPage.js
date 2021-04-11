@@ -5,7 +5,7 @@ import Form from './Form';
 import { GlobalStyle } from './styles';
 import styled from 'styled-components';
 import ChatData from './ChatData.json';
-import initialList from './App.js';
+import {initialList} from './App.js';
 
 const ChattingPageContainer = styled.div`
     margin-left: 70px;
@@ -19,43 +19,10 @@ const ChattingPage = ({ match }) => {
     const scrollToBottom = () => {
         scrollRef.current.scrollIntoView({block: 'end'});
     }
+    
     useEffect(() => {
-        switch(match.params.id){
-            case 'black':
-                setChatting(ChatData.black);
-                setUserName('검은애');
-                break;
-            case 'red':
-                setChatting(ChatData.red);
-                setUserName('빨간애');
-                break;
-            case 'orange':
-                setChatting(ChatData.orange);
-                setUserName('주황애');
-                break;
-            case 'yellow':
-                setChatting(ChatData.yellow);
-                setUserName('노란애');
-                break;
-            case 'green':
-                setChatting(ChatData.green);
-                setUserName('초록애');
-                break;
-            case 'blue':
-                setChatting(ChatData.blue);
-                setUserName('파란애');
-                break;
-            case 'navy':
-                setChatting(ChatData.navy);
-                setUserName('남색애');
-                break;
-            case 'purple':
-                setChatting(ChatData.purple);
-                setUserName('보라애');
-                break;
-            default:
-                console.log('no case');
-        }
+        setChatting(ChatData[match.params.id]);
+        setUserName(initialList.find(e => e.id === match.params.id).name);
     }, []);
     useEffect(() => {
         scrollToBottom();
