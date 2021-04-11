@@ -4,6 +4,7 @@ import ChatListPage from './ChatListPage';
 import FriendListPage from './FriendListPage';
 import SettingPage from './SettingPage';
 import styled from 'styled-components';
+import ChattingPage from './ChattingPage';
 
 const AppLayout = styled.ul`
   width: 70px;
@@ -17,14 +18,14 @@ const AppLayout = styled.ul`
 `;
 
 export const initialList = [
-  { name: '검은애', message: `I'm black`, img: '/img/black.png'},
-  { name: '빨간애', message: `I'm Red`, img: '/img/red.png'},
-  { name: '주황애', message: `I'm Orange`, img: 'img/orange.png'},
-  { name: '노란애', message: `I'm Yellow`, img:'img/yellow.png'},
-  { name: '초록애', message: `I'm Green`, img: 'img/green.png'},
-  { name: '파란애', message: `I'm Blue`, img: 'img/blue.png'},
-  { name: '남색애', message: `I'm Navy`, img: 'img/navy.png'},
-  { name: '보라애', message: `I'm Purple`, img: 'img/purple.png'},
+  { id: 'black', name: '검은애', message: `I'm black`, img: '/img/black.png'},
+  { id: 'red', name: '빨간애', message: `I'm Red`, img: '/img/red.png'},
+  { id: 'orange', name: '주황애', message: `I'm Orange`, img: 'img/orange.png'},
+  { id: 'yellow', name: '노란애', message: `I'm Yellow`, img:'img/yellow.png'},
+  { id: 'green', name: '초록애', message: `I'm Green`, img: 'img/green.png'},
+  { id: 'blue', name: '파란애', message: `I'm Blue`, img: 'img/blue.png'},
+  { id: 'navy', name: '남색애', message: `I'm Navy`, img: 'img/navy.png'},
+  { id: 'purple', name: '보라애', message: `I'm Purple`, img: 'img/purple.png'},
 ]
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
       </AppLayout>
       <div>
         <Route path="/FriendListPage" component={FriendListPage} />
+        <Route path={`/ChattingPage/:id`} component={ChattingPage} />
         <Route path="/ChatListPage" component={ChatListPage} />
         <Route path="/SettingPage" component={SettingPage} />
       </div>

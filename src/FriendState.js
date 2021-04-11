@@ -23,8 +23,8 @@ const Message = styled.div`
 `;
 
 const FriendState = ({props, where}) => {
-    const {name, message, img} = props;
-
+    const {id, name, message, img} = props;
+    
     return(
         <FriendStateContainer>
             <Icon src = {img} alt="img" />

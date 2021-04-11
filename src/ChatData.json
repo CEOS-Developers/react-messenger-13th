@@ -1,0 +1,58 @@
+{   
+    "black" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "red" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "orange" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "yellow" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "green" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "blue" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "navy" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ],
+    "purple" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "yikes"}
+    ]
+}

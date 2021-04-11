@@ -78,7 +78,7 @@ export const Text = styled.div`
 `
 
 export const Input = styled.input`
-    width: 80%;
+    width: 70vw;
     margin: 10px;
     margin-left: 0px;
     height: 30px;
@@ -87,7 +87,7 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
-    width: 15%;
+    width: 10vw;
     height: 35px;
     background: yellow;
     border: 0;

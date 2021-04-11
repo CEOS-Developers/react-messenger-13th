@@ -3,6 +3,7 @@ import { initialList } from './App';
 import styled from 'styled-components';
 import {IoIosText} from 'react-icons/io';
 import FriendState from './FriendState';
+import {Link} from 'react-router-dom';
 
 const ChatListPageContainer = styled.div`
     margin-left: 80px;
@@ -50,7 +51,19 @@ const ChatListPage = () => {
             <Input placeholder=" 채팅방, 참여자 검색" value={text} onChange={onChangeText} />
             {friendList.map((v) => {
                 if (text === ''){
-                    return <FriendState props={v} where={'ChatList'}></FriendState>
+                    return (
+                        <Link to={`/ChattingPage/${v.id}`}>
+                            <FriendState props={v} where={'ChatList'}/>
+                        </Link>
+                    );
+                } else {
+                    if (v.name.includes(text)){
+                        return (
+                            <Link to={`/ChattingPage/${v.id}`}>
+                                <FriendState props={v} where={'ChatList'}/>
+                            </Link>
+                        );
+                    }
                 }
             })}
         </ChatListPageContainer>

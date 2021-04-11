@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ChatIcon, ChatContainer, WhiteChat, BlackChat, Text } from './styles'
 
-const Chat = memo(({ chatting }) => {
+const Chat = memo(({ chatting, id }) => {
 
 
     return(
@@ -16,7 +16,7 @@ const Chat = memo(({ chatting }) => {
                 </WhiteChat>
                 :
                 <BlackChat key={i}>
-                    <ChatIcon src="/img/black.png" alt="img" />
+                    <ChatIcon src={`/img/${id}.png`} alt="img" />
                     <Text>
                         {v.text}
                     </Text>

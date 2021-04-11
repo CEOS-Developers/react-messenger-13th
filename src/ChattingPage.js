@@ -3,42 +3,78 @@ import Top from './Top';
 import Chat from './Chat';
 import Form from './Form';
 import { GlobalStyle } from './styles';
+import styled from 'styled-components';
+import ChatData from './ChatData.json';
+import initialList from './App.js';
 
-const initialChat = [
-    {isMe: false, text: 'hey wassup You to party tonight?'},
-    {isMe: true, text: 'I wanna go, but nah'},
-    {isMe: false, text: 'Why? I heard they prepared a lot. It must be cool'},
-    {isMe: true, text: 'My professor just uploaded a new assignment, and the due is tomorrow'},
-    {isMe: false, text: 'yikes'},
-  ]
-  
+const ChattingPageContainer = styled.div`
+    margin-left: 70px;
+`;
 
-const ChattingPage = () => {
+const ChattingPage = ({ match }) => {
     const [isMe, setIsMe] = useState(true);
-    const [chatting, setChatting] = useState(initialChat);
+    const [userName, setUserName] = useState('');
+    const [chatting, setChatting] = useState([]);
     const scrollRef = useRef();
-
     const scrollToBottom = () => {
-    scrollRef.current.scrollIntoView({block: 'end'});
+        scrollRef.current.scrollIntoView({block: 'end'});
     }
-
     useEffect(() => {
-    scrollToBottom();
+        switch(match.params.id){
+            case 'black':
+                setChatting(ChatData.black);
+                setUserName('검은애');
+                break;
+            case 'red':
+                setChatting(ChatData.red);
+                setUserName('빨간애');
+                break;
+            case 'orange':
+                setChatting(ChatData.orange);
+                setUserName('주황애');
+                break;
+            case 'yellow':
+                setChatting(ChatData.yellow);
+                setUserName('노란애');
+                break;
+            case 'green':
+                setChatting(ChatData.green);
+                setUserName('초록애');
+                break;
+            case 'blue':
+                setChatting(ChatData.blue);
+                setUserName('파란애');
+                break;
+            case 'navy':
+                setChatting(ChatData.navy);
+                setUserName('남색애');
+                break;
+            case 'purple':
+                setChatting(ChatData.purple);
+                setUserName('보라애');
+                break;
+            default:
+                console.log('no case');
+        }
+    }, []);
+    useEffect(() => {
+        scrollToBottom();
     }, [chatting]);
 
     const onClickTop = useCallback(() => {
-    setIsMe(!isMe);
+        setIsMe(!isMe);
     }, [isMe]);
     const upLoadChatting = useCallback((v) => {
-    setChatting(v);
+        setChatting(v);
     }, [])
+
     return (
-    <div ref={scrollRef}>
-        <GlobalStyle></GlobalStyle>
-        <Top isMe={isMe} onClickTop={onClickTop}/>
-        <Chat chatting={chatting} isMe={isMe} />
+    <ChattingPageContainer ref={scrollRef}>
+        {/* <GlobalStyle></GlobalStyle> */}
+        <Top isMe={isMe} onClickTop={onClickTop} id={match.params.id} userName={userName}/>
+        <Chat chatting={chatting} isMe={isMe} id={match.params.id}/>
         <Form isMe={isMe} upLoadChatting={upLoadChatting} chatting={chatting} />
-    </div>
+    </ChattingPageContainer>
     );
 }
 
