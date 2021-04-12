@@ -56,10 +56,8 @@ const App = () => {
 
 
   function handleClick() {
-    console.log('click');
     if(currentUser === 0){
       setCurrentUser(1);
-      console.log("jerer")
     }
     else{
       setCurrentUser(0);

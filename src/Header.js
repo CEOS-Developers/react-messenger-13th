@@ -32,7 +32,6 @@ export default function Header(props) {
                 <h2>{props.user.name}</h2>
                 <h3>Active Now</h3>
             </TextPosition>
-            {console.log("This is Header")}
         </StyledHeader>
     );
 }

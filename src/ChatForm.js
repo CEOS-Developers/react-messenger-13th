@@ -52,7 +52,12 @@ export default function ChatForm({submitMessage, currentUser}) {
 
     const onClick = () =>{
         setMessage('');
+        if(!message){
+            alert('Type something!');
+        }
+        else{
         submitMessage(message);
+        }
     }
 
     const onKeyPress = (e) =>{
