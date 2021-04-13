@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useRooms } from '../contexts/RoomsProvider';
 
 const StyledChatForm = styled.div`
   padding: 10px;
@@ -47,8 +48,9 @@ const SendChatButton = styled.button`
   }
 `;
 
-export default function ChatForm({ handleChatSend, activeUser }) {
+export default function ChatForm({ currentUser, selectedRoom }) {
   const [message, setMessage] = useState('');
+  const { sendMessage } = useRooms();
   
   /**
    * Event Handler: ChatInput/onChange - set state 'message' when input value changes
@@ -75,7 +77,7 @@ export default function ChatForm({ handleChatSend, activeUser }) {
     if(message === '') {
       alert("메세지를 입력 후 전송 버튼을 클릭해주세요.")
     } else {
-      handleChatSend(message);
+      sendMessage(currentUser.userId, selectedRoom.roomId, message)
       setMessage('');
     }
   }
@@ -84,7 +86,7 @@ export default function ChatForm({ handleChatSend, activeUser }) {
     <StyledChatForm>
       <ChatInput 
         type="text"
-        placeholder={ `Send as '${activeUser.name}'...` }
+        placeholder={ `${currentUser.userName} (으)로 메세지 전송` }
         value={ message }
         onChange={ handleChange }
         onKeyPress = { handleKeyPress }

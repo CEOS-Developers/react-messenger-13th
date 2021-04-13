@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ProfilePicture from './ProfilePicture';
 
-const StyledActiveUser = styled.div`
+const StyledCurrentUser = styled.div`
   width: 100%;
   max-width: 500px;
   margin: 0;
@@ -30,14 +30,14 @@ const UserStatus = styled.div`
   font-size: 0.9rem;
 `;
 
-export default function ActiveUser({ activeUser, handleActiveUserClick }) {
+export default function CurrentUser({ currentUser, handleCurrentUserClick }) {
   return (
-    <StyledActiveUser onClick={ handleActiveUserClick }>
-      <ProfilePicture userId={ activeUser.id }/>
+    <StyledCurrentUser onClick={ handleCurrentUserClick }>
+      <ProfilePicture userId={ currentUser.userId }/>
       <UserInfo>
-        <UserName>{ activeUser.name }</UserName>
-        <UserStatus>{ activeUser.status }</UserStatus>
+        <UserName>{ currentUser.userName }</UserName>
+        <UserStatus>{ currentUser.getLastActiveString() }</UserStatus>
       </UserInfo>
-    </StyledActiveUser>
+    </StyledCurrentUser>
   )
 }

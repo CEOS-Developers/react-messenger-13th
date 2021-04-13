@@ -7,28 +7,28 @@ const StyledChatContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 20px 0;
   overflow-y: auto;
 `;
 
-export default function ChatContainer({ participants, messages }) {
+export default function ChatContainer({ participants, chats, currentUser }) {
   // Ref to access chatcontainer (div)
   const chatContainerRef = useRef(null);
 
   // Scroll div to bottom when new message arrives
   useEffect(()=> {
     chatContainerRef.current.scrollBy(0, chatContainerRef.current.scrollHeight);
-  })
+  }, [chats])
 
   // Create ChatMessage component for every 'message' in 'messages'
-  const chatMessages = messages.map((message, idx) => 
-    <ChatMessage 
-      user={ participants[message.id] }
-      message={ message.msg }
-      align={ message.id === 0 ? '' : 'right' }
-      key={ idx }
-    />
-  );
+  let chatMessages = '';
+  if (chats) {
+    chatMessages = chats.map((chat, idx) => {
+      return (
+        <ChatMessage chat={chat} key={idx} currentUser={currentUser}/>
+      )
+    });
+  }
 
   return (
     <StyledChatContainer ref={ chatContainerRef }>
