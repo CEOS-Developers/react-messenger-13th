@@ -8,7 +8,6 @@ import Logout from './components/Logout';
 import Page404 from './components/Page404';
 import ContactsProvider from './contexts/ContactsProvider';
 import RoomsProvider from './contexts/RoomsProvider';
-import ServerProvider from './contexts/ServerProvider';
 import Settings from './components/Settings';
 import Home from './components/Home';
 import { BrowserRouter } from 'react-router-dom';
@@ -51,53 +50,51 @@ function App() {
   
 
   return (
-    <ServerProvider>
-      <ContactsProvider>
-        <RoomsProvider>
-          <BrowserRouter>
-            <Wrapper>
-              <Container>
-                <Navbar />
-                <Content>
-                  <Switch>
-                    <Route path="/room/:id">
-                      <RequireLogin>
-                        <ChatRoom />
-                      </RequireLogin>
-                    </Route>
-                    <Route path="/rooms">
-                      <RequireLogin>
-                        <ChatRoomList />
-                      </RequireLogin>
-                    </Route>
-                    <Route path="/friend/:id">
-                      <RequireLogin>
-                        <FriendProfile />
-                      </RequireLogin>
-                    </Route>
-                    <Route path="/friends">
-                      <RequireLogin>
-                        <FriendList />
-                      </RequireLogin>
-                    </Route>
-                    <Route path="/settings">
-                      <RequireLogin>
-                        <Settings />
-                      </RequireLogin>
-                    </Route>
-                    <Route path="/signup"><Signup /></Route>
-                    <Route path="/auth/login"><Login /></Route>
-                    <Route path="/auth/logout"><Logout /></Route>
-                    <Route exact path="/"><Home /></Route>
-                    <Route path="*"><Page404 /></Route>
-                  </Switch>
-                </Content>
-              </Container>
-            </Wrapper>
-          </BrowserRouter>
-        </RoomsProvider>
-      </ContactsProvider>
-    </ServerProvider>
+    <ContactsProvider>
+      <RoomsProvider>
+        <BrowserRouter>
+          <Wrapper>
+            <Container>
+              <Navbar />
+              <Content>
+                <Switch>
+                  <Route path="/room/:id">
+                    <RequireLogin>
+                      <ChatRoom />
+                    </RequireLogin>
+                  </Route>
+                  <Route path="/rooms">
+                    <RequireLogin>
+                      <ChatRoomList />
+                    </RequireLogin>
+                  </Route>
+                  <Route path="/friend/:id">
+                    <RequireLogin>
+                      <FriendProfile />
+                    </RequireLogin>
+                  </Route>
+                  <Route path="/friends">
+                    <RequireLogin>
+                      <FriendList />
+                    </RequireLogin>
+                  </Route>
+                  <Route path="/settings">
+                    <RequireLogin>
+                      <Settings />
+                    </RequireLogin>
+                  </Route>
+                  <Route path="/signup"><Signup /></Route>
+                  <Route path="/auth/login"><Login /></Route>
+                  <Route path="/auth/logout"><Logout /></Route>
+                  <Route exact path="/"><Home /></Route>
+                  <Route path="*"><Page404 /></Route>
+                </Switch>
+              </Content>
+            </Container>
+          </Wrapper>
+        </BrowserRouter>
+      </RoomsProvider>
+    </ContactsProvider>
   );
 }
 
