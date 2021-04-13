@@ -5,7 +5,6 @@ const ProfileImage = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 70%;
-  overflow: hidden;
   margin: 15px; 
 `;
 

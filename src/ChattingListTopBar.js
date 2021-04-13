@@ -23,9 +23,11 @@ function ChattingListTopBar({searchUser}){
   function handleChange(e) {
     setSearchUserInput(e.target.value);
   }
+
   useEffect(()=>{
     searchUser(searchUserInput);
-  });
+  },[searchUserInput]);
+
     return(
         <ChattingListContainer>
             <h1>채팅</h1>
