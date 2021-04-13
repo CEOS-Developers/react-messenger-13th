@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import TopBar from './TopBar'
-import MessageBox from './MessageBox'
-import MessageInputBar from './MessageInputBar'
+import React from 'react';
+import {
+  Route
+} from "react-router-dom";
 import styled from 'styled-components';
+import ChattingView from './MessageChattingView';
+import ChattingList from './ChattingListView';
 
 const Container = styled.div`
   display: flex;
@@ -12,22 +14,11 @@ const Container = styled.div`
 `;
 
 function App() {
-  let chattingUser = 1;
-  const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
-
-  function clickProfileImageButton(userID){
-    chattingUser=userID;
-  }
-  function clickInputButton(messageUserInput) {
-    let ID = Date.now();
-    setUserChattingMessageSet(formerMessage => [...formerMessage, {chattingUser: chattingUser, messageContext: messageUserInput, id: ID}]);
-  }
 
   return (
     <Container >
-      <TopBar clickProfileImageButton={clickProfileImageButton}/>
-      <MessageBox userChattingMessageSet={userChattingMessageSet}/>
-      <MessageInputBar clickInputButton={clickInputButton}/>
+      <Route path="/" component={ChattingList} exact={true}/>
+      <Route path="/chatting-list" component={ChattingView}/>
     </Container>
   );
 }
