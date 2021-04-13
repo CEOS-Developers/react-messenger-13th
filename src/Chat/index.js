@@ -3,6 +3,8 @@ import { useState } from 'react';
 import ChatInput from './ChatInput';
 import ChatContainer from './ChatContainer';
 import Header from './Header';
+import { userList, sampleChat } from '../SampleData';
+import { useParams } from 'react-router-dom';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,66 +16,12 @@ const StyledContainer = styled.div`
   background: #9bbbd4;
 `;
 
-const userList = [
-  {
-    id: 0,
-    img: `${process.env.PUBLIC_URL}/muji.jpg`,
-    name: '무지',
-    status: '현재 접속 중',
-  },
-  {
-    id: 1,
-    img: `${process.env.PUBLIC_URL}/corn.png`,
-    name: '콘',
-    status: '현재 접속 중',
-  },
-];
-
-const sampleChat = [
-  {
-    user: userList[0],
-    chatList: ['안녕하세요'],
-  },
-  {
-    user: userList[1],
-    chatList: [
-      '안녕하세요',
-      '저도 반갑습니다',
-      `저는 ${userList[1].name}입니다.`,
-    ],
-  },
-  {
-    user: userList[0],
-    chatList: ['안녕하세요', '반갑습니다', `저는 ${userList[0].name}입니다.`],
-  },
-  {
-    user: userList[1],
-    chatList: [
-      '안녕하세요',
-      '저도 반갑습니다',
-      `저는 ${userList[1].name}입니다.`,
-    ],
-  },
-  {
-    user: userList[0],
-    chatList: [
-      '안녕하세요',
-      '반갑습니다',
-      `테스트 입력입니다테스트 입력입니다테스트 입력입니다테스트 입력입니다`,
-    ],
-  },
-  {
-    user: userList[1],
-    chatList: [
-      '안녕하세요',
-      '저도 반갑습니다',
-      `저는 ${userList[1].name}입니다.`,
-    ],
-  },
-];
-
 export default (props) => {
+  const { id } = useParams();
+
+  console.log(id);
   console.log(props);
+
   const [currentUser, setCurrentUser] = useState(userList[0]);
   const [ownerUser, setOwnerUser] = useState(userList[0]);
   const [chatData, setChatData] = useState(sampleChat);

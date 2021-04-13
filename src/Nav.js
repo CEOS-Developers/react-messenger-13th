@@ -28,7 +28,7 @@ export default () => {
     <StyledContainer>
       <StyledList>
         <StyledListItem>
-          <Link to="/User">
+          <Link to="/user">
             <StyledListItemImage
               src={`${process.env.PUBLIC_URL}/ic_person.png`}
             />
@@ -36,7 +36,7 @@ export default () => {
         </StyledListItem>
 
         <StyledListItem>
-          <Link to="/ChatList">
+          <Link to="/chat">
             <StyledListItemImage
               src={`${process.env.PUBLIC_URL}/ic_chat.png`}
             />
@@ -44,7 +44,7 @@ export default () => {
         </StyledListItem>
 
         <StyledListItem>
-          <Link to="/Setting">
+          <Link to="/setting">
             <StyledListItemImage
               src={`${process.env.PUBLIC_URL}/ic_setting.png`}
             />
