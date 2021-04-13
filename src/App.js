@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TopBar from './TopBar'
+import MessageBox from './MessageBox'
+import MessageInputBar from './MessageInputBar'
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+`;
 
 function App() {
+  let chattingUser = 1;
+  const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
+
+  function clickProfileImageButton(userID){
+    chattingUser=userID;
+  }
+  function clickInputButton(messageUserInput) {
+    let ID = Date.now();
+    setUserChattingMessageSet(formerMessage => [...formerMessage, {chattingUser: chattingUser, messageContext: messageUserInput, id: ID}]);
+  }
+
   return (
-    <div > 12기 프론트엔드 개발팀장 투표 ^.^
-    </div>
+    <Container >
+      <TopBar clickProfileImageButton={clickProfileImageButton}/>
+      <MessageBox userChattingMessageSet={userChattingMessageSet}/>
+      <MessageInputBar clickInputButton={clickInputButton}/>
+    </Container>
   );
 }
 
