@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ChattingProfile from './ChattingProfile';
 import ChattingListTopBar from './ChattingListTopBar';
 import userProfileSet from './User'
+import MenuBar from './MenuBar'
 
 function ChattingList(){
     const [matchUserSet, setMatchUserSet] = useState(userProfileSet);
@@ -19,6 +20,7 @@ function ChattingList(){
 
     return(
         <div>
+            <MenuBar/>
             <ChattingListTopBar searchUser={searchUser}/>
             <ChattingProfile userProfileSet = {matchUserSet}/>
         </div>

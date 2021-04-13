@@ -20,9 +20,8 @@ const ProfileBubbleContainer = styled.div`
   display: flex;
   background-color:#f4f4f4;
   border-top : 1px solid #e99ba7;
-  margin-left: 5vw;
+  margin-left: 8vw;
 `;
-
 
 function ProfileBubble({profile}){
     

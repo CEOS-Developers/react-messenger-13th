@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TopBar from './MessageTopBar'
 import MessageBox from './MessageBox'
 import MessageInputBar from './MessageInputBar'
+import MenuBar from './MenuBar'
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -25,6 +26,7 @@ function ChattingView() {
 
   return (
     <Container >
+      <MenuBar/>
       <TopBar clickProfileImageButton={clickProfileImageButton}/>
       <MessageBox userChattingMessageSet={userChattingMessageSet}/>
       <MessageInputBar clickInputButton={clickInputButton}/>

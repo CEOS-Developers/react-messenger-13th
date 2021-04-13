@@ -10,6 +10,7 @@ const TopBox = styled.div`
   position: fixed;
   top: 0px;
   width: 100%;
+  margin-left: 8vw;
 `;
 
 const ProfileImageButton = styled.button`

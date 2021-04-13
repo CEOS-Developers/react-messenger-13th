@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const MessageInputContainer = styled.div`
   color: grey;
   display : flex;
-  margin: 1% 0% 0%;
+  margin: 1% 0% 0% 8vw;
   border-top : solid 1px #d16f80;
   align-items: stretch;
   position: fixed;
@@ -15,7 +15,7 @@ const MessageInputContainer = styled.div`
 
 const MessageInputBox = styled.input`
   color: grey;
-  width: 90%;
+  width: 78vw;
   height: 40px;
   margin : 1% 0% 1% 2%;
   border: 0.5px #d16f80 solid;
@@ -27,7 +27,7 @@ const MessageInputBox = styled.input`
 `;
 const MessageInputButton = styled.button`
   color: #f4f4f4;
-  width: 10%;
+  width: 9vw;
   height: 44px;
   border-radius: 10px;
   background-color: #ba4f5f;

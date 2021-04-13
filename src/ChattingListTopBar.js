@@ -7,13 +7,14 @@ const SearchChatting = styled.input`
     border:  0.5px #e99ba7 solid;
     border-radius: 7px;
     padding: 1px 1.5vw;
+    background-color: #ecd0d0;
     &:focus{
     outline: none;
   }
 `;
 
 const ChattingListContainer = styled.div`
-    padding-left : 5vw;
+    padding-left : 9vw;
     margin-bottom: 1vh;
 `;
 

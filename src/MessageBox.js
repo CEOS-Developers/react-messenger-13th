@@ -26,13 +26,14 @@ const ChattingBubble = styled.div`
 `;
 
 const ChattingContainer = styled.div`
-  width: 100%;
+  width: 92vw;
   height:available;
   flex-grow: 1;
   padding-top: 97px;
   padding-bottom: 100px;
   background-image : url(${process.env.PUBLIC_URL+'/watercolor.png'});
   background-repeat: repeat; 
+  margin-left: 8vw;
 `;
 
 function MessageBubble({chattingMessage}) {
