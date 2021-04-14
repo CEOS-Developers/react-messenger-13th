@@ -1,10 +1,11 @@
-import React from 'react';
-import {
-  Route
-} from "react-router-dom";
-import styled from 'styled-components';
-import MessageChattingView from './MessageChattingView';
-import ChattingList from './ChattingListView';
+import React from "react";
+import { Route } from "react-router-dom";
+import styled from "styled-components";
+import MessageChattingView from "./MessageChattingView";
+import ChattingList from "./ChattingListView";
+import MoreView from "./MoreView";
+import ProfileListView from "./ProfileListView";
+import MenuBar from "./MenuBar";
 
 const Container = styled.div`
   display: flex;
@@ -14,11 +15,14 @@ const Container = styled.div`
 `;
 
 function App() {
-
   return (
-    <Container >
-      <Route path="/" component={ChattingList} exact={true}/>
-      <Route path="/chatting-list/:userID" component={MessageChattingView}/>
+    <Container>
+      <Route path="/" component={MenuBar} />
+      <Route path="/profile" component={ProfileListView} />
+      <Route path="/profile-of/:userID" component={ProfileListView} />
+      <Route path="/chatting-list" component={ChattingList} />
+      <Route path="/chat-with/:userID" component={MessageChattingView} />
+      <Route path="/more" component={MoreView} />
     </Container>
   );
 }

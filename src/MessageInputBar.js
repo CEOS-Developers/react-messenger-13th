@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import styled from 'styled-components'
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const MessageInputContainer = styled.div`
   color: grey;
-  display : flex;
+  display: flex;
   margin: 1% 0% 0% 8vw;
-  border-top : solid 1px #d16f80;
+  border-top: solid 1px #d16f80;
   align-items: stretch;
   position: fixed;
   bottom: 0px;
@@ -17,11 +17,11 @@ const MessageInputBox = styled.input`
   color: grey;
   width: 78vw;
   height: 40px;
-  margin : 1% 0% 1% 2%;
+  margin: 1% 0% 1% 2%;
   border: 0.5px #d16f80 solid;
   text-align: center;
   border-radius: 30px;
-  &:focus{
+  &:focus {
     outline: none;
   }
 `;
@@ -34,19 +34,19 @@ const MessageInputButton = styled.button`
   border: 0.5px #ba4f5f solid;
   text-align: center;
   margin: 1%;
-  &:focus{
+  &:focus {
     outline: none;
   }
-  &:hover{
+  &:hover {
     background-color: #d16f80;
   }
 `;
 
 export default function MessageInputBar({ clickInputButton }) {
-  const [messageUserInput, setMessageUserInput] = useState('');
+  const [messageUserInput, setMessageUserInput] = useState("");
 
-  function enterPressed(e){
-    if(e.key === 'Enter'){
+  function enterPressed(e) {
+    if (e.key === "Enter") {
       handleClickInputButton();
     }
   }
@@ -56,21 +56,22 @@ export default function MessageInputBar({ clickInputButton }) {
   }
 
   function handleClickInputButton() {
-    if(messageUserInput !== '') {
+    if (messageUserInput !== "") {
       clickInputButton(messageUserInput);
-      setMessageUserInput('');
+      setMessageUserInput("");
     }
   }
   return (
     <MessageInputContainer>
-      <MessageInputBox 
-        placeholder="message" 
+      <MessageInputBox
+        placeholder="message"
         value={messageUserInput}
         onChange={handleChange}
         onKeyPress={enterPressed}
       />
-      <MessageInputButton onClick={handleClickInputButton}>send</MessageInputButton>
+      <MessageInputButton onClick={handleClickInputButton}>
+        send
+      </MessageInputButton>
     </MessageInputContainer>
   );
 }
-

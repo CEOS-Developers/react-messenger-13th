@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ChattingProfile from "./ChattingProfile";
-import ChattingListTopBar from "./ChattingListTopBar";
 import userProfileSet from "./User";
+import ChattingListTopBar from "./ChattingListTopBar";
+import ProfileOfUsers from "./ProfileOfUsers";
 
-function ChattingList() {
+function ProfileListView() {
   const [matchUserSet, setMatchUserSet] = useState(userProfileSet);
 
   function searchUser(searchUserInput) {
@@ -17,10 +17,10 @@ function ChattingList() {
 
   return (
     <div>
-      <ChattingListTopBar searchUser={searchUser} viewTitle={"채팅"} />
-      <ChattingProfile userProfileSet={matchUserSet} />
+      <ChattingListTopBar searchUser={searchUser} viewTitle={"프로필"} />
+      <ProfileOfUsers userProfileSet={matchUserSet} />
     </div>
   );
 }
 
-export default ChattingList;
+export default ProfileListView;
