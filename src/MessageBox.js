@@ -22,7 +22,7 @@ const ChattingContext = styled.div`
 `;
 const ChattingBubble = styled.div`
   display: flex;
-  flex-direction: ${props => (props.chattingUser === 1 ? 'row' : 'row-reverse')};
+  flex-direction: ${props => (props.chattingUser === 2 ? 'row-reverse' : 'row')};
 `;
 
 const ChattingContainer = styled.div`

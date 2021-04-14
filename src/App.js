@@ -3,7 +3,7 @@ import {
   Route
 } from "react-router-dom";
 import styled from 'styled-components';
-import ChattingView from './MessageChattingView';
+import MessageChattingView from './MessageChattingView';
 import ChattingList from './ChattingListView';
 
 const Container = styled.div`
@@ -18,7 +18,7 @@ function App() {
   return (
     <Container >
       <Route path="/" component={ChattingList} exact={true}/>
-      <Route path="/chatting-list" component={ChattingView}/>
+      <Route path="/chatting-list/:userID" component={MessageChattingView}/>
     </Container>
   );
 }

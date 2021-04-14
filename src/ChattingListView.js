@@ -15,13 +15,12 @@ function ChattingList(){
                 setMatchUserSet(matchUser => [...matchUser, userProfile]);
             }
         })
-        console.log(setMatchUserSet);
     }
 
     return(
         <div>
             <MenuBar/>
-            <ChattingListTopBar searchUser={searchUser}/>
+            <ChattingListTopBar searchUser={searchUser} />
             <ChattingProfile userProfileSet = {matchUserSet}/>
         </div>
     );

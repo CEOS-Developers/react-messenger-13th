@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
+import userProfileSet from './User'
 
 const TopBox = styled.div`
   background-color: #e99ba7;
@@ -40,29 +41,16 @@ const ProfileName = styled.div`
   font-size : 20px;
 `;
 
-export default function TopBar({clickProfileImageButton}) {
-  const [userID, setUserID] = useState(1);
+export default function TopBar({ switchUser, currentUser}) {  //전달할때 매우매우 중요함 {안에 같이}
 
-  const [userName, setUserName] = useState('송우기');
-
-  function clickImage(){
-    if(userID===1){
-      setUserID(2);
-      setUserName('AngelSuHo');
-    }
-    else{
-      setUserID(1);
-      setUserName('송우기');
-    }
+  function handleProfileImageButtonClick(){
+    switchUser();
   }
-  useEffect(()=>{
-    clickProfileImageButton(userID);
-  });
 
   return (
     <TopBox>
-      <ProfileImageButton onClick = {clickImage}><ProfileImage src={process.env.PUBLIC_URL +"/"+userID+".jpg"} alt=""/></ProfileImageButton>
-      <ProfileName>{userName}</ProfileName>
+      <ProfileImageButton onClick = {handleProfileImageButtonClick}><ProfileImage src={process.env.PUBLIC_URL +"/"+(currentUser)+".jpg"} alt=""/></ProfileImageButton>
+      <ProfileName>{userProfileSet[currentUser-1].name}</ProfileName>
     </TopBox>
   );
 }

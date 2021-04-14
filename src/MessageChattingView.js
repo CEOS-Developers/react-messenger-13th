@@ -4,6 +4,8 @@ import MessageBox from './MessageBox'
 import MessageInputBar from './MessageInputBar'
 import MenuBar from './MenuBar'
 import styled from 'styled-components';
+import { useParams } from 'react-router';
+import userProfileSet from './User'
 
 const Container = styled.div`
   display: flex;
@@ -13,21 +15,23 @@ const Container = styled.div`
 `;
 
 function ChattingView() {
-  let chattingUser = 1;
+  let {userID} = useParams();
+  const [isMe, setIsMe] = useState(true);
+  const currentUser = isMe? 2 : userID;
   const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
 
-  function clickProfileImageButton(userID){
-    chattingUser=userID;
+  function switchUser(){
+    setIsMe(!isMe);
   }
   function clickInputButton(messageUserInput) {
     let ID = Date.now();
-    setUserChattingMessageSet(formerMessage => [...formerMessage, {chattingUser: chattingUser, messageContext: messageUserInput, id: ID}]);
+    setUserChattingMessageSet(formerMessage => [...formerMessage, {chattingUser: currentUser, messageContext: messageUserInput, id: ID}]);
   }
 
   return (
     <Container >
       <MenuBar/>
-      <TopBar clickProfileImageButton={clickProfileImageButton}/>
+      <TopBar switchUser={switchUser} currentUser={currentUser}/>
       <MessageBox userChattingMessageSet={userChattingMessageSet}/>
       <MessageInputBar clickInputButton={clickInputButton}/>
     </Container>

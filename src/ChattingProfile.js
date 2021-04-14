@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState} from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 const ProfileImage = styled.img`
@@ -23,10 +24,16 @@ const ProfileBubbleContainer = styled.div`
   margin-left: 8vw;
 `;
 
-function ProfileBubble({profile}){
-    
+function ProfileBubble({profile}){  //파라미터 쓰기
+  const history=useHistory();
+  function handleProfileBubbleClick(){
+    history.push({
+      pathname: "/chatting-list/"+profile.profileImage,
+      state:{userID:profile.profileImage}
+    })
+  }
     return(
-        <ProfileBubbleContainer>
+        <ProfileBubbleContainer onClick={handleProfileBubbleClick}> 
             <ProfileImage src={process.env.PUBLIC_URL + "/"+profile.profileImage+".jpg"}/>
             <ProfileName> { profile.name } </ProfileName>
         </ProfileBubbleContainer>

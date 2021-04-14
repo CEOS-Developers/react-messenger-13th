@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MenuContainer = styled.div`
-    width: 8vw;
-    height: 100vh;
-    position: fixed;
-    background-color: #ba4f5f;
+  width: 8vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #ba4f5f;
 
 `;
 
