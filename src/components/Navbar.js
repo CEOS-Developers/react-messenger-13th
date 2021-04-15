@@ -1,6 +1,6 @@
 import React from 'react'
 import { ChatFill, GearFill, PeopleFill, PersonFill } from 'react-bootstrap-icons';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useContacts } from '../contexts/ContactsProvider';
 import { useRooms } from '../contexts/RoomsProvider';
@@ -74,6 +74,7 @@ const LinkItem = styled.div`
 export default function Navbar() {
   const { currentUser, deselectUser, userActivity } = useContacts();
   const { selectedRoom, leaveRoom, enterRoom } = useRooms();
+  const history = useHistory();
 
   const CurrentUser = () => {
     if(currentUser !== null) {
@@ -86,7 +87,8 @@ export default function Navbar() {
   const handleLogoutClick = () => {
     if(window.confirm("로그아웃하시겠습니까?")) {
       deselectUser();
-      window.location = "/auth/login";
+      // window.location = "/auth/login";
+      history.push("/auth/login");
     }
     userActivity(currentUser.userId);
   }
@@ -98,7 +100,8 @@ export default function Navbar() {
   
       leaveRoom(userId, roomId);
       userActivity(currentUser.userId);
-      window.location = '/rooms';
+      // window.location = '/rooms';
+      history.push("/rooms");
     }
   }
 
@@ -121,12 +124,12 @@ export default function Navbar() {
         <Switch>
           <Route path="/room/:id">
             <RequireLogin />
-            <h1>채팅</h1>
+            <Link to="/rooms"><h1>채팅</h1></Link>
             {selectedRoom === null 
               ? ''
               : (
                 <p>
-                  <><PeopleFill />&nbsp;{selectedRoom.participants.length}&nbsp;&nbsp;</>
+                  <><PeopleFill />&nbsp;{selectedRoom ? selectedRoom.participants.length : ''}&nbsp;&nbsp;</>
                   <button onClick={handleInviteUserClick}>초대하기</button>
                   <button onClick={handleLeaveRoomClick}>방 나가기</button>
                 </p>
@@ -141,7 +144,13 @@ export default function Navbar() {
               <button onClick={handleLogoutClick}>로그아웃</button>
             </p>
           </Route>
-          <Route path="/friend/:id">Profile</Route>
+          <Route path="/friend/:id">
+            <h1>프로필</h1>
+            <p>
+              <Link to="/friends"><button>친구 목록</button></Link>
+              <button onClick={handleLogoutClick}>로그아웃</button>
+            </p>
+          </Route>
           <Route path="/friends">
             <RequireLogin />
             <h1>친구</h1>

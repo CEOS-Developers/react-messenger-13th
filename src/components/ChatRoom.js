@@ -36,7 +36,6 @@ export default function ChatRoom() {
           currentUser={currentUser}
         />
         <ChatContainer 
-          participants={ selectedRoom.participants } 
           chats={ selectedRoom.chats }
           currentUser={currentUser}
         />

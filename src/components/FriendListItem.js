@@ -12,14 +12,6 @@ const StyledFriendListItem = styled.div`
   padding-top: 15px;
 `;
 
-// const ProfilePicture = styled.div`
-//   border-radius: 50%;
-//   background: gray;
-//   width: 60px;
-//   height: 60px;
-//   flex-shrink: 0;
-// `;
-
 const StatusIndicator = styled.div`
   border-radius: 50%;
   position: relative;

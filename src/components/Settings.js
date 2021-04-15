@@ -58,13 +58,15 @@ const StyledSettings = styled.div`
 `;
 
 export default function Settings() {
-  const { currentUser, changeUserId, changeUserName } = useContacts();
+  const { currentUser, changeUserId, changeUserName, changeStatusMsg } = useContacts();
   const [idInput, setIdInput] = useState(currentUser.userId)
   const [nameInput, setNameInput] = useState(currentUser.userName)
+  const [statusMsgInput, setStatusMsgInput] = useState(currentUser.statusMsg);
 
   const unsavedChangesExist = (
     (currentUser.userId !== idInput) ||
-    (currentUser.userName !== nameInput)
+    (currentUser.userName !== nameInput) ||
+    (currentUser.statusMsg !== statusMsgInput)
   )
 
   const handleSaveChangesClick = () => {
@@ -75,43 +77,52 @@ export default function Settings() {
       if(currentUser.userName !== nameInput) {
         changeUserName(currentUser.userId, nameInput);
       }
+      if(currentUser.statusMsg !== statusMsgInput) {
+        changeStatusMsg(currentUser.userId, statusMsgInput);
+      }
     }
-  }
-
-  const handleInputChange = (e) => {
-    if(e.target.name === 'userId') setIdInput(e.target.value);
-    if(e.target.name === 'userName') setNameInput(e.target.value);
   }
 
   return (
     <StyledSettings>
       <h2>계정 설정</h2>
       <div>
-        <label htmlFor="userId">계정 ID 입력</label>
+        <label htmlFor="userId">계정 ID</label>
         <input 
           type="text"
           name="userId"
           id="userId"
           placeholder="계정 ID 입력"
           value={idInput}
-          onChange={handleInputChange}
+          onChange={(e) => {setIdInput(e.target.value)}}
         />
       </div>
       <div>
-        <label htmlFor="userName">계정 이름 입력</label>
+        <label htmlFor="userName">계정 이름</label>
         <input 
           type="text"
           name="userName"
           id="userName"
           placeholder="계정 이름 입력"
           value={nameInput}
-          onChange={handleInputChange}
+          onChange={(e) => {setNameInput(e.target.value)}}
+        />
+      </div>
+      <div>
+        <label htmlFor="statusMsg">상태메세지</label>
+        <input 
+          type="text"
+          name="statusMsg"
+          id="statusMsg"
+          placeholder="상태메세지 입력"
+          value={statusMsgInput}
+          onChange={(e) => {setStatusMsgInput(e.target.value)}}
         />
       </div>
       <button 
         onClick={ handleSaveChangesClick }
-        class={ unsavedChangesExist ? '' : 'disabled' }
-      >변경사항 저장</button>
+        className={ unsavedChangesExist ? '' : 'disabled' }
+      >{ unsavedChangesExist ? '변경사항 저장' : '변경사항 없음' }</button>
     </StyledSettings>
   )
 }

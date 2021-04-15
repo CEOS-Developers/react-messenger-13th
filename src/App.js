@@ -4,13 +4,11 @@ import ChatRoomList from './components/ChatRoomList';
 import FriendList from './components/FriendList';
 import FriendProfile from './components/FriendProfile';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import Page404 from './components/Page404';
 import ContactsProvider from './contexts/ContactsProvider';
 import RoomsProvider from './contexts/RoomsProvider';
 import Settings from './components/Settings';
 import Home from './components/Home';
-import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import Signup from './components/Signup';
@@ -52,7 +50,6 @@ function App() {
   return (
     <ContactsProvider>
       <RoomsProvider>
-        <BrowserRouter>
           <Wrapper>
             <Container>
               <Navbar />
@@ -69,9 +66,7 @@ function App() {
                     </RequireLogin>
                   </Route>
                   <Route path="/friend/:id">
-                    <RequireLogin>
-                      <FriendProfile />
-                    </RequireLogin>
+                    <FriendProfile />
                   </Route>
                   <Route path="/friends">
                     <RequireLogin>
@@ -85,14 +80,12 @@ function App() {
                   </Route>
                   <Route path="/signup"><Signup /></Route>
                   <Route path="/auth/login"><Login /></Route>
-                  <Route path="/auth/logout"><Logout /></Route>
                   <Route exact path="/"><Home /></Route>
                   <Route path="*"><Page404 /></Route>
                 </Switch>
               </Content>
             </Container>
           </Wrapper>
-        </BrowserRouter>
       </RoomsProvider>
     </ContactsProvider>
   );

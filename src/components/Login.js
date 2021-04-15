@@ -51,7 +51,7 @@ const LoginForm = styled.form`
     cursor: pointer;
     background: #0E388A;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 
     &.secondary {
       color: #0E388A;
@@ -64,7 +64,7 @@ const LoginForm = styled.form`
       background: lightgray;
     }
     &:first-of-type {
-      margin-top: 20px;
+      margin-top: 15px;
     }
   }
 `;
@@ -95,7 +95,8 @@ export default function Login() {
     }
   }
 
-  const handleSignupButtonClick = () => {
+  const handleSignupButtonClick = (e) => {
+    e.preventDefault();
     window.location = "/signup";
   }
 

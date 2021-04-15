@@ -109,6 +109,10 @@ export default function ContactsProvider({ children }) {
     setLocalUsers(users.map(user => user.getUser()));
   }, [users, setLocalUsers])
 
+  useEffect(() => {
+    console.log(currentUser);
+  }, [currentUser]);
+
   const getUserById = useCallback((userId) => {
     const filteredUsers = users.filter(user => user.userId === userId);
     if(filteredUsers.length > 0) {
@@ -161,10 +165,13 @@ export default function ContactsProvider({ children }) {
     setUsers(prevUsers => {
       return prevUsers.map(user => {
         if (user.userId === userId) {
-          let newUser = user.getCopy();
-          newUser.userId = newUserId;
-          setCurrentUser(newUser);
-          return newUser;
+          // let newUser = user.getCopy();
+          // newUser.userId = newUserId;
+          // setCurrentUser(newUser);
+          // return newUser;
+          user.userId = newUserId;
+          setCurrentUser(user);
+          return user;
         } else {
           return user;
         }
@@ -176,10 +183,13 @@ export default function ContactsProvider({ children }) {
     setUsers(prevUsers => {
       return prevUsers.map(user => {
         if (user.userId === userId) {
-          let newUser = user.getCopy();
-          newUser.userName = newUserName;
-          setCurrentUser(newUser);
-          return newUser;
+          // let newUser = user.getCopy();
+          // newUser.userName = newUserName;
+          // setCurrentUser(newUser);
+          // return newUser;
+          user.userName = newUserName;
+          setCurrentUser(user);
+          return user;
         } else {
           return user;
         }
@@ -187,10 +197,24 @@ export default function ContactsProvider({ children }) {
     })
   }
 
+  const changeStatusMsg = (userId, newStatusMsg) => {
+    setUsers(prevUsers => (
+      prevUsers.map(user => {
+        if(user.userId === userId) {
+          user.statusMsg = newStatusMsg;
+          setCurrentUser(user);
+          return user;
+        } else {
+          return user;
+        }
+      })
+    ))
+  }
+
   const value={
     getUserById, users, setUsers, createAccount, 
     currentUser, selectUser, deselectUser,
-    userActivity, changeUserId, changeUserName, 
+    userActivity, changeUserId, changeUserName, changeStatusMsg,
   }
 
   return (

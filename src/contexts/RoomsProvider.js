@@ -194,9 +194,11 @@ export default function RoomsProvider({ children }) {
     setRooms(prevRooms => {
       return prevRooms.map(room => {
         if(room.roomId === roomId) {
-          let newRoom = room.getCopy();
-          newRoom.enterRoom(user);
-          return newRoom;
+          // let newRoom = room.getCopy();
+          // newRoom.enterRoom(user);
+          // return newRoom;
+          room.enterRoom(user);
+          return room;
         } else {
           return room;
         }
@@ -205,20 +207,29 @@ export default function RoomsProvider({ children }) {
   }
 
   const leaveRoom = (userId, roomId) => {
-    const user = getUserById(userId);
-    userActivity(currentUser.userId);
-
-    setRooms(prevRooms => {
-      return prevRooms.map(room => {
-        if(room.roomId === roomId) {
-          let newRoom = room.getCopy();
-          newRoom.leaveRoom(user);
-          return newRoom;
-        } else {
-          return room;
-        }
+    const room = getRoomById(roomId);
+    if(room.participants.length <= 1) {
+      // delete room when last participant leaves
+      setRooms(prevRooms => prevRooms.filter(room => room.roomId !== roomId));
+    } else {
+      // remove user from room
+      const user = getUserById(userId);
+  
+      setRooms(prevRooms => {
+        return prevRooms.map(room => {
+          if(room.roomId === roomId) {
+            // let newRoom = room.getCopy();
+            // newRoom.leaveRoom(user);
+            // return newRoom;
+            room.leaveRoom(user);
+            return room;
+          } else {
+            return room;
+          }
+        })
       })
-    })
+    }
+    userActivity(currentUser.userId);
   }
 
   const sendMessage = (userId, roomId, msg) => {
@@ -227,9 +238,11 @@ export default function RoomsProvider({ children }) {
       return prevRooms.map(room => {
         if(room.roomId === roomId) {
           const user = getUserById(userId);
-          let newRoom = room.getCopy();
-          newRoom.sendChat(user, msg);
-          return newRoom;
+          // let newRoom = room.getCopy();
+          // newRoom.sendChat(user, msg);
+          // return newRoom;
+          room.sendChat(user, msg);
+          return room;
         } else {
           return room;
         }
@@ -238,7 +251,7 @@ export default function RoomsProvider({ children }) {
   }
 
   const createRoom = (roomName, participantUserIds) => {
-    // console.log(`createRoom(${roomName}, ${participantUserIds})`)
+    console.log(`createRoom(${roomName}, ${participantUserIds})`)
     let createRoomFail = false;
     let notFoundUserIds = [];
     const participants = participantUserIds.map(userId => {
@@ -256,8 +269,11 @@ export default function RoomsProvider({ children }) {
       }
       err_msg += ')';
       alert(err_msg);
+      return null;
     } else {
-      setRooms(prevRooms => [...prevRooms, new Room(roomName, participants)]);
+      let newRoom = new Room(roomName, participants);
+      setRooms(prevRooms => [...prevRooms, newRoom]);
+      return newRoom.roomId;
     }
   }
 

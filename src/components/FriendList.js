@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useContacts } from '../contexts/ContactsProvider'
 import styled from 'styled-components';
 import FriendListItem from './FriendListItem';
+import { Link } from 'react-router-dom';
 
 const StyledFriendList = styled.div`
   display: flex;
@@ -70,7 +71,9 @@ export default function FriendList() {
           <>
             <h2>내 프로필</h2>
             {filteredUsers.filter(user => user.userId === currentUser.userId).map((user, idx) => (
-              <FriendListItem user={user} key={idx}/>
+              <Link to={`/friend/${user.userId}`} key={idx}>
+                <FriendListItem user={user} key={idx}/>
+              </Link>
             ))}
             <h2>친구({filteredUsers.length - 1})</h2>
           </>
@@ -78,7 +81,9 @@ export default function FriendList() {
         : ('')
       }
       {filteredUsers.filter((user) => user.userId !== currentUser.userId).map((user, idx) => (
-        <FriendListItem user={user} key={idx}/>
+        <Link to={`/friend/${user.userId}`} key={idx}>
+          <FriendListItem user={user} />
+        </Link>
       ))}
     </StyledFriendList>
   )

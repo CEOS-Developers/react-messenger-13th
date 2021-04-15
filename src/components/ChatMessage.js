@@ -50,7 +50,7 @@ export default function ChatMessage({ chat, currentUser }) {
   if(chat.type === 'chat') {
     return (
       <StyledChatMessage className={ chat.user.userId === currentUser.userId ? 'fromMe' : '' }>
-        <ProfilePicture userId={chat.user.userId} variant="right"/>
+        <ProfilePicture userId={chat.user.userId} variant={ chat.user.userId === currentUser.userId ? "right" : "" }/>
         <MessageContainer>
           <UserName>{ chat.user.userName }</UserName>
           <Message>{ chat.content }</Message>

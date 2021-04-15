@@ -11,7 +11,7 @@ const StyledChatContainer = styled.div`
   overflow-y: auto;
 `;
 
-export default function ChatContainer({ participants, chats, currentUser }) {
+export default function ChatContainer({ chats, currentUser }) {
   // Ref to access chatcontainer (div)
   const chatContainerRef = useRef(null);
 
