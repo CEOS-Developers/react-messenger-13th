@@ -19,7 +19,6 @@ function App() {
     <Container>
       <Route path="/" component={MenuBar} />
       <Route path="/profile" component={ProfileListView} />
-      <Route path="/profile-of/:userID" component={ProfileListView} />
       <Route path="/chatting-list" component={ChattingList} />
       <Route path="/chat-with/:userID" component={MessageChattingView} />
       <Route path="/more" component={MoreView} />

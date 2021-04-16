@@ -1,22 +1,17 @@
 import React from "react";
-import { useHistory } from "react-router";
 import {
   ProfileImage,
   ProfileName,
   ProfileBubbleContainer,
 } from "./ChattingProfile";
 
-function ProfileBubble({ profile }) {
-  //파라미터 쓰기
-  const history = useHistory();
-  function handleProfileClick() {
-    history.push({
-      pathname: "/profile-of/:userID" + profile.profileImage,
-      state: { userID: profile.profileImage },
-    });
+function ProfileBubble({ profile, handleModal }) {
+  function profileClicked() {
+    handleModal(profile);
   }
+  //파라미터 쓰기
   return (
-    <ProfileBubbleContainer onClick={handleProfileClick}>
+    <ProfileBubbleContainer onClick={profileClicked}>
       <ProfileImage
         src={process.env.PUBLIC_URL + "/" + profile.profileImage + ".jpg"}
       />
@@ -25,11 +20,11 @@ function ProfileBubble({ profile }) {
   );
 }
 
-function ProfileOfUsers({ userProfileSet }) {
+function ProfileOfUsers({ userProfileSet, handleModal }) {
   return (
     <div>
       {userProfileSet.map((profile, id) => (
-        <ProfileBubble profile={profile} key={id} />
+        <ProfileBubble profile={profile} key={id} handleModal={handleModal} />
       ))}
     </div>
   );
