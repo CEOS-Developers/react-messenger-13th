@@ -8,7 +8,6 @@ export const TopContainer = styled.div`
     padding-left: 15px;
     height: 80px;
     width: 265px;
-    border-bottom: solid 1px;
 `;
 
 export const TopIcon = styled.img`
