@@ -1,5 +1,4 @@
 import React,{} from 'react';
-import { ChatIcon } from './styles';
 import styled from 'styled-components';
 import ChatData from './ChatData.json';
 

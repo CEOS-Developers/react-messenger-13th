@@ -1,6 +1,31 @@
 import React, {memo, useState} from 'react';
-import { StyledForm, Input, Button } from './styles';
+import styled from "styled-components";
 
+export const StyledForm = styled.form`
+display: flex;
+width: 270px;
+// padding-left: 15px;
+// background: white;
+// justify-content: center;
+white-space: nowrap;
+align-items: center;
+align-self: flex-end;
+`
+export const Input = styled.input`
+    width: 70vw;
+    margin: 10px;
+    margin-left: 0px;
+    height: 30px;
+    border: solid 1px #dcdcdc;
+    border-radius: 10%;
+`
+export const Button = styled.button`
+    width: 10vw;
+    height: 35px;
+    background: yellow;
+    border: 0;
+    border-radius: 20px;
+`
 const Form = memo(({ isMe, upLoadChatting, chatting }) => {
     const [text, setText] = useState('');
 

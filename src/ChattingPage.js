@@ -17,18 +17,11 @@ const ChattingPage = ({ match }) => {
     const [isMe, setIsMe] = useState(true);
     const [userName, setUserName] = useState('');
     const [chatting, setChatting] = useState([]);
-    const scrollRef = useRef(null);
-    // const scrollToBottom = () => {
-    //     scrollRef.current.scrollIntoView({block: 'end'});
-    // }
     
     useEffect(() => {
         setChatting(ChatData[match.params.id]);
         setUserName(initialList.find(e => e.id === match.params.id).name);
     }, []);
-    useEffect(() => {
-        scrollRef.current.scrollBy(0, scrollRef.current.scrollHeight);
-    }, [chatting]);
 
     const onClickTop = useCallback(() => {
         setIsMe(!isMe);
@@ -38,7 +31,7 @@ const ChattingPage = ({ match }) => {
     }, [])
 
     return (
-    <ChattingPageContainer ref={scrollRef}>
+    <ChattingPageContainer>
         <Top isMe={isMe} onClickTop={onClickTop} id={match.params.id} userName={userName}/>
         <Chat chatting={chatting} isMe={isMe} id={match.params.id}/>
         <Form isMe={isMe} upLoadChatting={upLoadChatting} chatting={chatting} />
