@@ -1,0 +1,58 @@
+{   
+    "black" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "안녕하세요"}
+    ],
+    "red" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "이 화면에서"}
+    ],
+    "orange" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "이름 아래 뜨는 텍스트는"}
+    ],
+    "yellow" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "채팅방에서"}
+    ],
+    "green" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "마지막으로 한 대화입니다"}
+    ],
+    "blue" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "어우 피곤해"}
+    ],
+    "navy" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "살려주세요"}
+    ],
+    "purple" : [
+        {"isMe": false, "text": "hey wassup You to party tonight?"},
+        {"isMe": true, "text": "I wanna go, but nah"},
+        {"isMe": false, "text": "Why? I heard they prepared a lot. It must be cool"},
+        {"isMe": true, "text": "My professor just uploaded a new assignment, and the due is tomorrow"},
+        {"isMe": false, "text": "보라색과 한 마지막 대화"}
+    ]
+}
