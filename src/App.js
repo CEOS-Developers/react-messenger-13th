@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     margin: 0;
+    background: orange;
   }
 `;
 
@@ -32,10 +33,14 @@ const AppLayout = styled.ul`
 const AppContainer = styled.div`
   width: 350px;
   height: 550px;
-  border: solid;
+  // border: solid;
+  // border-width: 1px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  background: white;
   overflow: auto;
 
 `;

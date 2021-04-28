@@ -2,14 +2,11 @@ import React, {memo, useState} from 'react';
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-display: flex;
-width: 270px;
-// padding-left: 15px;
-// background: white;
-// justify-content: center;
-white-space: nowrap;
-align-items: center;
-align-self: flex-end;
+    display: flex;
+    width: 270px;
+    white-space: nowrap;
+    align-items: center;
+    align-self: flex-end;
 `
 export const Input = styled.input`
     width: 70vw;
@@ -25,6 +22,7 @@ export const Button = styled.button`
     background: yellow;
     border: 0;
     border-radius: 20px;
+    margin-right: 5px;
 `
 const Form = memo(({ isMe, upLoadChatting, chatting }) => {
     const [text, setText] = useState('');
