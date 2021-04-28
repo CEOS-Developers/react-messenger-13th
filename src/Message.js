@@ -34,14 +34,12 @@ const Message = (props) => {
             <div>
                {message.text}
             </div>
-            {console.log("This is Message")}
         </StyledMessage> :
             <StyledMessage {...props}>
             <img src={process.env.PUBLIC_URL+"profile2.jpg"} alt="transmitter"/>
             <div>
                 {message.text}
             </div>
-            {console.log("This is Message")}
         </StyledMessage> 
     );
 }

@@ -19,7 +19,6 @@ const StyledChatContainer = styled.div`
 const ChatContainer = ({ message, user }) => {
     
   useEffect(() => {
-    console.log("Hello")
     window.scrollBy(0, document.body.scrollHeight);
 })
     return(
@@ -28,7 +27,6 @@ const ChatContainer = ({ message, user }) => {
             {message.map(text_input =>(
                 <Message message={text_input} key={text_input.id} user={user}/>
             ))}
-            {console.log("This is ChatContainer")}
         </StyledChatContainer>
         
     );
