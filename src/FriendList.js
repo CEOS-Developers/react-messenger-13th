@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import UserLists from './UserID';
 import styled from 'styled-components';
+import UserID from './UserID';
+
 
 const StyledProfileImg = styled.div`
     display: flex;
@@ -40,22 +42,45 @@ const StyledHeader = styled.div`
 `;
 
 function FreindList(){
+    const [searchInput, setSearchInput] = useState('');
+    const onChange = (e) =>{
+        setSearchInput(e.target.value);
+    }
+    /*
+    const onSearch = () =>{
+        UserLists.map(id =>(
+            (id.name.includes(searchInput)?
+            <StyledProfileImg>
+               <img src={id.img} alt="friendImg"></img>
+               <h3>{id.name}</h3>
+            </StyledProfileImg> : ''
+            
+        ))
+            
+    }
+    */
+
     return(
         <div>
         <StyledHeader>
         <img src={UserLists[1].img} alt="myImg"></img>
         <div>
         <h2>이소정</h2>
-        <input placeholder="사용자 검색" type="text"/>
+        <input placeholder="사용자 검색" type="text" onChange={onChange}/>
         </div>
         </StyledHeader>
-        
-        {UserLists.map(id =>(
+        {UserLists.map(id =>{
+            if(id.name.includes(searchInput)){
+            return(
             <StyledProfileImg>
                <img src={id.img} alt="friendImg"></img>
                <h3>{id.name}</h3>
             </StyledProfileImg>
-        ))}
+            );
+            }
+            
+        })}
+            
         </div>
     );
 }

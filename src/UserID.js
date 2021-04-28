@@ -36,7 +36,7 @@ const UserLists = [
     }
     ];
 
-/*
+
 function UserID(props){
 const UserLists = [
     {
@@ -61,5 +61,5 @@ const UserLists = [
         </StyledProfileImg>
     );
 }
-*/
+
 export default UserLists;
