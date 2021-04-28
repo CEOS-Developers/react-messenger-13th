@@ -6,7 +6,7 @@ import FriendState from './FriendState';
 import {Link} from 'react-router-dom';
 
 const ChatListPageContainer = styled.div`
-    margin-left: 80px;
+    margin-left: 70px;
 `;
 const Top = styled.div`
     display: flex;
@@ -31,6 +31,11 @@ const Input = styled.input`
     display: block;
 `;
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+`;
+
 
 const ChatListPage = () => {
     const friendList = initialList;
@@ -52,9 +57,9 @@ const ChatListPage = () => {
             {friendList.map((v) => {
                 if (text === ''){
                     return (
-                        <Link to={`/ChattingPage/${v.id}`}>
+                        <StyledLink to={`/ChattingPage/${v.id}`}>
                             <FriendState props={v} where={'ChatList'}/>
-                        </Link>
+                        </StyledLink>
                     );
                 } else {
                     if (v.name.includes(text)){

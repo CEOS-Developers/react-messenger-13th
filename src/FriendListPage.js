@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {initialList} from './App';
 
 const FriendListPageContainer = styled.div`
-    margin-left: 80px;
+    margin-left: 70px;
 `;
 const Top = styled.div`
     display: flex;

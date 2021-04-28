@@ -15,11 +15,10 @@ const Top = styled.div`
     justify-content: space-between;
 `;
 const H3 = styled.h3`
-
     padding-left: 10px;
 `;
 const Ver = styled.div`
-    
+    padding-right: 10px;
 `;
 const Icon = styled.div`
     display: flex;

@@ -9,13 +9,10 @@ export const GlobalStyle = createGlobalStyle`
 export const TopContainer = styled.div`
     background: #dcdcdc;
     display: flex;
-    justify-content: start;
     align-items: center;
     padding-left: 15px;
     height: 80px;
-    position: fixed;
-    top: 0px;
-    width: 100%;
+    width: 265px;
     border-bottom: solid 1px;
 `;
 
@@ -56,8 +53,8 @@ export const ChatIcon = styled.img`
 export const ChatContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
-    padding-bottom: 50px;
+    height: 415px;
+    overflow-y: scroll;
 `
 
 export const Text = styled.div`
@@ -68,13 +65,13 @@ export const Text = styled.div`
 
  export const StyledForm = styled.form`
     display: flex;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    background: white;
-    justify-content: center;
+    width: 270px;
+    // padding-left: 15px;
+    // background: white;
+    // justify-content: center;
     white-space: nowrap;
     align-items: center;
+    align-self: flex-end;
 `
 
 export const Input = styled.input`

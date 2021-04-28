@@ -1,11 +1,15 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { ChatIcon, ChatContainer, WhiteChat, BlackChat, Text } from './styles'
 
 const Chat = memo(({ chatting, id }) => {
+    const scrollRef = useRef(null);
 
+    useEffect(() => {
+        scrollRef.current.scrollBy(0, scrollRef.current.scrollHeight);
+    }, [chatting]);
 
     return(
-        <ChatContainer>
+        <ChatContainer ref={scrollRef}>
             {chatting.map((v,i) => {
                 return v.isMe ? 
                 <WhiteChat key={i}>
