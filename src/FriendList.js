@@ -7,10 +7,7 @@ import UserID from './UserID';
 const StyledProfileImg = styled.div`
     display: flex;
     flex-direction: row;
-    & h3 {
-        display: flex;
-        align-items: center;
-    }
+    
     & img {
         margin: 20px;
         margin-left: 150px;
@@ -19,6 +16,30 @@ const StyledProfileImg = styled.div`
         height:80px;
         box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
   0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+    }
+    & h5 {
+        color: grey;
+        margin-left: 20px;
+    }
+    & a {
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+    }
+    & profilemusic {
+        height: 30px;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 2px solid pink;
+        border-radius: 7px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: 10px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 `;
 
@@ -46,6 +67,13 @@ const StyledHeader = styled.div`
         border-radius: 10px;
         border: 1px solid #ffcdd2;
     }
+`;
+
+const StyledProfileMusic = styled.div`
+    height: 10px;
+    width: 30px;
+    border: 2px solid pink;
+    background-color: white;
 `;
 
 function FreindList(){
@@ -81,7 +109,14 @@ function FreindList(){
             return(
             <StyledProfileImg>
                <img src={id.img} alt="friendImg"></img>
+               <a>
                <h3>{id.name}</h3>
+               <h5>{id.statusMessage}</h5>
+               </a>
+                {id.profileMusic?
+                        <profilemusic>♬ {id.profileMusic}</profilemusic>:<></>
+                }
+               
             </StyledProfileImg>
             );
             }

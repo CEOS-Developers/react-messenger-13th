@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {FiSend} from 'react-icons/fi';
 import {BsFillPeopleFill} from 'react-icons/bs'
-import {IoMdSettings} from 'react-icons/io'
 import {BsThreeDots} from 'react-icons/bs';
 const StyledNavigationBar = styled.div`
 position: fixed;

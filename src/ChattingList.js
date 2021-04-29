@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import UserLists from './UserID';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import {FiSend} from 'react-icons/fi';
 
 
 const StyledProfileImg = styled.div`
@@ -10,7 +11,7 @@ const StyledProfileImg = styled.div`
     & h3 {
         display: flex;
         align-items: center; 
-        color: pink;
+        color: black;
         text-decoration: none;
     }
     & img {
@@ -71,7 +72,7 @@ function ChattingList(){
             <Link to={`/chatting-screen/${id.id}`}>
             <StyledProfileImg userID = {id.id}>
                <img src={id.img} alt="friendImg"></img>
-               <h3>{id.name}</h3>
+               <h3>{id.name}<FiSend></FiSend></h3>
             </StyledProfileImg>
             </Link>
             );

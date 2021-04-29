@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-    background-color: #ffcdd2;
+    background: linear-gradient(pink, papayawhip);;
     display : flex;
     flex-direction : row;
     float: right;
     margin-left: 119px;
     width: 91%;
     position: fixed;
-    border-radius: 30px;
     color: #f06292;
     
     & img {
