@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {AiFillMessage} from 'react-icons/ai';
+import {FiSend} from 'react-icons/fi';
 import {BsFillPeopleFill} from 'react-icons/bs'
 import {IoMdSettings} from 'react-icons/io'
+import {BsThreeDots} from 'react-icons/bs';
 const StyledNavigationBar = styled.div`
 position: fixed;
 left: 10px;
@@ -16,7 +17,8 @@ box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
 border-radius: 5px;
 height: 100%;
 width: 70px;
-font-size: 70px;
+font-size: 60px;
+color: #e60073;
 `;
 
 function Navigation() {
@@ -27,10 +29,10 @@ function Navigation() {
                 <BsFillPeopleFill></BsFillPeopleFill>
             </Link><br></br>
             <Link to="/chatting-list">
-                <AiFillMessage></AiFillMessage>
+                <FiSend></FiSend>
             </Link><br></br>
             <Link to="/setting-page">
-                <IoMdSettings></IoMdSettings>
+                <BsThreeDots></BsThreeDots>
             </Link><br></br>
         </div>
         </StyledNavigationBar>
