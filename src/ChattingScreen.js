@@ -5,7 +5,7 @@ import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
 import Navigation from './Navigation';
 import UserLists from './UserID';
-import StyledProfileImg from './ChattingList';
+
 
 const ChattingScreen = () => {
   const { id } = useParams();

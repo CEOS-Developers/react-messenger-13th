@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import UserLists from './UserID';
 import styled from 'styled-components';
-import ChattingScreen from './ChattingScreen';
 import { Link } from 'react-router-dom';
 
 
