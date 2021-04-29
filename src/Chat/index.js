@@ -3,7 +3,6 @@ import { useState } from 'react';
 import ChatInput from './ChatInput';
 import ChatContainer from './ChatContainer';
 import Header from './Header';
-import { userList, sampleChat } from '../SampleData';
 import { useParams } from 'react-router-dom';
 
 const StyledContainer = styled.div`
@@ -40,10 +39,15 @@ export default ({ datas }) => {
       const newChatData = [...chatData, nextChatItem];
       setChatData(newChatData);
     }
+    data.chatList = chatData;
   };
 
   const toggleCurrentUser = () => {
-    setCurrentUser(currentUser.id === 0 ? userList[1] : userList[0]);
+    setCurrentUser(
+      currentUser.id === data.userList[0].id
+        ? data.userList[1]
+        : data.userList[0]
+    );
   };
 
   return (

@@ -37,52 +37,8 @@ export const userList = [
   },
 ];
 
-export const sampleChat = [
-  {
-    user: userList[0],
-    chatList: ['안녕하세요'],
-  },
-  {
-    user: userList[1],
-    chatList: [
-      '안녕하세요',
-      '저도 반갑습니다',
-      `저는 ${userList[1].name}입니다.`,
-    ],
-  },
-  {
-    user: userList[0],
-    chatList: ['안녕하세요', '반갑습니다', `저는 ${userList[0].name}입니다.`],
-  },
-  {
-    user: userList[1],
-    chatList: [
-      '안녕하세요',
-      '저도 반갑습니다',
-      `저는 ${userList[1].name}입니다.`,
-    ],
-  },
-  {
-    user: userList[0],
-    chatList: [
-      '안녕하세요',
-      '반갑습니다',
-      `테스트 입력입니다테스트 입력입니다테스트 입력입니다테스트 입력입니다`,
-    ],
-  },
-  {
-    user: userList[1],
-    chatList: [
-      '안녕하세요',
-      '저도 반갑습니다',
-      `저는 ${userList[1].name}입니다.`,
-    ],
-  },
-];
-
 export const sampleChatList = [
   {
-    id: 0,
     userList: [userList[0], userList[1]],
     chatList: [
       {
@@ -92,7 +48,6 @@ export const sampleChatList = [
     ],
   },
   {
-    id: 1,
     userList: [userList[0], userList[2]],
     chatList: [
       {
@@ -102,7 +57,6 @@ export const sampleChatList = [
     ],
   },
   {
-    id: 2,
     userList: [userList[0], userList[3]],
     chatList: [
       {
@@ -112,7 +66,6 @@ export const sampleChatList = [
     ],
   },
   {
-    id: 3,
     userList: [userList[0], userList[3]],
     chatList: [
       {

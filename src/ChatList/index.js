@@ -51,9 +51,9 @@ const List = ({ chatList }) => {
           });
 
     setChatItemComponents(
-      filteredList.map((item) => {
+      filteredList.map((item, index) => {
         return (
-          <Link to={`Chat/${item.id}`}>
+          <Link to={`Chat/${index}`}>
             <ChatListItem item={item} />
           </Link>
         );
