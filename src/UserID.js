@@ -12,7 +12,7 @@ const UserLists = [
     {
         id: 0,
         name: "현재",
-        img: "profile2.jpg",
+        img: "profile0.jpg",
       },
       {
         id: 1,
@@ -22,17 +22,17 @@ const UserLists = [
       {
           id: 2,
           name: "묭이",
-          img: "profile3.jpg"
+          img: "profile2.jpg"
       },
       {
         id: 3,
         name: "영이",
-        img: "profile4.jpg"
+        img: "profile3.jpg"
       },
       {
         id: 4,
         name: "졍이",
-        img: "profile5.jpg"
+        img: "profile4.jpg"
     }
     ];
 

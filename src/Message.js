@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledMessage = styled.div`
     
     display: flex;
-    flex-direction: ${props => props.message.isUser? "row-reverse" : "row"};
+    flex-direction: ${props => props.message.isUser===1? "row-reverse" : "row"};
     & div {
         background-color: white;
         border : 1px solid pink;
@@ -28,7 +28,7 @@ const Message = (props) => {
     const {message, user} = props;
     
     return (
-        message.isUser ? 
+        message.receiver===1 ? 
         <StyledMessage {...props}>
             <img src={process.env.PUBLIC_URL+"profile1.jpg"} alt="transmitter"/>
             <div>
@@ -36,7 +36,7 @@ const Message = (props) => {
             </div>
         </StyledMessage> :
             <StyledMessage {...props}>
-            <img src={process.env.PUBLIC_URL+"profile2.jpg"} alt="transmitter"/>
+            <img src={process.env.PUBLIC_URL+"profile"+message.isUser+".jpg"} alt="transmitter"/>
             <div>
                 {message.text}
             </div>

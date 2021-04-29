@@ -1,47 +1,97 @@
 import React, {useState} from 'react';
+import { useParams } from 'react-router';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
 import Navigation from './Navigation';
+import UserLists from './UserID';
+import StyledProfileImg from './ChattingList';
 
 const ChattingScreen = () => {
+  const { id } = useParams();
+  // const id = useParams().id;
+
   const [currentUser, setCurrentUser] = useState(1)
   const [message,setMessage] = useState([
     {
       id: 1,
       text: "Hi",
-      isUser: 0
+      isUser: 0,
+      receiver: 0
     },
     {
       id: 2,
       text: "Hello",
-      isUser: 1
+      isUser: 1,
+      receiver: 0
     },
     {
       id: 3,
       text: "What do you do today?",
-      isUser: 1
+      isUser: 1,
+      receiver: 0
     },
     {
       id: 4,
       text: "I'm standing on the concert. Would you come? I already left a ticket for you!",
-      isUser: 0
+      isUser: 0, 
+      receiver: 0
     },
     {
       id: 5,
       text: "Of course!!!! I'm eagerly waiting for it!!",
-      isUser: 1
+      isUser: 1,
+      receiver: 0
+    },
+    {
+      id: 1,
+      text: "Hi",
+      isUser: 2,
+      receiver: 2
+    },
+    {
+      id: 2,
+      text: "Hello",
+      isUser: 1,
+      receiver: 2
+    },
+    {
+      id: 1,
+      text: "Hi",
+      isUser: 3,
+      receiver: 3
+    },
+    {
+      id: 2,
+      text: "Hello",
+      isUser: 1,
+      receiver: 3
+    },
+    {
+      id: 1,
+      text: "Hi",
+      isUser: 4,
+      receiver: 4
+    },
+    {
+      id: 2,
+      text: "Hello",
+      isUser: 1,
+      receiver: 4
     },
   ]);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({
       id: new Date(),
       text: sendText,
-      isUser: currentUser
+      isUser: currentUser,
+      receiver: parseInt(id)
     })
     setMessage(newMessage);
   }
-  const users = [
+  const users = UserLists;
+  /*[
+    
   {
     id: 0,
     name: "THE BOYZ",
@@ -52,16 +102,18 @@ const ChattingScreen = () => {
     name: "KATHERINE",
     img: "profile1.jpg",
   },
-  ];
-  const [user,setUsers] = useState(users[0]);  
+  
+ {UserLists}
+  ];*/
+  const [user,setUsers] = useState(0);  
 
 
   function handleClick() {
-    if(currentUser === 0){
-      setCurrentUser(1);
+    if(currentUser === 1){
+      setCurrentUser(parseInt(id));
     }
     else{
-      setCurrentUser(0);
+      setCurrentUser(1);
     }
   }
   return (
@@ -72,7 +124,7 @@ const ChattingScreen = () => {
         <Header user={users[currentUser]} />
       </div>
       <Navigation/>
-      <ChatContainer message={message} user={user}/>
+      <ChatContainer message={message.filter( m => m.receiver === parseInt(id))} user={user}/>
      
       <ChatForm submitMessage={submitMessage} {...{currentUser}}/>
     </div>

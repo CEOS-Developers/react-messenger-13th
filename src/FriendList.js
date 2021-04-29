@@ -70,7 +70,7 @@ function FreindList(){
         </div>
         </StyledHeader>
         {UserLists.map(id =>{
-            if(id.name.includes(searchInput)){
+            if(id.name.includes(searchInput) && id.id!==1){
             return(
             <StyledProfileImg>
                <img src={id.img} alt="friendImg"></img>

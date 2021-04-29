@@ -8,6 +8,8 @@ const StyleChatForm = styled.div`
     width: 100%;
     left: 0;
     right: 0;
+    position: fixed;
+    
     & div{
         display: flex;
         flex-direction: row;
