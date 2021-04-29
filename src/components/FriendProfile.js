@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, Redirect, useParams, useHistory } from 'react-router-dom';
+import React from 'react'
+import { Link, useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useContacts } from '../contexts/ContactsProvider';
 import { useRooms } from '../contexts/RoomsProvider';
@@ -84,7 +84,6 @@ export default function FriendProfile() {
   const { getUserById, currentUser } = useContacts();
   const { rooms, createRoom } = useRooms();
   const user = getUserById(id);
-  const [redirectTo, setRedirectTo] = useState(null);
 
   const handleChatWithUserClick = () => {
     let roomAlreadyExists = false;
@@ -112,7 +111,6 @@ export default function FriendProfile() {
 
   return (
     <StyledFriendProfile>
-      {redirectTo === null ? '' : <Redirect to={redirectTo}/>}
       <ProfilePicture 
         src={process.env.PUBLIC_URL + '/profile-pictures/' + user.userId + '.jpg'} 
         alt="Profile Picture"
