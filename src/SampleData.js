@@ -1,4 +1,4 @@
-export const userList = [
+export const sampleUserList = [
   {
     id: 0,
     img: `${process.env.PUBLIC_URL}/muji.jpg`,
@@ -39,37 +39,37 @@ export const userList = [
 
 export const sampleChatList = [
   {
-    userList: [userList[0], userList[1]],
+    userList: [sampleUserList[0], sampleUserList[1]],
     chatList: [
       {
-        user: userList[0],
+        user: sampleUserList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
   },
   {
-    userList: [userList[0], userList[2]],
+    userList: [sampleUserList[0], sampleUserList[2]],
     chatList: [
       {
-        user: userList[0],
+        user: sampleUserList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
   },
   {
-    userList: [userList[0], userList[3]],
+    userList: [sampleUserList[0], sampleUserList[3]],
     chatList: [
       {
-        user: userList[0],
+        user: sampleUserList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
   },
   {
-    userList: [userList[0], userList[3]],
+    userList: [sampleUserList[0], sampleUserList[3]],
     chatList: [
       {
-        user: userList[0],
+        user: sampleUserList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],

@@ -4,7 +4,7 @@ import User from './User/index';
 import Setting from './Setting/index';
 import Nav from './Nav';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { sampleChatList } from './SampleData';
+import { sampleChatList, sampleUserList } from './SampleData';
 import { useState } from 'react';
 
 const StyledGlobal = createGlobalStyle`
@@ -21,6 +21,7 @@ const StyledContainer = styled.div`
 
 export default () => {
   const [chatList, setChatList] = useState(sampleChatList);
+  const [userList, setUserList] = useState(sampleUserList);
 
   return (
     <Router>
@@ -36,7 +37,10 @@ export default () => {
         </Switch>
 
         <Switch>
-          <Route path="/user" component={User} />
+          <Route
+            path="/user"
+            render={(props) => <User {...props} userList={userList} />}
+          />
           <Route
             path="/chat"
             render={(props) => <ChatList {...props} chatList={chatList} />}
