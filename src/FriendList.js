@@ -65,7 +65,7 @@ function FreindList(){
         <StyledHeader>
         <img src={UserLists[1].img} alt="myImg"></img>
         <div>
-        <h2>이소정</h2>
+        <h2>{UserLists[1].name}</h2>
         <input placeholder="사용자 검색" type="text" onChange={onChange}/>
         </div>
         </StyledHeader>

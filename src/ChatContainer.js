@@ -6,9 +6,9 @@ import Message from './Message';
 const StyledChatContainer = styled.div`
         display: flex;
         flex-direction: column;
-        
+        float: right;
         height: 100%;
-        width: 100%;
+        width: 92%;
         padding-top: 150px;
         padding-bottom: 70px;
         background: beige;

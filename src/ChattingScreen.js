@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Header from './Header';
 import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
+import Navigation from './Navigation';
 
 const ChattingScreen = () => {
   const [currentUser, setCurrentUser] = useState(1)
@@ -56,21 +57,21 @@ const ChattingScreen = () => {
 
 
   function handleClick() {
-    console.log('click');
     if(currentUser === 0){
       setCurrentUser(1);
-      console.log("jerer")
     }
     else{
       setCurrentUser(0);
     }
   }
   return (
+    
     <div>
+     
       <div onClick={handleClick}>
         <Header user={users[currentUser]} />
       </div>
-      
+      <Navigation/>
       <ChatContainer message={message} user={user}/>
      
       <ChatForm submitMessage={submitMessage} {...{currentUser}}/>
