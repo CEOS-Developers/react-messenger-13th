@@ -33,7 +33,12 @@ const UserLists = [
         id: 4,
         name: "졍이",
         img: "profile4.jpg"
-    }
+    },
+    {
+      id: 5,
+      name: "뽀",
+      img: "profile5.jpg"
+  }
     ];
 
 

@@ -11,7 +11,7 @@ const StyledChatContainer = styled.div`
         width: 92%;
         padding-top: 150px;
         padding-bottom: 70px;
-        background: beige;
+        background: Snow;
 `;
 
 

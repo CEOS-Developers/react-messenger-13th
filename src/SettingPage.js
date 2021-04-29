@@ -9,8 +9,10 @@ const StyledProfileSetting = styled.div`
     width: 60%;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: snow;
     position: fixed;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+  0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
     & img {
         width: 150px;
         height:150px;
@@ -41,10 +43,12 @@ const StyledProfileSetting = styled.div`
     }
 `;
 const StyledSettingMenuBar = styled.div`
-    background-color: white;
+    background-color: snow;
     height: 100%;
     width: 31%;
     float: right;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+  0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
     & h2 {
         font-size: 20px;
         margin-left: 20px;
