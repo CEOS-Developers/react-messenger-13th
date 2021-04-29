@@ -5,11 +5,13 @@ const StyledHeader = styled.div`
     background-color: #ffcdd2;
     display : flex;
     flex-direction : row;
+    float: right;
+    margin-left: 119px;
+    width: 91%;
     position: fixed;
-    width: 98%;
     border-radius: 30px;
     color: #f06292;
-
+    
     & img {
         margin: 20px;
         width:100px;
