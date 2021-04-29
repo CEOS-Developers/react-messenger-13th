@@ -84,7 +84,7 @@ export default function Signup() {
   const handleSignupFormSubmit = (e) => {
     e.preventDefault();
     if(validateSignupForm()) {
-      if(window.confirm(`Create account '${inputId}?'`)) {
+      if(window.confirm(`'${inputId}?' ID로 계정을 생성하시겠습니까?`)) {
         if(createAccount(inputId, inputName, inputStatusMsg)) {
           setInputId('')
           setInputName('')

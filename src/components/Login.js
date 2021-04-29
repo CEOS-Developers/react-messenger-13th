@@ -88,7 +88,7 @@ export default function Login() {
         selectUser(inputId);
         setInputId('');
       } else {
-        if(window.confirm(`User with ID '${inputId}' not found. Create account?`)) {
+        if(window.confirm(`입력하신 ID '${inputId}' 가 존재하지 않습니다. 회원가입 하시겠습니까??`)) {
           window.location="/signup";
         }
       }
