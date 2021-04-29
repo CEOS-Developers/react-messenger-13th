@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ChatItemContainer from './ChatItemsContainer';
 import * as ReactDOM from 'react-dom';
@@ -17,7 +17,7 @@ export default (props) => {
   const list = props.chatData.map((item, index) => {
     return (
       <ChatItemContainer
-        chatList={item.chatList}
+        chatList={item.chat}
         user={item.user}
         ownerUserId={props.ownerUserId}
         ref={index === props.chatData.length - 1 ? lastItem : undefined}

@@ -80,7 +80,10 @@ export default ({ chatList }) => {
   return (
     <Fragment>
       <Switch>
-        <Route path="/chat/:id" render={(props) => <Chat {...props} />} />
+        <Route
+          path="/chat/:id"
+          render={(props) => <Chat {...props} datas={chatList} />}
+        />
         <Route
           path="/chat"
           render={(props) => <List chatList={chatList} />}

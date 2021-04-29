@@ -9,22 +9,21 @@ import { useParams } from 'react-router-dom';
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   min-height: 100%;
 
   background: #9bbbd4;
 `;
 
-export default (props) => {
+export default ({ datas }) => {
   const { id } = useParams();
 
-  console.log(id);
-  console.log(props);
+  const data = datas[id];
 
-  const [currentUser, setCurrentUser] = useState(userList[0]);
-  const [ownerUser, setOwnerUser] = useState(userList[0]);
-  const [chatData, setChatData] = useState(sampleChat);
+  const [currentUser, setCurrentUser] = useState(data.userList[0]);
+  const [ownerUser, setOwnerUser] = useState(data.userList[0]);
+  const [chatData, setChatData] = useState(data.chatList);
 
   const sendMessage = (message) => {
     if (message === '') {
@@ -34,10 +33,10 @@ export default (props) => {
 
     const lastChatItem = chatData[chatData.length - 1];
     if (lastChatItem.user.id === currentUser.id) {
-      lastChatItem.chatList.push(message);
+      lastChatItem.chat.push(message);
       setChatData([...chatData]);
     } else {
-      const nextChatItem = { user: currentUser, chatList: [message] };
+      const nextChatItem = { user: currentUser, chat: [message] };
       const newChatData = [...chatData, nextChatItem];
       setChatData(newChatData);
     }

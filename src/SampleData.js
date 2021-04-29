@@ -86,7 +86,7 @@ export const sampleChatList = [
     userList: [userList[0], userList[1]],
     chatList: [
       {
-        userId: userList[0].id,
+        user: userList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
@@ -96,7 +96,7 @@ export const sampleChatList = [
     userList: [userList[0], userList[2]],
     chatList: [
       {
-        userId: userList[0].id,
+        user: userList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
@@ -106,7 +106,7 @@ export const sampleChatList = [
     userList: [userList[0], userList[3]],
     chatList: [
       {
-        userId: userList[0].id,
+        user: userList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
@@ -116,7 +116,7 @@ export const sampleChatList = [
     userList: [userList[0], userList[3]],
     chatList: [
       {
-        userId: userList[0].id,
+        user: userList[0],
         chat: ['안녕하세요', '열심히 하겠습니다.'],
       },
     ],
