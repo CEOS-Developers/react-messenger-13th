@@ -33,9 +33,9 @@ const StyleChatForm = styled.div`
     }
     & button{
         border-radius: 20px;
-        background-color: pink;
-        color: #f06292;
-        border: 1px solid #f06292;
+        background-color: papayawhip;
+        color: lightpink;
+        border: 1px solid lightpink;
         width: 18%;
         margin : 10px;
         height : 50px;

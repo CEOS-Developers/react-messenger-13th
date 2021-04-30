@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {FiSend} from 'react-icons/fi';
 import {BsFillPeopleFill} from 'react-icons/bs'
 import {BsThreeDots} from 'react-icons/bs';
+import {AiFillHome} from 'react-icons/ai';
 const StyledNavigationBar = styled.div`
 position: fixed;
 left: 10px;
@@ -25,6 +26,9 @@ function Navigation() {
         <StyledNavigationBar>
         <div className="nav">
             <Link to="/">
+                <AiFillHome></AiFillHome>
+            </Link>
+            <Link to="/friend-list">
                 <BsFillPeopleFill></BsFillPeopleFill>
             </Link><br></br>
             <Link to="/chatting-list">

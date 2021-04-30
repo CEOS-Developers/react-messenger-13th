@@ -57,7 +57,7 @@ const UserLists = [
       name: "굠이",
       img: "profile7.jpg",
       statusMessage: "속세를 떠났습니다",
-      profileMusic: "SHINEE - DON'T CALL ME"
+      profileMusic: "DON'T CALL ME - SHINEE"
     }
     ];
 
