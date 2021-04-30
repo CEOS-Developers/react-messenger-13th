@@ -81,12 +81,6 @@ export class User {
   }
 }
 
-let initialUsers = [];
-initialUsers.push(new User('sean', '김영우'));
-initialUsers.push(new User('ceos.fe', '프론트'));
-initialUsers.push(new User('ceos.sinchon', '세오스'));
-
-
 const ContactsContext = React.createContext();
 
 export function useContacts() {
@@ -102,16 +96,20 @@ export default function ContactsProvider({ children }) {
     ));
   }
 
-  const [users, setUsers] = useState(() => { return loadLocalUsers() });
-  const [currentUser, setCurrentUser] = useState(null);
+  const [users, setUsers] = useState(() => { 
+    const loadedLocalUsers = loadLocalUsers();
+    if (loadedLocalUsers.length > 0) return loadedLocalUsers;
+    const initialUsers = [];
+    initialUsers.push(new User('sean', '김영우', '미션 수행 중'));
+    initialUsers.push(new User('ceos.fe', '프론트', '밤 새는 중'));
+    initialUsers.push(new User('ceos.sinchon', '세오스', '우리 동아리 안힘들어요^^'));
+    initialUsers.push(new User('test', '테스트', '시험용'));
+    return initialUsers;
+  });
 
   useEffect(() => {
     setLocalUsers(users.map(user => user.getUser()));
   }, [users, setLocalUsers])
-
-  useEffect(() => {
-    console.log(currentUser);
-  }, [currentUser]);
 
   const getUserById = useCallback((userId) => {
     const filteredUsers = users.filter(user => user.userId === userId);
@@ -121,6 +119,8 @@ export default function ContactsProvider({ children }) {
       return false;
     }
   }, [users]);
+
+  const [currentUser, setCurrentUser] = useState(() => getUserById('sean'));
 
   const userActivity = useCallback((userId) => {
     setUsers(prevUsers => {
