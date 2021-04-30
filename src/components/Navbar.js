@@ -72,7 +72,7 @@ const LinkItem = styled.div`
 `;
 
 export default function Navbar() {
-  const { currentUser, deselectUser, userActivity } = useContacts();
+  const { currentUser, deselectUser, userActivity, getUserById } = useContacts();
   const { selectedRoom, leaveRoom, enterRoom } = useRooms();
   const history = useHistory();
 
@@ -106,14 +106,27 @@ export default function Navbar() {
   }
 
   const handleInviteUserClick = () => {
-    let userIds = window.prompt("초대할 사람의 @아이디 를 입력하세요", '');
+    let userIds = window.prompt("초대할 사람의 @아이디 를 공백으로 구분하여 입력하세요", '');
     const roomId = selectedRoom.roomId;
     if(userIds !== '' && userIds !== null) {
       userIds = userIds.split(' ');
       userIds = userIds.map(userId => userId.slice((userId[0]==='@' ? 1 : 0)));
+      let failedUserIds = [];
       userIds.forEach(userId => {
-        enterRoom(userId, roomId);
+        if(getUserById(userId)) {
+          enterRoom(userId, roomId);
+        } else {
+          failedUserIds.push(userId);
+        }
       })
+      if(failedUserIds.length > 0) {
+        let alertString = `${failedUserIds.length.toString()}명의 사용자를 찾지 못해 초대에 실패하였습니다. (`;
+        for (let i=0; i<failedUserIds.length; i++) {
+          alertString += '@' + failedUserIds[i];
+          if(i < failedUserIds.length - 1) alertString += ', '
+        }
+        alert(alertString + ')');
+      }
       userActivity(currentUser.userId);
     }
   }

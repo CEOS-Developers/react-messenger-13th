@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useContacts } from '../contexts/ContactsProvider';
+import { useRooms } from '../contexts/RoomsProvider';
 
 const StyledSettings = styled.div`
   padding: 10px 25px;
@@ -58,7 +59,8 @@ const StyledSettings = styled.div`
 `;
 
 export default function Settings() {
-  const { currentUser, changeUserId, changeUserName, changeStatusMsg } = useContacts();
+  const { currentUser, changeUserId, changeUserName, changeStatusMsg, initializeLocalUsers } = useContacts();
+  const { initializeLocalRooms } = useRooms();
   const [idInput, setIdInput] = useState(currentUser.userId)
   const [nameInput, setNameInput] = useState(currentUser.userName)
   const [statusMsgInput, setStatusMsgInput] = useState(currentUser.statusMsg);
@@ -80,6 +82,13 @@ export default function Settings() {
       if(currentUser.statusMsg !== statusMsgInput) {
         changeStatusMsg(currentUser.userId, statusMsgInput);
       }
+    }
+  }
+
+  const handleInitDataClick = () => {
+    if(window.confirm("데이터를 초기화하시겠습니까?")) {
+      initializeLocalRooms();
+      initializeLocalUsers();
     }
   }
 
@@ -123,6 +132,11 @@ export default function Settings() {
         onClick={ handleSaveChangesClick }
         className={ unsavedChangesExist ? '' : 'disabled' }
       >{ unsavedChangesExist ? '변경사항 저장' : '변경사항 없음' }</button>
+
+      <button
+        onClick={ handleInitDataClick }
+      >데이터 초기화
+      </button>
     </StyledSettings>
   )
 }

@@ -211,10 +211,20 @@ export default function ContactsProvider({ children }) {
     ))
   }
 
+  const initializeLocalUsers = () => {
+    const initialUsers = [];
+    initialUsers.push(new User('sean', '김영우', '미션 수행 중'));
+    initialUsers.push(new User('ceos.fe', '프론트', '밤 새는 중'));
+    initialUsers.push(new User('ceos.sinchon', '세오스', '우리 동아리 안힘들어요^^'));
+    initialUsers.push(new User('test', '테스트', '시험용'));
+    setUsers(initialUsers);
+  }
+
   const value={
     getUserById, users, setUsers, createAccount, 
     currentUser, selectUser, deselectUser,
     userActivity, changeUserId, changeUserName, changeStatusMsg,
+    initializeLocalUsers,
   }
 
   return (

@@ -35,6 +35,15 @@ class Room {
     // this.lastChat = Chat; // Client side only
   }
 
+  isUserInRoom(userId) {
+    for(let i=0; i<this.participants.length; i++) {
+      if(this.participants[i].userId === userId) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   enterRoom(user) {
     let userAlreadyInRoom = this.participants.filter(p => p.userId === user.userId).length > 0;
     if (!userAlreadyInRoom) {
@@ -218,9 +227,6 @@ export default function RoomsProvider({ children }) {
       setRooms(prevRooms => {
         return prevRooms.map(room => {
           if(room.roomId === roomId) {
-            // let newRoom = room.getCopy();
-            // newRoom.leaveRoom(user);
-            // return newRoom;
             room.leaveRoom(user);
             return room;
           } else {
@@ -277,11 +283,16 @@ export default function RoomsProvider({ children }) {
     }
   }
 
+  const initializeLocalRooms = () => {
+    setRooms([]);
+  }
+
   const value = {
     rooms, getRoomById,
     sendMessage, createRoom,
     selectedRoom, selectRoom, deselectRoom,
     readRoom, enterRoom, leaveRoom,
+    initializeLocalRooms
   };
 
   return (

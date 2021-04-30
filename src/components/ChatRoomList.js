@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { PlusCircleFill } from 'react-bootstrap-icons';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { useContacts } from '../contexts/ContactsProvider';
 import { useRooms } from '../contexts/RoomsProvider'
 import ChatRoomListItem from './ChatRoomListItem'
 
@@ -75,6 +76,8 @@ const ChatRoomListItems = styled.div`
 
 
 export default function ChatRoomList() {
+  const history = useHistory();
+  const { currentUser } = useContacts();
   const { rooms, createRoom } = useRooms();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredRooms, setFilteredRooms] = useState(rooms);
@@ -100,8 +103,31 @@ export default function ChatRoomList() {
             roomName += ' ' + query[i];
           }
         }
-        createRoom(roomName, participants);
-        setSearchQuery('');
+        const newRoomId = createRoom(roomName, participants);
+        if(newRoomId) {
+          setSearchQuery('');
+          history.push(`/room/${newRoomId}`)
+        } else {
+          alert("새 채팅방 만들기에 실패하였습니다.")
+        }
+      } else {
+        const newRoomId = createRoom(searchQuery, [currentUser.userId]);
+        if(newRoomId) {
+          setSearchQuery('');
+          history.push(`/room/${newRoomId}`)
+        } else {
+          alert("새 채팅방 만들기에 실패하였습니다.")
+        }
+      }
+    } else {
+      let newRoomName = window.prompt('새 방 이름 입력', '');
+      if(newRoomName !== '' && newRoomName !== null) {
+        const newRoomId = createRoom(newRoomName, [currentUser.userId]);
+        if(newRoomId) {
+          history.push(`/room/${newRoomId}`);
+        } else {
+          alert("새 채팅방 만들기에 실패하였습니다.")
+        }
       }
     }
   }
@@ -116,14 +142,14 @@ export default function ChatRoomList() {
           onChange={handleSearchQueryChange}
         />
         <CreateChatButton onClick={handleCreateChatButtonClick}>
-          <PlusCircleFill /><span>New Room</span>
+          <PlusCircleFill /><span>방 만들기</span>
         </CreateChatButton>
       </Actions>
       <ChatRoomListItems>
         {filteredRooms.map((room, idx) => (
           <Link to={`/room/${room.roomId}`} key={idx}><ChatRoomListItem room={room} /></Link>
         ))}
-        {filteredRooms.length === 0 ? 'No rooms.' : ''}
+        {filteredRooms.length === 0 ? `검색결과 없음. '${searchQuery}' 방을 새로 만드시려면 '방 만들기'를 눌러주세요.` : ''}
       </ChatRoomListItems>
     </StyledChatRoomList>
   )
