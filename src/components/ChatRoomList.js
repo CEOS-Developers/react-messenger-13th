@@ -149,7 +149,9 @@ export default function ChatRoomList() {
         {filteredRooms.map((room, idx) => (
           <Link to={`/room/${room.roomId}`} key={idx}><ChatRoomListItem room={room} /></Link>
         ))}
-        {filteredRooms.length === 0 ? `검색결과 없음. '${searchQuery}' 방을 새로 만드시려면 '방 만들기'를 눌러주세요.` : ''}
+        {filteredRooms.length === 0 
+          ? (searchQuery==='' ? `대화방 없음. ` : `검색결과 없음. '${searchQuery}' `) + `방을 새로 만드시려면 '방 만들기'를 눌러주세요.` 
+          : ''}
       </ChatRoomListItems>
     </StyledChatRoomList>
   )
