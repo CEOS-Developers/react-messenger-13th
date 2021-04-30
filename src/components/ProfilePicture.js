@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 // const StyledProfilePicture = styled.img`
 //   border-radius: 50%;
@@ -23,13 +23,17 @@ const StyledProfilePicture = styled.img`
   }
 `;
 
-
 export default function ProfilePicture({ userId, variant }) {
   return (
-    <StyledProfilePicture 
-      src={process.env.PUBLIC_URL + '/profile-pictures/' + userId.toString() + '.jpg'} 
+    <StyledProfilePicture
+      src={
+        process.env.PUBLIC_URL +
+        '/profile-pictures/' +
+        userId.toString() +
+        '.jpg'
+      }
       alt="Profile Picture"
       className={variant}
     />
-  )
+  );
 }

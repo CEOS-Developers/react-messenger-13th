@@ -1,12 +1,18 @@
-import React, { useCallback, useContext, useState, useEffect } from 'react'
+import React, { useCallback, useContext, useState, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 export class User {
-  constructor(userId, userName, statusMsg='', currentlyActive=false, lastActive) {
+  constructor(
+    userId,
+    userName,
+    statusMsg = '',
+    currentlyActive = false,
+    lastActive
+  ) {
     this.userId = userId; //String
     this.userName = userName; //String
     this.currentlyActive = currentlyActive; // Boolean
-    if(lastActive) {
+    if (lastActive) {
       this.lastActive = lastActive; //Date
     } else {
       this.lastActive = new Date(); //Date
@@ -21,7 +27,7 @@ export class User {
     const now = new Date();
     const timeDifference = now - this.lastActive;
 
-    if(timeDifference < MINUTE * 5) {
+    if (timeDifference < MINUTE * 5) {
       //green
       return true;
     } else {
@@ -47,19 +53,19 @@ export class User {
     if (timeDifference < SECOND) {
       str = '지금 활동 중';
     } else if (SECOND <= timeDifference && timeDifference < MINUTE) {
-      str = (Math.floor(timeDifference/SECOND).toString()) + '초 전';
+      str = Math.floor(timeDifference / SECOND).toString() + '초 전';
     } else if (MINUTE <= timeDifference && timeDifference < HOUR) {
-      str = (Math.floor(timeDifference/MINUTE).toString()) + '분 전';
+      str = Math.floor(timeDifference / MINUTE).toString() + '분 전';
     } else if (HOUR <= timeDifference && timeDifference < DAY) {
-      str = (Math.floor(timeDifference/HOUR).toString()) + '시간 전';
+      str = Math.floor(timeDifference / HOUR).toString() + '시간 전';
     } else if (DAY <= timeDifference && timeDifference < WEEK) {
-      str = (Math.floor(timeDifference/DAY).toString()) + '일 전';
+      str = Math.floor(timeDifference / DAY).toString() + '일 전';
     } else if (WEEK <= timeDifference && timeDifference < MONTH) {
-      str = (Math.floor(timeDifference/WEEK).toString()) + '주 전';
+      str = Math.floor(timeDifference / WEEK).toString() + '주 전';
     } else if (MONTH <= timeDifference && timeDifference < YEAR) {
-      str = (Math.floor(timeDifference/MONTH).toString()) + '개월 전';
+      str = Math.floor(timeDifference / MONTH).toString() + '개월 전';
     } else if (YEAR < timeDifference) {
-      str = (Math.floor(timeDifference/YEAR).toString()) + '년 전';
+      str = Math.floor(timeDifference / YEAR).toString() + '년 전';
     } else {
       str = Math.floor(timeDifference.toString() / 1000) + '초 전';
     }
@@ -73,11 +79,17 @@ export class User {
       currentlyActive: this.currentlyActive,
       lastActive: this.lastActive.getTime(),
       statusMsg: this.statusMsg,
-    }
+    };
   }
 
   getCopy() {
-    return new User(this.userId, this.userName, this.statusMsg, this.currentlyActive, this.lastActive);
+    return new User(
+      this.userId,
+      this.userName,
+      this.statusMsg,
+      this.currentlyActive,
+      this.lastActive
+    );
   }
 }
 
@@ -91,79 +103,103 @@ export function useContacts() {
 export default function ContactsProvider({ children }) {
   const [localUsers, setLocalUsers] = useLocalStorage('users', []);
   const loadLocalUsers = () => {
-    return localUsers.map(user => ( 
-      new User(user.userId, user.userName, user.statusMsg, user.currentlyActive, new Date(user.lastActive))
-    ));
-  }
+    return localUsers.map(
+      (user) =>
+        new User(
+          user.userId,
+          user.userName,
+          user.statusMsg,
+          user.currentlyActive,
+          new Date(user.lastActive)
+        )
+    );
+  };
 
-  const [users, setUsers] = useState(() => { 
+  const [users, setUsers] = useState(() => {
     const loadedLocalUsers = loadLocalUsers();
     if (loadedLocalUsers.length > 0) return loadedLocalUsers;
     const initialUsers = [];
     initialUsers.push(new User('sean', '김영우', '미션 수행 중'));
     initialUsers.push(new User('ceos.fe', '프론트', '밤 새는 중'));
-    initialUsers.push(new User('ceos.sinchon', '세오스', '우리 동아리 안힘들어요^^'));
+    initialUsers.push(
+      new User('ceos.sinchon', '세오스', '우리 동아리 안힘들어요^^')
+    );
     initialUsers.push(new User('test', '테스트', '시험용'));
     return initialUsers;
   });
 
   useEffect(() => {
-    setLocalUsers(users.map(user => user.getUser()));
-  }, [users, setLocalUsers])
+    setLocalUsers(users.map((user) => user.getUser()));
+  }, [users, setLocalUsers]);
 
-  const getUserById = useCallback((userId) => {
-    const filteredUsers = users.filter(user => user.userId === userId);
-    if(filteredUsers.length > 0) {
-      return filteredUsers[0];
-    } else {
-      return false;
-    }
-  }, [users]);
+  const getUserById = useCallback(
+    (userId) => {
+      const filteredUsers = users.filter((user) => user.userId === userId);
+      if (filteredUsers.length > 0) {
+        return filteredUsers[0];
+      } else {
+        return false;
+      }
+    },
+    [users]
+  );
 
   const [currentUser, setCurrentUser] = useState(() => getUserById('sean'));
 
   const userActivity = useCallback((userId) => {
-    setUsers(prevUsers => {
-      return prevUsers.map(user => {
+    setUsers((prevUsers) => {
+      return prevUsers.map((user) => {
         // console.log(`${user.userId} === ${userId} = ${user.userId === userId}`)
-        if(user.userId === userId) {
-          return new User(user.userId, user.userName, user.statusMsg, user.currentlyActive, new Date());
+        if (user.userId === userId) {
+          return new User(
+            user.userId,
+            user.userName,
+            user.statusMsg,
+            user.currentlyActive,
+            new Date()
+          );
         } else {
           return user;
         }
-      })
-    })
-  }, [])
+      });
+    });
+  }, []);
 
-  const selectUser = useCallback((userId) => {
-    setCurrentUser(getUserById(userId))
-    userActivity(userId)
-  }, [getUserById, userActivity]);
+  const selectUser = useCallback(
+    (userId) => {
+      setCurrentUser(getUserById(userId));
+      userActivity(userId);
+    },
+    [getUserById, userActivity]
+  );
 
   const deselectUser = useCallback(() => {
     setCurrentUser(null);
-  }, [])
+  }, []);
 
-  const createAccount = useCallback((userId, userName, statusMsg) => {
-    if(userId === '' || userName === '') return false;
-    
-    let userAlreadyExists = false;
-    for(let i=0; i<users.length; i++) {
-      if(users[i].userId === userId) {
-        userAlreadyExists = true;
-        break;
+  const createAccount = useCallback(
+    (userId, userName, statusMsg) => {
+      if (userId === '' || userName === '') return false;
+
+      let userAlreadyExists = false;
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].userId === userId) {
+          userAlreadyExists = true;
+          break;
+        }
       }
-    }
-    if(userAlreadyExists) return false;
-    const newUser = new User(userId, userName, statusMsg)
-    setUsers(prevUsers => ([...prevUsers, newUser]))
-    setCurrentUser(newUser);
-    return true;
-  }, [users])
+      if (userAlreadyExists) return false;
+      const newUser = new User(userId, userName, statusMsg);
+      setUsers((prevUsers) => [...prevUsers, newUser]);
+      setCurrentUser(newUser);
+      return true;
+    },
+    [users]
+  );
 
   const changeUserId = (userId, newUserId) => {
-    setUsers(prevUsers => {
-      return prevUsers.map(user => {
+    setUsers((prevUsers) => {
+      return prevUsers.map((user) => {
         if (user.userId === userId) {
           // let newUser = user.getCopy();
           // newUser.userId = newUserId;
@@ -175,13 +211,13 @@ export default function ContactsProvider({ children }) {
         } else {
           return user;
         }
-      })
-    })
-  }
-  
+      });
+    });
+  };
+
   const changeUserName = (userId, newUserName) => {
-    setUsers(prevUsers => {
-      return prevUsers.map(user => {
+    setUsers((prevUsers) => {
+      return prevUsers.map((user) => {
         if (user.userId === userId) {
           // let newUser = user.getCopy();
           // newUser.userName = newUserName;
@@ -193,14 +229,14 @@ export default function ContactsProvider({ children }) {
         } else {
           return user;
         }
-      })
-    })
-  }
+      });
+    });
+  };
 
   const changeStatusMsg = (userId, newStatusMsg) => {
-    setUsers(prevUsers => (
-      prevUsers.map(user => {
-        if(user.userId === userId) {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) => {
+        if (user.userId === userId) {
           user.statusMsg = newStatusMsg;
           setCurrentUser(user);
           return user;
@@ -208,28 +244,38 @@ export default function ContactsProvider({ children }) {
           return user;
         }
       })
-    ))
-  }
+    );
+  };
 
   const initializeLocalUsers = () => {
     const initialUsers = [];
     initialUsers.push(new User('sean', '김영우', '미션 수행 중'));
     initialUsers.push(new User('ceos.fe', '프론트', '밤 새는 중'));
-    initialUsers.push(new User('ceos.sinchon', '세오스', '우리 동아리 안힘들어요^^'));
+    initialUsers.push(
+      new User('ceos.sinchon', '세오스', '우리 동아리 안힘들어요^^')
+    );
     initialUsers.push(new User('test', '테스트', '시험용'));
     setUsers(initialUsers);
-  }
+  };
 
-  const value={
-    getUserById, users, setUsers, createAccount, 
-    currentUser, selectUser, deselectUser,
-    userActivity, changeUserId, changeUserName, changeStatusMsg,
+  const value = {
+    getUserById,
+    users,
+    setUsers,
+    createAccount,
+    currentUser,
+    selectUser,
+    deselectUser,
+    userActivity,
+    changeUserId,
+    changeUserName,
+    changeStatusMsg,
     initializeLocalUsers,
-  }
+  };
 
   return (
     <ContactsContext.Provider value={value}>
-      { children }
+      {children}
     </ContactsContext.Provider>
-  )
+  );
 }

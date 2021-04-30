@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import ProfilePicture from './ProfilePicture';
 
 const StyledCurrentUser = styled.div`
@@ -7,7 +7,7 @@ const StyledCurrentUser = styled.div`
   max-width: 500px;
   margin: 0;
   padding: 10px 20px;
-  background: #144E9A;
+  background: #144e9a;
   height: 80px;
   display: flex;
   align-items: center;
@@ -32,12 +32,12 @@ const UserStatus = styled.div`
 
 export default function CurrentUser({ currentUser, handleCurrentUserClick }) {
   return (
-    <StyledCurrentUser onClick={ handleCurrentUserClick }>
-      <ProfilePicture userId={ currentUser.userId }/>
+    <StyledCurrentUser onClick={handleCurrentUserClick}>
+      <ProfilePicture userId={currentUser.userId} />
       <UserInfo>
-        <UserName>{ currentUser.userName }</UserName>
-        <UserStatus>{ currentUser.getLastActiveString() }</UserStatus>
+        <UserName>{currentUser.userName}</UserName>
+        <UserStatus>{currentUser.getLastActiveString()}</UserStatus>
       </UserInfo>
     </StyledCurrentUser>
-  )
+  );
 }

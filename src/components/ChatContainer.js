@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import ChatMessage from './ChatMessage';
 
 const StyledChatContainer = styled.div`
@@ -16,23 +16,21 @@ export default function ChatContainer({ chats, currentUser }) {
   const chatContainerRef = useRef(null);
 
   // Scroll div to bottom when new message arrives
-  useEffect(()=> {
+  useEffect(() => {
     chatContainerRef.current.scrollBy(0, chatContainerRef.current.scrollHeight);
-  }, [chats])
+  }, [chats]);
 
   // Create ChatMessage component for every 'message' in 'messages'
   let chatMessages = '';
   if (chats) {
     chatMessages = chats.map((chat, idx) => {
-      return (
-        <ChatMessage chat={chat} key={idx} currentUser={currentUser}/>
-      )
+      return <ChatMessage chat={chat} key={idx} currentUser={currentUser} />;
     });
   }
 
   return (
-    <StyledChatContainer ref={ chatContainerRef }>
-      { chatMessages }
+    <StyledChatContainer ref={chatContainerRef}>
+      {chatMessages}
     </StyledChatContainer>
-  )
+  );
 }

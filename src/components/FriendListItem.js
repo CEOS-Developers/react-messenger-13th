@@ -1,13 +1,13 @@
-import React from 'react'
-import ProfilePicture from './ProfilePicture'
-import styled from 'styled-components'
+import React from 'react';
+import ProfilePicture from './ProfilePicture';
+import styled from 'styled-components';
 
 const StyledFriendListItem = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0 25px 15px 25px;
   margin: 0;
-  border: solid #D6D5D5;
+  border: solid #d6d5d5;
   border-width: 1px 0 1px 0;
   padding-top: 15px;
 `;
@@ -21,7 +21,7 @@ const StatusIndicator = styled.div`
   height: 26px;
   background: lightgray;
   &.active {
-    background: #68DA66;
+    background: #68da66;
   }
 `;
 
@@ -61,16 +61,18 @@ export default function FriendListItem({ user }) {
   return (
     <StyledFriendListItem>
       <ProfilePicture userId={user.userId} variant="large" />
-      <StatusIndicator className={user.getCurrentlyActive() ? 'active' : ''}/>
+      <StatusIndicator className={user.getCurrentlyActive() ? 'active' : ''} />
       <UserInfoColumn>
         <UserInfoRow>
           <UserName>{user.userName}</UserName>
           <LastActive>{user.getLastActiveString()}</LastActive>
         </UserInfoRow>
         <UserInfoRow>
-          <StatusMessage>{`@${user.userId}${user.statusMsg==='' ? '' : ` - ${user.statusMsg}`}`}</StatusMessage>
+          <StatusMessage>{`@${user.userId}${
+            user.statusMsg === '' ? '' : ` - ${user.statusMsg}`
+          }`}</StatusMessage>
         </UserInfoRow>
       </UserInfoColumn>
     </StyledFriendListItem>
-  )
+  );
 }
