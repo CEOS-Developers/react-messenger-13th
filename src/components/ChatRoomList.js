@@ -78,13 +78,13 @@ const ChatRoomListItems = styled.div`
 export default function ChatRoomList() {
   const history = useHistory();
   const { currentUser } = useContacts();
-  const { rooms, createRoom } = useRooms();
+  const { currentUserRooms, createRoom } = useRooms();
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredRooms, setFilteredRooms] = useState(rooms);
+  const [filteredRooms, setFilteredRooms] = useState(currentUserRooms);
 
   useEffect(() => {
-    setFilteredRooms(() => (rooms.filter(room => room.roomName.toLowerCase().includes(searchQuery.toLowerCase()))))
-  }, [rooms, searchQuery])
+    setFilteredRooms(() => (currentUserRooms.filter(room => room.roomName.toLowerCase().includes(searchQuery.toLowerCase()))))
+  }, [currentUserRooms, searchQuery])
 
   const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);

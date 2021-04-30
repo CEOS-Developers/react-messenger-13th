@@ -139,12 +139,42 @@ export default function RoomsProvider({ children }) {
       )
     ))
   }
+  // 전체 방 리스트.
   const [rooms, setRooms] = useState(() => (loadLocalRooms())); // Array Rooms
+
+  // 현재 사용자(currentUser)가 입장해 있는 방만. ChatRoomList에서 본인이 입장해 있는 방만 렌더링하는데 사용
+  const [currentUserRooms, setCurrentUserRooms] = useState(() => {
+    if(rooms!==null && rooms.length > 0) {
+      if(currentUser !== null) {
+        return rooms.filter(room => (room.isUserInRoom(currentUser.userId)));
+      } else {
+        return rooms;
+      }
+    } else {
+      return rooms;
+    }
+  })
+
+  // 사용자가 현재 접속해 있는 방
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   useEffect(() => {
     setLocalRooms(rooms.map(room => room.getRoom()));
   }, [rooms, setLocalRooms])
+
+  useEffect(() => {
+    setCurrentUserRooms(() => {
+      if(rooms !== null && rooms.length > 0) {
+        if(currentUser !== null) {
+          return rooms.filter(room => (room.isUserInRoom(currentUser.userId)))
+        } else {
+          return rooms;
+        }
+      } else {
+        return rooms;
+      }
+    })
+  }, [rooms, currentUser])
 
   const getRoomById = useCallback((roomId) => {
     const filteredRoom = rooms.filter(room => room.roomId.toString() === roomId.toString());
@@ -288,7 +318,7 @@ export default function RoomsProvider({ children }) {
   }
 
   const value = {
-    rooms, getRoomById,
+    rooms, currentUserRooms, getRoomById,
     sendMessage, createRoom,
     selectedRoom, selectRoom, deselectRoom,
     readRoom, enterRoom, leaveRoom,
