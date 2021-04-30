@@ -86,7 +86,7 @@ export default function Settings() {
   }
 
   const handleInitDataClick = () => {
-    if(window.confirm("데이터를 초기화하시겠습니까?")) {
+    if(window.confirm("회원가입한 유저 목록 및 모든 채팅 기록을 전부 삭제합니다. 계속하시겠습니까?")) {
       initializeLocalRooms();
       initializeLocalUsers();
     }
@@ -132,10 +132,10 @@ export default function Settings() {
         onClick={ handleSaveChangesClick }
         className={ unsavedChangesExist ? '' : 'disabled' }
       >{ unsavedChangesExist ? '변경사항 저장' : '변경사항 없음' }</button>
-
+      <br />
       <button
         onClick={ handleInitDataClick }
-      >데이터 초기화
+      >모든 데이터 초기화
       </button>
     </StyledSettings>
   )
