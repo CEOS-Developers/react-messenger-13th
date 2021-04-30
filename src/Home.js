@@ -12,7 +12,7 @@ const StyledLogo = styled.div`
     justify-content: center;
     
     & h3 {
-    background: linear-gradient(darkviolet, deeppink, #fda742) !important;
+    background: linear-gradient(#8539b5, #e600ac, #ffa31a) !important;
     font-size: 100px;
     -webkit-background-clip: text !important;
     color: transparent;

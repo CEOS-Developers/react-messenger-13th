@@ -58,6 +58,18 @@ const UserLists = [
       img: "profile7.jpg",
       statusMessage: "속세를 떠났습니다",
       profileMusic: "DON'T CALL ME - SHINEE"
+    },
+    {
+      id: 8,
+      name: "쑤",
+      img: "profile8.jpg",
+      statusMessage: "제빵왕 쑤탁구"
+    },
+    {
+      id: 9,
+      name: "밍이",
+      img: "profile9.jpg",
+      statusMessage: "휴하하하하하하하하하하학",
     }
     ];
 
