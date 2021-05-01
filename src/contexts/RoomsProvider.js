@@ -111,7 +111,6 @@ class Room {
     this.chats.push(new Chat('chat', user, content));
   }
 
-<<<<<<< HEAD
   getUnreadCount(userId) {
     const lastReadTime = this.lastReadTime.filter(lrt => lrt.userId === userId);
     if(lastReadTime.length > 0) {
@@ -132,7 +131,6 @@ class Room {
     return unreadCount;
   }
 
-=======
   /**
    * 현재 Room 인스턴스 내 데이터를 stringify한 object
    * @typedef StringifiedRoom
@@ -147,7 +145,6 @@ class Room {
    * localStorage에 JSON으로 저장을 위해 현재 Room 인스턴스 내 데이터를 stringify하여 object로 반환
    * @returns {object} 현재 Room 인스턴스 내 데이터를 stringify한 object
    */
->>>>>>> 6c1a329127d83b73c9dd3b6732e8e6b25284b710
   getRoom() {
     return {
       roomId: this.roomId,
