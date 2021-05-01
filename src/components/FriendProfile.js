@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useContacts } from '../contexts/ContactsProvider';
@@ -11,7 +11,9 @@ const StyledFriendProfile = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  & h2, h3, p {
+  & h2,
+  h3,
+  p {
     padding: 0;
     margin-top: 0;
   }
@@ -22,7 +24,7 @@ const StyledFriendProfile = styled.div`
   & h3 {
     margin-bottom: 20px;
     font-size: 1.3rem;
-    color: #0E388A;
+    color: #0e388a;
   }
   & p {
     margin-bottom: 12px;
@@ -31,16 +33,16 @@ const StyledFriendProfile = styled.div`
   & button {
     padding: 10px 15px;
     font-size: 1.1rem;
-    border: 1.5px solid #0E388A;
+    border: 1.5px solid #0e388a;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-    background: #0E388A;
+    background: #0e388a;
     color: white;
     margin-bottom: 15px;
 
     &.secondary {
-      color: #0E388A;
+      color: #0e388a;
       background: white;
     }
     &.disabled {
@@ -74,7 +76,7 @@ const StatusIndicator = styled.div`
   height: 45px;
   background: lightgray;
   &.active {
-    background: #68DA66;
+    background: #68da66;
   }
 `;
 
@@ -88,42 +90,53 @@ export default function FriendProfile() {
   const handleChatWithUserClick = () => {
     let roomAlreadyExists = false;
     let roomId = null;
-    for (let i=0; i<rooms.length; i++) {
+    for (let i = 0; i < rooms.length; i++) {
       let participants = rooms[i].participants;
-      if(participants.length === 2) {
-        participants = participants.map(p => (p.userId === user.userId || p.userId === currentUser.userId));
-        if(participants[0]===true && participants[1]===true) {
+      if (participants.length === 2) {
+        participants = participants.map(
+          (p) => p.userId === user.userId || p.userId === currentUser.userId
+        );
+        if (participants[0] === true && participants[1] === true) {
           roomAlreadyExists = true;
           roomId = rooms[i].roomId;
           break;
         }
       }
     }
-    if(roomAlreadyExists) {
+    if (roomAlreadyExists) {
       history.push(`/room/${roomId.toString()}`);
     } else {
-      let newRoom = createRoom(`${user.userName}, ${currentUser.userName}`, [user.userId, currentUser.userId]);
-      if(newRoom!==null) {
+      let newRoom = createRoom(`${user.userName}, ${currentUser.userName}`, [
+        user.userId,
+        currentUser.userId,
+      ]);
+      if (newRoom !== null) {
         history.push(`/room/${newRoom.toString()}`);
       }
     }
-  }
+  };
 
   return (
     <StyledFriendProfile>
-      <ProfilePicture 
-        src={process.env.PUBLIC_URL + '/profile-pictures/' + user.userId + '.jpg'} 
+      <ProfilePicture
+        src={
+          process.env.PUBLIC_URL + '/profile-pictures/' + user.userId + '.jpg'
+        }
         alt="Profile Picture"
       />
-      <StatusIndicator className={user.getCurrentlyActive() ? 'active' : ''}/>
+      <StatusIndicator className={user.getCurrentlyActive() ? 'active' : ''} />
       <h2>{user.userName}</h2>
       <h3>{`@${user.userId}`}</h3>
       <p>{`'${user.statusMsg}'`}</p>
       <p>{`마지막 활동: ${user.getLastActiveString()}`}</p>
 
-      {currentUser.userId === user.userId
-        ? <Link to="/settings"><button>내 계정 설정</button></Link>
-        : <button onClick={ handleChatWithUserClick }>대화하기</button>}
+      {currentUser.userId === user.userId ? (
+        <Link to="/settings">
+          <button>내 계정 설정</button>
+        </Link>
+      ) : (
+        <button onClick={handleChatWithUserClick}>대화하기</button>
+      )}
     </StyledFriendProfile>
-  )
+  );
 }

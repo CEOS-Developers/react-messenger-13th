@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background: #F0F0F2;
+  background: #f0f0f2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,47 +45,53 @@ const Content = styled.div`
 `;
 
 function App() {
-  
-
   return (
     <ContactsProvider>
       <RoomsProvider>
-          <Wrapper>
-            <Container>
-              <Navbar />
-              <Content>
-                <Switch>
-                  <Route path="/room/:id">
-                    <RequireLogin>
-                      <ChatRoom />
-                    </RequireLogin>
-                  </Route>
-                  <Route path="/rooms">
-                    <RequireLogin>
-                      <ChatRoomList />
-                    </RequireLogin>
-                  </Route>
-                  <Route path="/friend/:id">
-                    <FriendProfile />
-                  </Route>
-                  <Route path="/friends">
-                    <RequireLogin>
-                      <FriendList />
-                    </RequireLogin>
-                  </Route>
-                  <Route path="/settings">
-                    <RequireLogin>
-                      <Settings />
-                    </RequireLogin>
-                  </Route>
-                  <Route path="/signup"><Signup /></Route>
-                  <Route path="/auth/login"><Login /></Route>
-                  <Route exact path="/"><Home /></Route>
-                  <Route path="*"><Page404 /></Route>
-                </Switch>
-              </Content>
-            </Container>
-          </Wrapper>
+        <Wrapper>
+          <Container>
+            <Navbar />
+            <Content>
+              <Switch>
+                <Route path="/room/:id">
+                  <RequireLogin>
+                    <ChatRoom />
+                  </RequireLogin>
+                </Route>
+                <Route path="/rooms">
+                  <RequireLogin>
+                    <ChatRoomList />
+                  </RequireLogin>
+                </Route>
+                <Route path="/friend/:id">
+                  <FriendProfile />
+                </Route>
+                <Route path="/friends">
+                  <RequireLogin>
+                    <FriendList />
+                  </RequireLogin>
+                </Route>
+                <Route path="/settings">
+                  <RequireLogin>
+                    <Settings />
+                  </RequireLogin>
+                </Route>
+                <Route path="/signup">
+                  <Signup />
+                </Route>
+                <Route path="/auth/login">
+                  <Login />
+                </Route>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="*">
+                  <Page404 />
+                </Route>
+              </Switch>
+            </Content>
+          </Container>
+        </Wrapper>
       </RoomsProvider>
     </ContactsProvider>
   );

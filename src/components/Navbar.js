@@ -1,5 +1,10 @@
-import React from 'react'
-import { ChatFill, GearFill, PeopleFill, PersonFill } from 'react-bootstrap-icons';
+import React from 'react';
+import {
+  ChatFill,
+  GearFill,
+  PeopleFill,
+  PersonFill,
+} from 'react-bootstrap-icons';
 import { Switch, Route, NavLink, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useContacts } from '../contexts/ContactsProvider';
@@ -9,7 +14,7 @@ import RequireLogin from './RequireLogin';
 const StyledNavbar = styled.div`
   bakcground: white;
   color: black;
-  border: 1px solid #D6D5D5;
+  border: 1px solid #d6d5d5;
   padding: 0 25px;
   display: flex;
   flex-direction: row;
@@ -44,11 +49,11 @@ const CurrentLocation = styled.div`
     background: none;
     padding: 1px;
     margin: 0 5px 0 0;
-    color: #0E388A;
+    color: #0e388a;
   }
   & p button:hover {
     padding: 1px 5px;
-    background: #C6D8FC;
+    background: #c6d8fc;
   }
 `;
 
@@ -72,64 +77,79 @@ const LinkItem = styled.div`
 `;
 
 export default function Navbar() {
-  const { currentUser, deselectUser, userActivity, getUserById } = useContacts();
+  const {
+    currentUser,
+    deselectUser,
+    userActivity,
+    getUserById,
+  } = useContacts();
   const { selectedRoom, leaveRoom, enterRoom } = useRooms();
   const history = useHistory();
 
   const CurrentUser = () => {
-    if(currentUser !== null) {
-      return (<><PersonFill />{`${currentUser.userName}(${currentUser.userId})`}&nbsp;&nbsp;</>);
+    if (currentUser !== null) {
+      return (
+        <>
+          <PersonFill />
+          {`${currentUser.userName}(${currentUser.userId})`}&nbsp;&nbsp;
+        </>
+      );
     } else {
-      return (<></>);
+      return <></>;
     }
   };
 
   const handleLogoutClick = () => {
-    if(window.confirm("로그아웃하시겠습니까?")) {
+    if (window.confirm('로그아웃하시겠습니까?')) {
       deselectUser();
       // window.location = "/auth/login";
-      history.push("/auth/login");
+      history.push('/auth/login');
     }
     userActivity(currentUser.userId);
-  }
+  };
 
   const handleLeaveRoomClick = () => {
-    if(window.confirm(`'${selectedRoom.roomName}'에서 나가시겠습니까?`)) {
+    if (window.confirm(`'${selectedRoom.roomName}'에서 나가시겠습니까?`)) {
       const userId = currentUser.userId;
       const roomId = selectedRoom.roomId;
-  
+
       leaveRoom(userId, roomId);
       userActivity(currentUser.userId);
       // window.location = '/rooms';
-      history.push("/rooms");
+      history.push('/rooms');
     }
-  }
+  };
 
   const handleInviteUserClick = () => {
-    let userIds = window.prompt("초대할 사람의 @아이디 를 공백으로 구분하여 입력하세요", '');
+    let userIds = window.prompt(
+      '초대할 사람의 @아이디 를 공백으로 구분하여 입력하세요',
+      ''
+    );
     const roomId = selectedRoom.roomId;
-    if(userIds !== '' && userIds !== null) {
+    if (userIds !== '' && userIds !== null) {
       userIds = userIds.split(' ');
-      userIds = userIds.map(userId => userId.slice((userId[0]==='@' ? 1 : 0)));
+      userIds = userIds.map((userId) =>
+        userId.slice(userId[0] === '@' ? 1 : 0)
+      );
       let failedUserIds = [];
-      userIds.forEach(userId => {
-        if(getUserById(userId)) {
+      userIds.forEach((userId) => {
+        if (getUserById(userId)) {
           enterRoom(userId, roomId);
         } else {
           failedUserIds.push(userId);
         }
-      })
-      if(failedUserIds.length > 0) {
+      });
+      if (failedUserIds.length > 0) {
         let alertString = `${failedUserIds.length.toString()}명의 사용자를 찾지 못해 초대에 실패하였습니다. (`;
-        for (let i=0; i<failedUserIds.length; i++) {
+        for (let i = 0; i < failedUserIds.length; i++) {
           alertString += '@' + failedUserIds[i];
-          if(i < failedUserIds.length - 1) alertString += ', '
+          if (i < failedUserIds.length - 1) alertString += ', ';
         }
         alert(alertString + ')');
       }
       userActivity(currentUser.userId);
     }
-  }
+  };
 
   return (
     <StyledNavbar>
@@ -137,20 +157,25 @@ export default function Navbar() {
         <Switch>
           <Route path="/room/:id">
             <RequireLogin />
-            <Link to="/rooms"><h1>채팅</h1></Link>
-            {selectedRoom === null 
-              ? ''
-              : (
-                <p>
-                  <><PeopleFill />&nbsp;{selectedRoom ? selectedRoom.participants.length : ''}&nbsp;&nbsp;</>
-                  <button onClick={handleInviteUserClick}>초대하기</button>
-                  <button onClick={handleLeaveRoomClick}>방 나가기</button>
-                </p>
-              )
-            }
+            <Link to="/rooms">
+              <h1>채팅</h1>
+            </Link>
+            {selectedRoom === null ? (
+              ''
+            ) : (
+              <p>
+                <>
+                  <PeopleFill />
+                  &nbsp;{selectedRoom ? selectedRoom.participants.length : ''}
+                  &nbsp;&nbsp;
+                </>
+                <button onClick={handleInviteUserClick}>초대하기</button>
+                <button onClick={handleLeaveRoomClick}>방 나가기</button>
+              </p>
+            )}
           </Route>
           <Route path="/rooms">
-            <RequireLogin />  
+            <RequireLogin />
             <h1>채팅</h1>
             <p>
               <CurrentUser />
@@ -160,7 +185,9 @@ export default function Navbar() {
           <Route path="/friend/:id">
             <h1>프로필</h1>
             <p>
-              <Link to="/friends"><button>친구 목록</button></Link>
+              <Link to="/friends">
+                <button>친구 목록</button>
+              </Link>
               <button onClick={handleLogoutClick}>로그아웃</button>
             </p>
           </Route>
@@ -173,7 +200,7 @@ export default function Navbar() {
             </p>
           </Route>
           <Route path="/settings">
-            <RequireLogin />  
+            <RequireLogin />
             <h1>설정</h1>
             <p>
               <CurrentUser />
@@ -197,21 +224,33 @@ export default function Navbar() {
       </CurrentLocation>
       <Links>
         <LinkItem>
-          <NavLink to="/friends" style={{ fontSize: '1.5rem', color: 'gray' }} activeStyle={{ color: '#0E388A' }}>
+          <NavLink
+            to="/friends"
+            style={{ fontSize: '1.5rem', color: 'gray' }}
+            activeStyle={{ color: '#0E388A' }}
+          >
             <PeopleFill />
           </NavLink>
         </LinkItem>
         <LinkItem>
-          <NavLink to="/rooms" style={{ fontSize: '1.35rem', color: 'gray' }} activeStyle={{ color: '#0E388A' }}>
+          <NavLink
+            to="/rooms"
+            style={{ fontSize: '1.35rem', color: 'gray' }}
+            activeStyle={{ color: '#0E388A' }}
+          >
             <ChatFill />
           </NavLink>
         </LinkItem>
         <LinkItem>
-          <NavLink to="/settings" style={{ fontSize: '1.4rem', color: 'gray' }} activeStyle={{ color: '#0E388A' }}>
+          <NavLink
+            to="/settings"
+            style={{ fontSize: '1.4rem', color: 'gray' }}
+            activeStyle={{ color: '#0E388A' }}
+          >
             <GearFill />
           </NavLink>
         </LinkItem>
       </Links>
     </StyledNavbar>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { useContacts } from '../contexts/ContactsProvider';
 import { useRooms } from '../contexts/RoomsProvider';
 
@@ -15,16 +15,16 @@ const StyledSettings = styled.div`
   & button {
     padding: 10px 15px;
     font-size: 1.1rem;
-    border: 1.5px solid #0E388A;
+    border: 1.5px solid #0e388a;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-    background: #0E388A;
+    background: #0e388a;
     color: white;
     margin-bottom: 10px;
 
     &.secondary {
-      color: #0E388A;
+      color: #0e388a;
       background: white;
     }
     &.disabled {
@@ -54,89 +54,103 @@ const StyledSettings = styled.div`
     font-size: 1em;
   }
   & input:focus {
-    border-color: #0E388A;
+    border-color: #0e388a;
   }
 `;
 
 export default function Settings() {
-  const { currentUser, changeUserId, changeUserName, changeStatusMsg, initializeLocalUsers } = useContacts();
+  const {
+    currentUser,
+    changeUserId,
+    changeUserName,
+    changeStatusMsg,
+    initializeLocalUsers,
+  } = useContacts();
   const { initializeLocalRooms } = useRooms();
-  const [idInput, setIdInput] = useState(currentUser.userId)
-  const [nameInput, setNameInput] = useState(currentUser.userName)
+  const [idInput, setIdInput] = useState(currentUser.userId);
+  const [nameInput, setNameInput] = useState(currentUser.userName);
   const [statusMsgInput, setStatusMsgInput] = useState(currentUser.statusMsg);
 
-  const unsavedChangesExist = (
-    (currentUser.userId !== idInput) ||
-    (currentUser.userName !== nameInput) ||
-    (currentUser.statusMsg !== statusMsgInput)
-  )
+  const unsavedChangesExist =
+    currentUser.userId !== idInput ||
+    currentUser.userName !== nameInput ||
+    currentUser.statusMsg !== statusMsgInput;
 
   const handleSaveChangesClick = () => {
-    if(unsavedChangesExist && window.confirm("변경사항을 저장하시겠습니까?")) {
-      if(currentUser.userId !== idInput) {
+    if (unsavedChangesExist && window.confirm('변경사항을 저장하시겠습니까?')) {
+      if (currentUser.userId !== idInput) {
         changeUserId(currentUser.userId, idInput);
       }
-      if(currentUser.userName !== nameInput) {
+      if (currentUser.userName !== nameInput) {
         changeUserName(currentUser.userId, nameInput);
       }
-      if(currentUser.statusMsg !== statusMsgInput) {
+      if (currentUser.statusMsg !== statusMsgInput) {
         changeStatusMsg(currentUser.userId, statusMsgInput);
       }
     }
-  }
+  };
 
   const handleInitDataClick = () => {
-    if(window.confirm("회원가입한 유저 목록 및 모든 채팅 기록을 전부 삭제합니다. 계속하시겠습니까?")) {
+    if (
+      window.confirm(
+        '회원가입한 유저 목록 및 모든 채팅 기록을 전부 삭제합니다. 계속하시겠습니까?'
+      )
+    ) {
       initializeLocalRooms();
       initializeLocalUsers();
     }
-  }
+  };
 
   return (
     <StyledSettings>
       <h2>계정 설정</h2>
       <div>
         <label htmlFor="userId">계정 ID</label>
-        <input 
+        <input
           type="text"
           name="userId"
           id="userId"
           placeholder="계정 ID 입력"
           value={idInput}
-          onChange={(e) => {setIdInput(e.target.value)}}
+          onChange={(e) => {
+            setIdInput(e.target.value);
+          }}
         />
       </div>
       <div>
         <label htmlFor="userName">계정 이름</label>
-        <input 
+        <input
           type="text"
           name="userName"
           id="userName"
           placeholder="계정 이름 입력"
           value={nameInput}
-          onChange={(e) => {setNameInput(e.target.value)}}
+          onChange={(e) => {
+            setNameInput(e.target.value);
+          }}
         />
       </div>
       <div>
         <label htmlFor="statusMsg">상태메세지</label>
-        <input 
+        <input
           type="text"
           name="statusMsg"
           id="statusMsg"
           placeholder="상태메세지 입력"
           value={statusMsgInput}
-          onChange={(e) => {setStatusMsgInput(e.target.value)}}
+          onChange={(e) => {
+            setStatusMsgInput(e.target.value);
+          }}
         />
       </div>
-      <button 
-        onClick={ handleSaveChangesClick }
-        className={ unsavedChangesExist ? '' : 'disabled' }
-      >{ unsavedChangesExist ? '변경사항 저장' : '변경사항 없음' }</button>
-      <br />
       <button
-        onClick={ handleInitDataClick }
-      >모든 데이터 초기화
+        onClick={handleSaveChangesClick}
+        className={unsavedChangesExist ? '' : 'disabled'}
+      >
+        {unsavedChangesExist ? '변경사항 저장' : '변경사항 없음'}
       </button>
+      <br />
+      <button onClick={handleInitDataClick}>모든 데이터 초기화</button>
     </StyledSettings>
-  )
+  );
 }

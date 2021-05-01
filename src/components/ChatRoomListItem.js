@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledChatRoomListItem = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0 0 15px 0;
   margin: 0 0 15px 0;
-  border: solid #D6D5D5;
+  border: solid #d6d5d5;
   border-width: 0 0 1px 0;
 `;
 
@@ -53,11 +53,11 @@ const LastChat = styled.div`
 
 export default function ChatRoomListItem({ room }) {
   let lastChat = '';
-  if(room.chats[room.chats.length-1].type==='chat') {
-    lastChat = room.chats[room.chats.length-1].content;
+  if (room.chats[room.chats.length - 1].type === 'chat') {
+    lastChat = room.chats[room.chats.length - 1].content;
   } else {
-    lastChat = `${room.chats[room.chats.length-1].user.userName}님이 `;
-    switch(room.chats[room.chats.length-1].type) {
+    lastChat = `${room.chats[room.chats.length - 1].user.userName}님이 `;
+    switch (room.chats[room.chats.length - 1].type) {
       case 'enter':
         lastChat += '대화에 참여했습니다.';
         break;
@@ -76,12 +76,14 @@ export default function ChatRoomListItem({ room }) {
       <RoomInfoColumn>
         <RoomInfoRow>
           <RoomName>{room.roomName}</RoomName>
-          <LastChatTime>{room.chats[room.chats.length-1].sentTime.toLocaleTimeString()}</LastChatTime>
+          <LastChatTime>
+            {room.chats[room.chats.length - 1].sentTime.toLocaleTimeString()}
+          </LastChatTime>
         </RoomInfoRow>
         <RoomInfoRow>
           <LastChat>{lastChat}</LastChat>
         </RoomInfoRow>
       </RoomInfoColumn>
     </StyledChatRoomListItem>
-  )
+  );
 }
