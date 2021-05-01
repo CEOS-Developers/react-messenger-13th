@@ -65,6 +65,26 @@ class Room {
     this.chats.push(new Chat('chat', user, content));
   }
 
+  getUnreadCount(userId) {
+    const lastReadTime = this.lastReadTime.filter(lrt => lrt.userId === userId);
+    if(lastReadTime.length > 0) {
+      lastReadTime = lastReadTime[0];
+    } else {
+      // user를 못 찾았을 경우: 해당 유저가 한 번도 읽은 적이 없다는 뜻
+      return this.chats.length;
+    }
+
+    let unreadCount = 0;
+    for(let i=this.chats.length-1; i>=0; i++) {
+      if(this.chats[i].sentTime > lastReadTime) {
+        unreadCount++;
+      } else {
+        break;
+      }
+    }
+    return unreadCount;
+  }
+
   getRoom() {
     return {
       roomId: this.roomId,
@@ -274,9 +294,6 @@ export default function RoomsProvider({ children }) {
       return prevRooms.map(room => {
         if(room.roomId === roomId) {
           const user = getUserById(userId);
-          // let newRoom = room.getCopy();
-          // newRoom.sendChat(user, msg);
-          // return newRoom;
           room.sendChat(user, msg);
           return room;
         } else {
