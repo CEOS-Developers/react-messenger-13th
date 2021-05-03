@@ -33,13 +33,16 @@ const StyledHeader = styled.div`
     color: #f06292;
     margin-left: 119px;
     & img {
-        margin: 20px;
         width:100px;
-        border-radius : 50%;
-        border-color: hotpink;
-        border-width: 3px;
         height:100px;
-        border: 5px solid hotpink;
+        background: 
+        linear-gradient(ghostwhite, ghostwhite) padding-box,
+        linear-gradient(to bottom, #e600ac, #ffa31a) border-box;
+        border: 5.5px solid transparent;
+        border-radius:100px;
+        display:inline-block;
+        margin: 20px; 
+        padding : 3px;
     }
     & input {
         height: 50px;
@@ -47,6 +50,7 @@ const StyledHeader = styled.div`
         border-radius: 10px;
         border: 1px solid #ffcdd2;
     }
+    
 `;
 
 function ChattingList(){
@@ -58,7 +62,11 @@ function ChattingList(){
     return(
         <div>
         <StyledHeader>
+        
+        
         <img src={UserLists[1].img} alt="myImg"></img>
+       
+        
         <div>
         <h2>{UserLists[1].name}</h2>
         <input placeholder="채팅 목록 검색" type="text" onChange={onChange}/>

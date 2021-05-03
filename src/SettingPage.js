@@ -9,10 +9,9 @@ const StyledProfileSetting = styled.div`
     width: 60%;
     display: flex;
     flex-direction: row;
-    background-color: snow;
+    background-color: ghostwhite;
     position: fixed;
-    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+    
     & img {
         width: 150px;
         height:150px;

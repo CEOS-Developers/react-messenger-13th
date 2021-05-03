@@ -23,12 +23,9 @@ const StyledLogo = styled.div`
 function Home(){
     return(
     <StyledLogo>
-        
         <IoLogoInstagram>
         </IoLogoInstagram>
         <h3>Jungstagram</h3>
-        
-        
     </StyledLogo>
     );
 }

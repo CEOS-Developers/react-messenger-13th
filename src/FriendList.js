@@ -51,13 +51,16 @@ const StyledHeader = styled.div`
     color: #f06292;
     margin-left: 119px;
     & img {
-        margin: 20px;
         width:100px;
-        border-radius : 50%;
-        border-color: hotpink;
-        border-width: 3px;
         height:100px;
-        border: 5px solid hotpink;
+        background: 
+        linear-gradient(ghostwhite,ghostwhite) padding-box,
+        linear-gradient(to bottom, #e600ac, #ffa31a) border-box;
+        border: 5.5px solid transparent;
+        border-radius:100px;
+        display:inline-block;
+        margin: 20px; 
+        padding : 3px;
     }
     & input {
         height: 50px;
@@ -79,19 +82,6 @@ function FreindList(){
     const onChange = (e) =>{
         setSearchInput(e.target.value);
     }
-    /*
-    const onSearch = () =>{
-        UserLists.map(id =>(
-            (id.name.includes(searchInput)?
-            <StyledProfileImg>
-               <img src={id.img} alt="friendImg"></img>
-               <h3>{id.name}</h3>
-            </StyledProfileImg> : ''
-            
-        ))
-            
-    }
-    */
 
     return(
         <div>

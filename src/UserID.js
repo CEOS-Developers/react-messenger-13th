@@ -72,31 +72,4 @@ const UserLists = [
       statusMessage: "휴하하하하하하하하하하학",
     }
     ];
-
-
-function UserID(props){
-const UserLists = [
-    {
-        id: 0,
-        name: "현재",
-        img: "profile2.jpg",
-      },
-      {
-        id: 1,
-        name: "이소정",
-        img: "profile1.jpg",
-      },
-      {
-          id: 2,
-          name: "묭이",
-          img: "profile3.jpg"
-      }
-    ];
-    return(
-        <StyledProfileImg>
-        <img src={UserLists[props.id].img} alt="friendImg"></img>
-        </StyledProfileImg>
-    );
-}
-
 export default UserLists;
