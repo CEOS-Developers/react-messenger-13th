@@ -26,16 +26,16 @@ function Navigation() {
         <StyledNavigationBar>
         <div className="nav">
             <Link to="/">
-                <AiFillHome></AiFillHome>
+                <AiFillHome cursor={"pointer"}></AiFillHome>
             </Link>
             <Link to="/friend-list">
-                <BsFillPeopleFill></BsFillPeopleFill>
+                <BsFillPeopleFill cursor={"pointer"}></BsFillPeopleFill>
             </Link>
             <Link to="/chatting-list">
-                <FiSend></FiSend>
+                <FiSend cursor={"pointer"}></FiSend>
             </Link>
             <Link to="/setting-page">
-                <BsThreeDots></BsThreeDots>
+                <BsThreeDots cursor={"pointer"}></BsThreeDots>
             </Link>
         </div>
         </StyledNavigationBar>

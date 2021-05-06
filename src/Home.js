@@ -16,7 +16,7 @@ const StyledLogo = styled.div`
     font-size: 100px;
     -webkit-background-clip: text !important;
     color: transparent;
-    cursor: pointer;
+    cursor: cell;
     }
 `;
 

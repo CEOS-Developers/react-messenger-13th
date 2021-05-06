@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import UserLists from './UserID';
 import styled from 'styled-components';
 
@@ -15,7 +15,7 @@ const StyledHeader = styled.div`
         width:100px;
         height:100px;
         background: 
-        linear-gradient(ghostwhite,ghostwhite) padding-box,
+        linear-gradient(ghostwhite, ghostwhite) padding-box,
         linear-gradient(to bottom, #e600ac, #ffa31a) border-box;
         border: 5.5px solid transparent;
         border-radius:100px;
@@ -34,7 +34,7 @@ const StyledHeader = styled.div`
 function ListHeader(props){
     return(
         <StyledHeader>
-        <img src={UserLists[1].img} alt="myImg"></img>
+        <img src={UserLists[1].img} alt="myImg"/>
         <div>
         <h2>{UserLists[1].name}</h2>
         <input placeholder={props.placeholder} type="text" onChange={props.onChange}/>

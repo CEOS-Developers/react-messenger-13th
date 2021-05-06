@@ -39,6 +39,7 @@ const StyledProfileSetting = styled.div`
     & h3 {
         margin-left: 167px;
         color: #0095f6;
+        cursor: pointer;
     }
 `;
 const StyledSettingMenuBar = styled.div`
@@ -54,6 +55,7 @@ const StyledSettingMenuBar = styled.div`
         margin-top : 30px;
         margin-bottom: 30px;
         font-weight: light;
+        cursor: not-allowed;
     }
 `;
 function SettingPage(){

@@ -9,6 +9,7 @@ import {FiSend} from 'react-icons/fi';
 const StyledProfileImg = styled.div`
     display: flex;
     flex-direction: row;
+    cursor: pointer;
     & h3 {
         display: flex;
         align-items: center; 

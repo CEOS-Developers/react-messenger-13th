@@ -1,13 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledProfileImg = styled.div`
-    & img{
-        margin-left: 150px;
-        width:100px;
-        border-radius : 50%;
-    }
-`;
 const UserLists = [
     {
         id: 0,
