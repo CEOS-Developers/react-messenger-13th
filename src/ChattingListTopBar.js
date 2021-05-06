@@ -27,6 +27,7 @@ function ChattingListTopBar({ searchUser, viewTitle }) {
 
   useEffect(() => {
     searchUser(searchUserInput);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchUserInput]);
 
   return (

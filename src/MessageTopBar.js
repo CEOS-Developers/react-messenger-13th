@@ -25,7 +25,7 @@ const ProfileImageButton = styled.button`
     outline: none;
   }
 `;
-const ProfileImage = styled.img`
+export const ProfileImage = styled.img`
   width: 60px;
   height: 60px;
   border-radius: 70%;
