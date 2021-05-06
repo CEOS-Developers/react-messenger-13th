@@ -28,15 +28,15 @@ const StyledHeader = styled.div`
     flex-direction: row;
     width: 92%;
     height: 170px;
-    background: linear-gradient(pink, papayawhip);
+    background: #ffccdd;
     font-size: 20px;
-    color: #f06292;
+    color: #330033;
     margin-left: 119px;
     & img {
         width:100px;
         height:100px;
         background: 
-        linear-gradient(ghostwhite, ghostwhite) padding-box,
+        linear-gradient(ghostwhite,ghostwhite) padding-box,
         linear-gradient(to bottom, #e600ac, #ffa31a) border-box;
         border: 5.5px solid transparent;
         border-radius:100px;
@@ -50,7 +50,6 @@ const StyledHeader = styled.div`
         border-radius: 10px;
         border: 1px solid #ffcdd2;
     }
-    
 `;
 
 function ChattingList(){

@@ -46,9 +46,9 @@ const StyledHeader = styled.div`
     flex-direction: row;
     width: 92%;
     height: 170px;
-    background: linear-gradient(pink, papayawhip);
+    background: #ffccdd;
     font-size: 20px;
-    color: #f06292;
+    color: #330033;
     margin-left: 119px;
     & img {
         width:100px;

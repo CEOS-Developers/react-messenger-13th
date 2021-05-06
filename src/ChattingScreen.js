@@ -9,7 +9,6 @@ import UserLists from './UserID';
 
 const ChattingScreen = () => {
   const { id } = useParams();
-  // const id = useParams().id;
 
   const [currentUser, setCurrentUser] = useState(1)
   const [message,setMessage] = useState([
@@ -90,21 +89,6 @@ const ChattingScreen = () => {
     setMessage(newMessage);
   }
   const users = UserLists;
-  /*[
-    
-  {
-    id: 0,
-    name: "THE BOYZ",
-    img: "profile2.jpg",
-  },
-  {
-    id: 1,
-    name: "KATHERINE",
-    img: "profile1.jpg",
-  },
-  
- {UserLists}
-  ];*/
   const [user,setUsers] = useState(0);  
 
 

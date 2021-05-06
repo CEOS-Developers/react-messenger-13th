@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-    background: linear-gradient(pink, papayawhip);
+    background: #ffccdd;
     display : flex;
     flex-direction : row;
     float: right;

@@ -30,13 +30,13 @@ function Navigation() {
             </Link>
             <Link to="/friend-list">
                 <BsFillPeopleFill></BsFillPeopleFill>
-            </Link><br></br>
+            </Link>
             <Link to="/chatting-list">
                 <FiSend></FiSend>
-            </Link><br></br>
+            </Link>
             <Link to="/setting-page">
                 <BsThreeDots></BsThreeDots>
-            </Link><br></br>
+            </Link>
         </div>
         </StyledNavigationBar>
     );
