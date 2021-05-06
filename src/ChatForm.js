@@ -2,14 +2,12 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const StyleChatForm = styled.div`
-
-    
     bottom: 0;
     width: 100%;
     left: 0;
     right: 0;
     position: fixed;
-    
+
     & div{
         display: flex;
         flex-direction: row;
@@ -33,7 +31,7 @@ const StyleChatForm = styled.div`
     }
     & button{
         border-radius: 20px;
-        background-color: #ffccdd;
+        background-color: #ffcdd2;
         color: #f06292;
         border: 1px solid #f06292;
         width: 18%;

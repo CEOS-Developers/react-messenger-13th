@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useParams } from 'react-router';
-import Header from './Header';
+import ChattingHeader from './ChattingHeader';
 import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
 import Navigation from './Navigation';
@@ -105,7 +105,7 @@ const ChattingScreen = () => {
     <div>
      
       <div onClick={handleClick}>
-        <Header user={users[currentUser]} />
+        <ChattingHeader user={users[currentUser]} />
       </div>
       <Navigation/>
       <ChatContainer message={message.filter( m => m.receiver === parseInt(id))} user={user}/>

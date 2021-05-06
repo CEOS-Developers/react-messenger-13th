@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import UserLists from './UserID';
 import styled from 'styled-components';
-import UserID from './UserID';
-
+import ListHeader from './ListHeader';
 
 const StyledProfileImg = styled.div`
     display: flex;
@@ -41,41 +40,6 @@ const StyledProfileImg = styled.div`
     }
 `;
 
-const StyledHeader = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 92%;
-    height: 170px;
-    background: #ffccdd;
-    font-size: 20px;
-    color: #330033;
-    margin-left: 119px;
-    & img {
-        width:100px;
-        height:100px;
-        background: 
-        linear-gradient(ghostwhite,ghostwhite) padding-box,
-        linear-gradient(to bottom, #e600ac, #ffa31a) border-box;
-        border: 5.5px solid transparent;
-        border-radius:100px;
-        display:inline-block;
-        margin: 20px; 
-        padding : 3px;
-    }
-    & input {
-        height: 50px;
-        width: 1000px;
-        border-radius: 10px;
-        border: 1px solid #ffcdd2;
-    }
-`;
-
-const StyledProfileMusic = styled.div`
-    height: 10px;
-    width: 30px;
-    border: 2px solid pink;
-    background-color: white;
-`;
 
 function FreindList(){
     const [searchInput, setSearchInput] = useState('');
@@ -85,13 +49,7 @@ function FreindList(){
 
     return(
         <div>
-        <StyledHeader>
-        <img src={UserLists[1].img} alt="myImg"></img>
-        <div>
-        <h2>{UserLists[1].name}</h2>
-        <input placeholder="사용자 검색" type="text" onChange={onChange}/>
-        </div>
-        </StyledHeader>
+        <ListHeader placeholder={"친구 검색"} onChange={onChange}/>
         {UserLists.map(id =>{
             if(id.name.includes(searchInput) && id.id!==1){
             return(
