@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "text": "Hi",
+        "isUser": 0,
+        "receiver": 0
+      },
+      {
+        "id": 2,
+        "text": "Hello",
+        "isUser": 1,
+        "receiver": 0
+      },
+      {
+        "id": 3,
+        "text": "What do you do today?",
+        "isUser": 1,
+        "receiver": 0
+      },
+      {
+        "id": 4,
+        "text": "I'm standing on the concert. Would you come? I already left a ticket for you!",
+        "isUser": 0, 
+        "receiver": 0
+      },
+      {
+        "id": 5,
+        "text": "Of course!!!! I'm eagerly waiting for it!!",
+        "isUser": 1,
+        "receiver": 0,
+        "last": true
+      },
+      {
+        "id": 6,
+        "text": "언니!!!!!",
+        "isUser": 2,
+        "receiver": 2
+      },
+      {
+        "id": 7,
+        "text": "울 묭이 보고싶어 흐엉",
+        "isUser": 1,
+        "receiver": 2,
+        "last": true
+      },
+      {
+        "id": 8,
+        "text": "영아 나 너네 집 또 갈래",
+        "isUser": 1,
+        "receiver": 3
+      },
+      {
+        "id": 9,
+        "text": "언제든 컴온",
+        "isUser": 3,
+        "receiver": 3,
+        "last": true
+      },
+      {
+        "id": 10,
+        "text": "내 이름은 소정",
+        "isUser": 4,
+        "receiver": 4
+      },
+      {
+        "id": 11,
+        "text": "세 살이지",
+        "isUser": 4,
+        "receiver": 4,
+        "last": true
+      },
+      {
+        "id": 12,
+        "text": "소정아 술마시자",
+        "isUser": 5,
+        "receiver": 5
+      },
+      {
+        "id": 13,
+        "text": "꺄 조아조아",
+        "isUser": 1,
+        "receiver": 5,
+        "last": true
+      },
+      {
+        "id": 14,
+        "text": "아 이게 뭐야 왜 아무도 없숴",
+        "isUser": 6,
+        "receiver": 6
+      },
+      {
+        "id": 14,
+        "text": "쭈냥이 귀여워",
+        "isUser": 1,
+        "receiver": 6,
+        "last": true
+      },
+      {
+        "id": 15,
+        "text": "굠이 너는 항상 최고야",
+        "isUser": 1,
+        "receiver": 7,
+        "last": true
+      },
+      {
+        "id": 16,
+        "text": "새벽 여섯시면 안 잔건가요 일어난건가요!",
+        "isUser": 8,
+        "receiver": 8
+      },
+      {
+        "id": 17,
+        "text": "안 잔거에요",
+        "isUser": 1,
+        "receiver": 8
+      },
+      {
+        "id": 18,
+        "text": "....늘 건강 최우선임동",
+        "isUser": 8,
+        "receiver": 8,
+        "last": true
+      },
+      {
+        "id": 19,
+        "text": "밍이 안 본지 몇 개월이냐ㅠ",
+        "isUser": 1,
+        "receiver": 9
+      },
+      {
+        "id": 20,
+        "text": "그러겡ㅠ",
+        "isUser": 9,
+        "receiver": 9,
+        "last": true
+      }
+]

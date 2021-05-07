@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
-    background-color: #ffcdd2;
+    background: #ffcdd2;
     display : flex;
     flex-direction : row;
+    float: right;
+    margin-left: 119px;
+    width: 91%;
     position: fixed;
-    width: 98%;
-    border-radius: 30px;
     color: #f06292;
-
+    
     & img {
         margin: 20px;
         width:100px;
@@ -24,7 +25,7 @@ const TextPosition = styled.div`
     }
 `;
 
-export default function Header(props) {
+export default function ChattingHeader(props) {
     return (
         <StyledHeader>
             <img src={props.user.img} alt="profile"></img>
