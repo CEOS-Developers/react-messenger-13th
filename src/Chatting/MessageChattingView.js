@@ -4,6 +4,7 @@ import MessageBox from "./MessageBox";
 import MessageInputBar from "./MessageInputBar";
 import styled from "styled-components";
 import { useParams } from "react-router";
+import ChatSet from "../BasicChat";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +17,9 @@ function ChattingView() {
   let { userID } = useParams();
   const [isMe, setIsMe] = useState(true);
   const currentUser = isMe ? 2 : userID;
-  const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
+  const [userChattingMessageSet, setUserChattingMessageSet] = useState([
+    ChatSet[userID - 1],
+  ]);
 
   function switchUser() {
     setIsMe(!isMe);

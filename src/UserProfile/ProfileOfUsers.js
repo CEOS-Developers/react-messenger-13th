@@ -4,18 +4,17 @@ import {
   ProfileImage,
   ProfileName,
   ProfileBubbleContainer,
+  LastMessage,
 } from "../ChattingList/ChattingProfile";
 
-const ProfileMessage = styled.p`
+const ProfileMessage = styled(LastMessage)`
   color: gray;
-  font-size: 14px;
-  margin: 0;
-  padding-left: 10px;
 `;
 
 const UserName = styled(ProfileName)`
-  margin-bottom: 3px;
-  margin-top: 7px;
+  font-size: 18px;
+  margin: 7px 0px 3px;
+  padding: 10px;
 `;
 
 function ProfileBubble({ profile, handleModal }) {

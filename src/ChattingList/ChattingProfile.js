@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
+import ChatSet from "../BasicChat";
 
 export const ProfileImage = styled.img`
   width: 50px;
@@ -11,10 +12,17 @@ export const ProfileImage = styled.img`
 
 export const ProfileName = styled.div`
   line-height: 25px;
-  font-size: 18px;
-  margin: 10px 0px 10px;
-  padding: 10px;
+  font-size: 15px;
+  margin: 5px 0px 3px;
+  padding: 6px;
   color: gray;
+`;
+
+export const LastMessage = styled.p`
+  color: #ba4f5f;
+  font-size: 15px;
+  margin: 0;
+  padding-left: 10px;
 `;
 
 export const ProfileBubbleContainer = styled.div`
@@ -41,7 +49,12 @@ function ChattingProfileBubble({ profile }) {
       <ProfileImage
         src={process.env.PUBLIC_URL + "/" + profile.profileImage + ".jpg"}
       />
-      <ProfileName> {profile.name} </ProfileName>
+      <div>
+        <ProfileName> {profile.name} </ProfileName>
+        <LastMessage>
+          {ChatSet[profile.profileImage - 1].messageContext}
+        </LastMessage>
+      </div>
     </ProfileBubbleContainer>
   );
 }
