@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "text": "Hi",
+        "isUser": 0,
+        "receiver": 0
+      },
+      {
+        "id": 2,
+        "text": "Hello",
+        "isUser": 1,
+        "receiver": 0
+      },
+      {
+        "id": 3,
+        "text": "What do you do today?",
+        "isUser": 1,
+        "receiver": 0
+      },
+      {
+        "id": 4,
+        "text": "I'm standing on the concert. Would you come? I already left a ticket for you!",
+        "isUser": 0, 
+        "receiver": 0
+      },
+      {
+        "id": 5,
+        "text": "Of course!!!! I'm eagerly waiting for it!!",
+        "isUser": 1,
+        "receiver": 0
+      },
+      {
+        "id": 6,
+        "text": "언니!!!!!",
+        "isUser": 2,
+        "receiver": 2
+      },
+      {
+        "id": 7,
+        "text": "울 묭이 보고싶어 흐엉",
+        "isUser": 1,
+        "receiver": 2
+      },
+      {
+        "id": 8,
+        "text": "영아 나 너네 집 또 갈래",
+        "isUser": 1,
+        "receiver": 3
+      },
+      {
+        "id": 9,
+        "text": "언제든 컴온",
+        "isUser": 3,
+        "receiver": 3
+      }
+]

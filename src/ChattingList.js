@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import UserLists from './UserID';
+import UserLists from './UserLists.json';
 import ListHeader from './ListHeader';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';

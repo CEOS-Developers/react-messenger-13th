@@ -4,45 +4,15 @@ import ChattingHeader from './ChattingHeader';
 import ChatContainer from './ChatContainer';
 import ChatForm from './ChatForm';
 import Navigation from './Navigation';
-import UserLists from './UserID';
+import UserLists from './UserLists';
+import ChattingData from './ChattingData'
 
 
 const ChattingScreen = () => {
   const { id } = useParams();
 
   const [currentUser, setCurrentUser] = useState(1)
-  const [message,setMessage] = useState([
-    {
-      id: 1,
-      text: "Hi",
-      isUser: 0,
-      receiver: 0
-    },
-    {
-      id: 2,
-      text: "Hello",
-      isUser: 1,
-      receiver: 0
-    },
-    {
-      id: 3,
-      text: "What do you do today?",
-      isUser: 1,
-      receiver: 0
-    },
-    {
-      id: 4,
-      text: "I'm standing on the concert. Would you come? I already left a ticket for you!",
-      isUser: 0, 
-      receiver: 0
-    },
-    {
-      id: 5,
-      text: "Of course!!!! I'm eagerly waiting for it!!",
-      isUser: 1,
-      receiver: 0
-    }
-  ]);
+  const [message,setMessage] = useState(ChattingData);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({
       id: new Date(),

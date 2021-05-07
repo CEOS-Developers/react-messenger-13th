@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import UserLists from './UserID';
+import UserLists from './UserLists';
 import styled from 'styled-components';
 import ListHeader from './ListHeader';
 
