@@ -4,6 +4,7 @@ import ListHeader from './ListHeader';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import {FiSend} from 'react-icons/fi';
+import ChattingData from './ChattingData';
 
 
 const StyledProfileImg = styled.div`
@@ -23,6 +24,11 @@ const StyledProfileImg = styled.div`
         border-radius : 50%;
         height:80px;
     }
+    & h5 {
+        color: dimgrey;
+        margin-left: 20px;
+        margin-top : 50px;
+    }
 `;
 
 
@@ -41,8 +47,11 @@ function ChattingList(){
             <Link to={`/chatting-screen/${id.id}`}>
             <StyledProfileImg userID = {id.id}>
                <img src={id.img} alt="friendImg"></img>
-               <h3>{id.name}<pre>  <FiSend></FiSend></pre></h3>
-               
+               <h3>{id.name}<pre> <FiSend></FiSend></pre></h3>
+                {ChattingData.map(message => {
+                    return(message.receiver===id.id && message.last ?<h5>{message.text}</h5>:<></>)
+                })
+                }
             </StyledProfileImg>
             </Link>
             );
