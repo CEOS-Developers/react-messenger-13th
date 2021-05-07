@@ -1,9 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 import {
   ProfileImage,
   ProfileName,
   ProfileBubbleContainer,
 } from "../ChattingList/ChattingProfile";
+
+const ProfileMessage = styled.p`
+  color: gray;
+  font-size: 14px;
+  margin: 0;
+  padding-left: 10px;
+`;
+
+const UserName = styled(ProfileName)`
+  margin-bottom: 3px;
+  margin-top: 7px;
+`;
 
 function ProfileBubble({ profile, handleModal }) {
   function profileClicked() {
@@ -15,7 +28,10 @@ function ProfileBubble({ profile, handleModal }) {
       <ProfileImage
         src={process.env.PUBLIC_URL + "/" + profile.profileImage + ".jpg"}
       />
-      <ProfileName> {profile.name} </ProfileName>
+      <div>
+        <UserName> {profile.name} </UserName>
+        <ProfileMessage>{profile.profileMessage}</ProfileMessage>
+      </div>
     </ProfileBubbleContainer>
   );
 }

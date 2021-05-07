@@ -22,6 +22,9 @@ export const ProfileBubbleContainer = styled.div`
   background-color: #f4f4f4;
   border-top: 1px solid #e99ba7;
   margin-left: 8vw;
+  &:hover {
+    background-color: #f0d7d7;
+  }
 `;
 
 function ChattingProfileBubble({ profile }) {
