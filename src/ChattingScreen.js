@@ -41,43 +41,7 @@ const ChattingScreen = () => {
       text: "Of course!!!! I'm eagerly waiting for it!!",
       isUser: 1,
       receiver: 0
-    },
-    {
-      id: 1,
-      text: "Hi",
-      isUser: 2,
-      receiver: 2
-    },
-    {
-      id: 2,
-      text: "Hello",
-      isUser: 1,
-      receiver: 2
-    },
-    {
-      id: 1,
-      text: "Hi",
-      isUser: 3,
-      receiver: 3
-    },
-    {
-      id: 2,
-      text: "Hello",
-      isUser: 1,
-      receiver: 3
-    },
-    {
-      id: 1,
-      text: "Hi",
-      isUser: 4,
-      receiver: 4
-    },
-    {
-      id: 2,
-      text: "Hello",
-      isUser: 1,
-      receiver: 4
-    },
+    }
   ]);
   const submitMessage = (sendText) => {
     const newMessage = message.concat({
