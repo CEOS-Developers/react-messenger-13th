@@ -32,14 +32,14 @@ export default function ChatItem(props) {
   //     profileImg: process.env.PUBLIC_URL + '/logo512.png',
   // }
 
-  const { chatText, profileImg, userId } = props.item;
-  // const {chatListData} = props;
-  // const chatListData = props.chatListData 둘이 같은거!
+  const { chatText, profileImgSrc, userId } = props.item;
+  // const {messages} = props;
+  // const messages = props.messages 둘이 같은거!
   // 결론은 const userId = props.item.userId
 
   return (
     <ChatBox userId={userId}>
-      <Photo src={profileImg} />
+      <Photo src={profileImgSrc} />
       <ChatText>{chatText}</ChatText>
     </ChatBox>
   );

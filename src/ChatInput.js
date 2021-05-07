@@ -21,13 +21,15 @@ function ChatInput(props) {
 
   const { addChatData } = props;
 
+  const { roomId } = useParams(); // App.js에서 Route path="/room/:id에서 불러온 parameters 중에 id!"
+
   function handleChange(e) {
     setInputValue(e.target.value); // inputValue를 e.target.value로 업데이트
   }
 
   function handleClick() {
     if (inputValue !== '') {
-      addChatData(inputValue);
+      addChatData(inputValue, roomId);
       setInputValue('');
     }
   }

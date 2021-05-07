@@ -24,7 +24,7 @@ const UserStatus = styled.div``;
 // <ProfileContainer ProfileImgData={messages} /> App.js에 추가하면 안되나...
 function ProfileContainer(props) {
   function handleClick() {
-    props.toggleCurrentUser();
+    props.toggleCurrentUser(roomId);
   }
   return (
     <Container onClick={handleClick}>
