@@ -3,7 +3,7 @@ import {
   ProfileImage,
   ProfileName,
   ProfileBubbleContainer,
-} from "./ChattingProfile";
+} from "../ChattingList/ChattingProfile";
 
 function ProfileBubble({ profile, handleModal }) {
   function profileClicked() {

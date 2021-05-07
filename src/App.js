@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import styled from "styled-components";
-import MessageChattingView from "./MessageChattingView";
-import ChattingList from "./ChattingListView";
+import MessageChattingView from "./Chatting/MessageChattingView";
+import ChattingList from "./ChattingList/ChattingListView";
 import MoreView from "./MoreView";
-import ProfileListView from "./ProfileListView";
+import ProfileListView from "./UserProfile/ProfileListView";
 import MenuBar from "./MenuBar";
 
 const Container = styled.div`
