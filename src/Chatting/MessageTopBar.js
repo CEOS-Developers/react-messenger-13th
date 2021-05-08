@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import userProfileSet from "../User";
+import userProfileSet from "../constants/User";
 
 const TopBox = styled.div`
   background-color: #e99ba7;
