@@ -32,6 +32,7 @@ const StyledSubmitButton = styled.input.attrs({
   type: 'image',
 })`
   height: auto;
+  width: 55px;
 
   flex: 0 0 auto;
   background: yellow;

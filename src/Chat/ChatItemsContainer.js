@@ -30,7 +30,7 @@ const StyledImg = styled.img`
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  margin: 10px;
+  margin: 0 10px 10px;
 `;
 
 const StyledChatItem = styled.p`

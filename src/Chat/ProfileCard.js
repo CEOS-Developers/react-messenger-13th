@@ -12,7 +12,7 @@ const StyledImg = styled.img`
   height: 70px;
   width: 70px;
   border-radius: 30%;
-  margin: 0px 10px 10px;
+  margin: 10px;
 `;
 
 const StyledLabelContainer = styled.div`
