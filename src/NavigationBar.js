@@ -5,27 +5,52 @@ import { PersonFill, ChatFill, ThreeDots, EmojiSmile, Bell, Gear} from 'react-bo
 const NavigationBar = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-space-between;
+justify-content: space-between;
 flex-grow: 1;
 `;
 
-const AboveBar = 
+const AboveBar = styled.div`
+display: flex;
+flex-direction: column;
+`;
 
-const UnderBar = 
+const UnderBar = styled.div`
+display: flex;
+flex-direction: column;
+`;
+
+function AboveBar() {
+    return (
+        <>
+            <Link to="/friends">
+                <PersonFill />
+            </Link>
+            <Link to="/rooms">
+                <ChatFill />
+            </Link>
+            <Link to="/settings">
+                <ThreeDots />
+            </Link>
+        </>
+    )
+}
+
+function UnderBar() {
+    return (
+        <>
+            <EmojiSmile />
+            <Bell />
+            <Gear />
+        </>
+    )
+}
 
 function NavigationBar() {
 
-    function AboveBar() {
-        return (
-            <PersonFill/>
-            <ChatFill/>
-            <ThreeDots/>
-        )
-    }
-
     return (
     <NavigationBar>
-        
+        <AboveBar/>
+        <UnderBar/>
     </NavigationBar>
     )
 };

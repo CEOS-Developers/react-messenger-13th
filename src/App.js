@@ -25,6 +25,90 @@ const initialChatData = [
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 1,
   },
+  {
+    chatId: 1,
+    chatText: '미션 다햇니',
+    userId: 2,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 2,
+  },
+  {
+    chatId: 2,
+    chatText: '아니ㅎㅎ',
+    userId: 2,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 2,
+  },
+  {
+    chatId: 1,
+    chatText: '미션 다햇니',
+    userId: 3,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 3,
+  },
+  {
+    chatId: 2,
+    chatText: '아니ㅎㅎ',
+    userId: 3,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 3,
+  },
+  {
+    chatId: 1,
+    chatText: '미션 다햇니',
+    userId: 4,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 4,
+  },
+  {
+    chatId: 2,
+    chatText: '아니ㅎㅎ',
+    userId: 4,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 4,
+  },
+  {
+    chatId: 1,
+    chatText: '미션 다햇니',
+    userId: 5,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 5,
+  },
+  {
+    chatId: 2,
+    chatText: '아니ㅎㅎ',
+    userId: 5,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 5,
+  },
+  {
+    chatId: 1,
+    chatText: '미션 다햇니',
+    userId: 6,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 6,
+  },
+  {
+    chatId: 2,
+    chatText: '아니ㅎㅎ',
+    userId: 6,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 6,
+  },
+  {
+    chatId: 1,
+    chatText: '미션 다햇니',
+    userId: 7,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 7,
+  },
+  {
+    chatId: 2,
+    chatText: '아니ㅎㅎ',
+    userId: 7,
+    profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
+    roomId: 7,
+  },
 ];
 
 const initialusers = [
@@ -111,17 +195,6 @@ function App() {
   return (
     <BrowserRouter>
       <Container>
-        <ul>
-          <li>
-            <Link to="/friends">Friends</Link>
-          </li>
-          <li>
-            <Link to="/rooms">Rooms</Link>
-          </li>
-          <li>
-            <Link to="/settings">Settings</Link>
-          </li>
-        </ul>
         <Switch>
           <Route path="/friends">
             <FriendList FriendListData={initialusers} />
