@@ -4,7 +4,7 @@ import MessageBox from "./MessageBox";
 import MessageInputBar from "./MessageInputBar";
 import styled from "styled-components";
 import { useParams } from "react-router";
-import ChatSet from "../BasicChat";
+import ChatSet from "../../BasicChat";
 
 const Container = styled.div`
   display: flex;
