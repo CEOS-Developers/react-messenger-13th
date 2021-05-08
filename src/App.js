@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import TopBar from './TopBar'
-import MessageBox from './MessageBox'
-import MessageInputBar from './MessageInputBar'
-import styled from 'styled-components';
+import React from "react";
+import { Route } from "react-router-dom";
+import styled from "styled-components";
+import MessageChattingView from "./Chatting/MessageChattingView";
+import ChattingList from "./ChattingList/ChattingListView";
+import MoreView from "./MoreView";
+import ProfileListView from "./UserProfile/ProfileListView";
+import MenuBar from "./MenuBar";
 
 const Container = styled.div`
   display: flex;
@@ -12,22 +15,13 @@ const Container = styled.div`
 `;
 
 function App() {
-  let chattingUser = 1;
-  const [userChattingMessageSet, setUserChattingMessageSet] = useState([]);
-
-  function clickProfileImageButton(userID){
-    chattingUser=userID;
-  }
-  function clickInputButton(messageUserInput) {
-    let ID = Date.now();
-    setUserChattingMessageSet(formerMessage => [...formerMessage, {chattingUser: chattingUser, messageContext: messageUserInput, id: ID}]);
-  }
-
   return (
-    <Container >
-      <TopBar clickProfileImageButton={clickProfileImageButton}/>
-      <MessageBox userChattingMessageSet={userChattingMessageSet}/>
-      <MessageInputBar clickInputButton={clickInputButton}/>
+    <Container>
+      <Route path="/" component={MenuBar} />
+      <Route path="/profile" component={ProfileListView} />
+      <Route path="/chatting-list" component={ChattingList} />
+      <Route path="/chat-with/:userID" component={MessageChattingView} />
+      <Route path="/more" component={MoreView} />
     </Container>
   );
 }
