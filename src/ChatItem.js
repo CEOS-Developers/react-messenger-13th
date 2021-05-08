@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ChatBox = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.userId === 0 ? 'row' : 'row-reverse')};
+  flex-direction: row;
   margin-bottom: 15px;
 `;
 // const name = "정윤선"
@@ -11,15 +11,18 @@ const ChatBox = styled.div`
 const Photo = styled.img`
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 `;
 
 const ChatText = styled.div`
   border: 1px solid black;
+  border-radius: 10px;
   padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  margin: 0 10px;
 `;
 
 export default function ChatItem(props) {
@@ -36,9 +39,9 @@ export default function ChatItem(props) {
   // const {messages} = props;
   // const messages = props.messages 둘이 같은거!
   // 결론은 const userId = props.item.userId
-
+  console.log(props.item.userId===0)
   return (
-    <ChatBox userId={userId}>
+    <ChatBox userId={userId} style={{flexDirection: (props.item.userId===0 ? 'row' : 'row-reverse')}}>
       <Photo src={profileImgSrc} />
       <ChatText>{chatText}</ChatText>
     </ChatBox>

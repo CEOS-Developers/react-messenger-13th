@@ -14,7 +14,7 @@ const initialChatData = [
   {
     chatId: 1,
     chatText: '미션 다햇니',
-    userId: 1,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 1,
   },
@@ -28,7 +28,7 @@ const initialChatData = [
   {
     chatId: 1,
     chatText: '미션 다햇니',
-    userId: 2,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 2,
   },
@@ -42,7 +42,7 @@ const initialChatData = [
   {
     chatId: 1,
     chatText: '미션 다햇니',
-    userId: 3,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 3,
   },
@@ -56,7 +56,7 @@ const initialChatData = [
   {
     chatId: 1,
     chatText: '미션 다햇니',
-    userId: 4,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 4,
   },
@@ -70,7 +70,7 @@ const initialChatData = [
   {
     chatId: 1,
     chatText: '미션 다햇니',
-    userId: 5,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 5,
   },
@@ -91,7 +91,7 @@ const initialChatData = [
   {
     chatId: 2,
     chatText: '아니ㅎㅎ',
-    userId: 6,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 6,
   },
@@ -105,7 +105,7 @@ const initialChatData = [
   {
     chatId: 2,
     chatText: '아니ㅎㅎ',
-    userId: 7,
+    userId: 0,
     profileImgSrc: process.env.PUBLIC_URL + '/babodog.jpg',
     roomId: 7,
   },
@@ -209,6 +209,7 @@ function App() {
              (줌 방 번호같은 느낌)
              만약 여러개의 parameter 를 만들고 싶으면
              /:id/:melon/:peach 이런식으루 쓰면 된다!} */}
+            
             <ProfileContainer
               currentUser={currentUser}
               toggleCurrentUser={toggleCurrentUser}

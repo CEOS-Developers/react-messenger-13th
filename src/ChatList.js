@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import ChatItem from './ChatItem';
 import { useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-
+  padding: 15px;
   flex-grow: 1;
   overflow-y: scroll;
 `;
@@ -24,7 +25,7 @@ function ChatList(props) {
 
   const list = messages
     .filter((item) => {
-      return item.roomId === params.roomId;
+      return item.roomId.toString() === params.roomId;
     })
     .map((item) => {
       return <ChatItem item={item} />;

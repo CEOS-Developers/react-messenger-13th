@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
 import NavigationBar from './NavigationBar';
@@ -24,10 +24,38 @@ const FriendsListBox = styled.div`
   overflow-y: scroll;
 `;
 
-function FriendList() {
-  const { FriendListData } = props;
+const StyledSearchBar = styled.div`
+  padding: 5px 10px;
+  width: 100%;
+  & input {
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    background: lightgray;
+    color: black;
+    padding: 10px 10px;
+    font-size: 1em;
+  }
+`;
 
-  const list = FriendListData.map((user) => {
+function FriendList(props) {
+  const { FriendListData } = props;
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredFriendList, setFilteredFriendList] = useState(FriendListData);
+
+  useEffect(() => {
+    setFilteredFriendList(() => {
+      if (searchQuery === '') {
+        return FriendListData;
+      } else {
+        return FriendListData.filter((user) => {
+          return user.name.includes(searchQuery);
+        });
+      }
+    });
+  }, [searchQuery, FriendListData]);
+
+  const list = filteredFriendList.map((user) => {
     return <FriendItem user={user} />;
   });
 
@@ -36,6 +64,16 @@ function FriendList() {
       <NavigationBar></NavigationBar>
       <RightFriendsList>
         <Header></Header>
+        <StyledSearchBar>
+          <input
+            type="text"
+            placeholder="검색"
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+            }}
+          />
+        </StyledSearchBar>
         <FriendsListBox>{list}</FriendsListBox>
       </RightFriendsList>
     </Container>

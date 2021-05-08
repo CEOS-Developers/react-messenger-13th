@@ -5,29 +5,45 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid black;
+  align-items: center;
+  padding: 10px;
+  &:first-of-type {
+    border-bottom: 1px solid gray;
+  }
 `;
 
 const Photo = styled.img`
-  width: 100px;
-  height: 100px;
-  border-radius: 40px;
-  border: 1px solid black;
-  margin: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 18px;
+  margin: 5px;
 `;
 
-const UserName = styled.div``;
+const UserName = styled.div`
+  margin-left: 10px;
+  font-weight: bold;
+`;
 
 // <ProfileContainer ProfileImgData={messages} /> App.js에 추가하면 안되나...
 function FriendItem(props) {
-  return (
-    <Link to={`/room/${props.user.id}`}>
+  if (props.user.id === 0) {
+    //user가 나 자신(0)이면 Link component를 렌더하지 않는다
+    return (
       <Container>
         <Photo src={props.user.profileImgSrc} />
         <UserName>{props.user.name}</UserName>
       </Container>
-    </Link>
-  );
+    );
+  } else {
+    return (
+      <Link to={`/room/${props.user.id}`}>
+        <Container>
+          <Photo src={props.user.profileImgSrc} />
+          <UserName>{props.user.name}</UserName>
+        </Container>
+      </Link>
+    );
+  }
 }
 
 export default FriendItem;
