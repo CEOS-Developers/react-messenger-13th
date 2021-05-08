@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import userProfileSet from "../User";
+import userProfileSet from "../constants/User";
 import ChattingListTopBar from "../ChattingList/ChattingListTopBar";
 import ProfileOfUsers from "./ProfileOfUsers";
 import ProfileModal from "./ProfileModal";

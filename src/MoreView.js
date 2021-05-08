@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import userProfileSet from "./User";
+import userProfileSet from "./constants/User";
 import { ProfileImage } from "./Chatting/MessageTopBar";
 const Container = styled.div`
   padding-top: 3vh;
