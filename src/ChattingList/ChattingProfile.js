@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
-import ChatSet from "../BasicChat";
+import ChatSet from "../BasicChat.js";
 
 export const ProfileImage = styled.img`
   width: 50px;
