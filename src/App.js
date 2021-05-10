@@ -1,15 +1,25 @@
-import React, { useCallback, useState } from 'react';
+import { Switch, Route } from 'react-router';
+import ChatRoom from './components/ChatRoom';
+import ChatRoomList from './components/ChatRoomList';
+import FriendList from './components/FriendList';
+import FriendProfile from './components/FriendProfile';
+import Login from './components/Login';
+import Page404 from './components/Page404';
+import ContactsProvider from './contexts/ContactsProvider';
+import RoomsProvider from './contexts/RoomsProvider';
+import Settings from './components/Settings';
+import Home from './components/Home';
 import styled from 'styled-components';
-import ActiveUser from './components/ActiveUser';
-import ChatContainer from './components/ChatContainer';
-import ChatForm from './components/ChatForm';
+import Navbar from './components/Navbar';
+import Signup from './components/Signup';
+import RequireLogin from './components/RequireLogin';
 
 const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: #f0f0f2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,94 +31,69 @@ const Container = styled.div`
   max-width: 500px;
   height: 100%;
   max-height: 900px;
-  background: #F2F8FF;
-  display: flex;
-  flex-direction: column;
+  background: white;
   padding: 0;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  & * {
-    font-family: Helvetica, Arial, sans-serif;
-  }
 `;
 
-/**
- * @global
- * @property {string} name - Display name of the user.
- * @property {string} status - Current status of user.
- * @property {string} profilePictureUrl - Location of the profile picture image file
- * @property {number} id - Unique ID of the user.
- */
-const participants = [
-  {
-    name: '김영우',
-    status: '지금 활동 중',
-    profilePictureUrl: '/profile-pictures/0.jpg',
-    id: 0
-  },
-  {
-    name: '이재용',
-    status: '지금 활동 중',
-    profilePictureUrl: '/profile-pictures/1.jpg',
-    id: 1
-  }
-]
+const Content = styled.div`
+  padding: 15px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 80px);
+  overflow-y: scroll;
+`;
 
 function App() {
-  // Currently selected user
-  const [activeUser, setActiveUser] = useState(participants[0]);
-
-  /**
-   * Store all messages in the conversation
-   * @property {number} id - ID of the user who sent the message.
-   * @property {string} msg - Contents of the message.
-   */
-  const [messages, setMessages] = useState([]);
-
-  /**
-   * Change active user when user clicks on header bar
-   */
-  const handleActiveUserClick = useCallback(() => {
-    if (activeUser.id === 1) {
-      setActiveUser(participants[0]);
-    } else {
-      setActiveUser(participants[1]);
-    }
-  },[activeUser, setActiveUser])
-
-  /**
-   * Adds a new message to the conversation
-   * @param {int} userId - The ID of the user who sent the message
-   * @param {string} msg - The contents of the message
-   */
-  const addNewMessage = useCallback((userId, msg) => {
-    setMessages(prevMessages => [...prevMessages, { id: userId, msg }]);
-  }, [setMessages])
-
-  /**
-   * Handles send action of message. Receives states lifted from ChatForm
-   * @param {string} msg - Message that the user entered into ChatForm > ChatInput
-   */
-  const handleChatSend = useCallback((msg) => {
-    addNewMessage(activeUser.id, msg);
-  }, [activeUser.id, addNewMessage])
-
   return (
-    <Wrapper>
-      <Container>
-        <ActiveUser 
-          handleActiveUserClick={ handleActiveUserClick }
-          activeUser={ activeUser } 
-        />
-        <ChatContainer 
-          participants={ participants } 
-          messages={ messages }
-        />
-        <ChatForm 
-          handleChatSend={ handleChatSend }
-          activeUser={ activeUser } 
-        />
-      </Container>
-    </Wrapper>
+    <ContactsProvider>
+      <RoomsProvider>
+        <Wrapper>
+          <Container>
+            <Navbar />
+            <Content>
+              <Switch>
+                <Route path="/room/:id">
+                  <RequireLogin>
+                    <ChatRoom />
+                  </RequireLogin>
+                </Route>
+                <Route path="/rooms">
+                  <RequireLogin>
+                    <ChatRoomList />
+                  </RequireLogin>
+                </Route>
+                <Route path="/friend/:id">
+                  <FriendProfile />
+                </Route>
+                <Route path="/friends">
+                  <RequireLogin>
+                    <FriendList />
+                  </RequireLogin>
+                </Route>
+                <Route path="/settings">
+                  <RequireLogin>
+                    <Settings />
+                  </RequireLogin>
+                </Route>
+                <Route path="/signup">
+                  <Signup />
+                </Route>
+                <Route path="/auth/login">
+                  <Login />
+                </Route>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="*">
+                  <Page404 />
+                </Route>
+              </Switch>
+            </Content>
+          </Container>
+        </Wrapper>
+      </RoomsProvider>
+    </ContactsProvider>
   );
 }
 
